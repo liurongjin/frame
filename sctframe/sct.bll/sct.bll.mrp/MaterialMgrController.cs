@@ -59,7 +59,7 @@ namespace sct.bll.mrp
             NameValueCollection nvc = new NameValueCollection();
             if (!string.IsNullOrEmpty(name))
             {
-                nvc.Add("MaterialCatalogname", name);
+                nvc.Add("materialcatalogname", name);
             }
             if (!string.IsNullOrEmpty(parentid))
             {
@@ -71,7 +71,7 @@ namespace sct.bll.mrp
                 nvc.Add("isvalid", isvalid);
             }
             NameValueCollection orderby = new NameValueCollection();
-            orderby.Add("MaterialCatalogname", "asc");
+            orderby.Add("materialcatalogname", "asc");
             PageResult<MaterialCatalogInfo> pr = MaterialCatalogService.ListByCondition(nvc, orderby, pagenumber, pagesize);
 
             return Json(new JsonResultHelper(true, new JsonDataGridHelper<MaterialCatalogInfo>(pr.Data, pr.TotalRecords)));
@@ -137,6 +137,122 @@ namespace sct.bll.mrp
             }
 
             return View("MaterialCatalogForm", info);
+        }
+        #endregion
+        #endregion
+
+
+        #region Material Manage
+        #region Form
+        public ViewResult MaterialList()
+        {
+            ViewBag.Title = "MaterialList";
+            ViewBag.DicMaterialCatalog = PublicMethod.ListAllMaterialCatalogInfo(MaterialCatalogService, null);
+            return View();
+        }
+
+        public ViewResult MaterialForm(string key)
+        {
+            ViewBag.Title = "MaterialForm";
+            ViewBag.DicMaterialCatalog = PublicMethod.ListAllMaterialCatalogInfo(MaterialCatalogService, null);
+            if (string.IsNullOrEmpty(key))
+            {
+                MaterialInfo info = new MaterialInfo();
+                return View(info);
+            }
+            else
+            {
+                MaterialInfo info = MaterialService.Load(key);
+                return View(info);
+            }
+        }
+        #endregion
+
+        #region Action
+        [HttpPost]
+        public JsonResult ListMaterial(string name, string materialcatalogid, string isvalid, int pagenumber, int pagesize)
+        {
+            NameValueCollection nvc = new NameValueCollection();
+            if (!string.IsNullOrEmpty(name))
+            {
+                nvc.Add("materialname", name);
+            }
+            if (!string.IsNullOrEmpty(materialcatalogid))
+            {
+                nvc.Add("materialcatalogid", materialcatalogid);
+            }
+
+            if (!string.IsNullOrEmpty(isvalid))
+            {
+                nvc.Add("isvalid", isvalid);
+            }
+            NameValueCollection orderby = new NameValueCollection();
+            orderby.Add("materialname", "asc");
+            PageResult<MaterialInfo> pr = MaterialService.ListByCondition(nvc, orderby, pagenumber, pagesize);
+
+            return Json(new JsonResultHelper(true, new JsonDataGridHelper<MaterialInfo>(pr.Data, pr.TotalRecords)));
+        }
+
+        [HttpPost]
+        public JsonResult UpdateMaterialValid(string key, string validstatus)
+        {
+            MaterialInfo info = new MaterialInfo();
+            if (!string.IsNullOrEmpty(key) && !string.IsNullOrEmpty(validstatus))
+            {
+                info.Id = key;
+                info.SYS_IsValid = int.Parse(validstatus);
+                OperationResult opr = MaterialService.Modify(info);
+                return Json(new JsonResultHelper(opr.Message));
+            }
+            else
+            {
+                return Json(new JsonResultHelper(false, "选择的记录无效", ""));
+            }
+        }
+
+        [HttpPost]
+        public JsonResult DeleteMaterial(string key)
+        {
+            MaterialInfo info = new MaterialInfo();
+            if (!string.IsNullOrEmpty(key))
+            {
+                info.Id = key;
+                OperationResult opr = MaterialService.Remove(key);
+                return Json(new JsonResultHelper(opr.Message));
+            }
+            else
+            {
+                return Json(new JsonResultHelper(false, "选择的记录无效", ""));
+            }
+        }
+
+        [HttpPost]
+        public ActionResult SaveMaterial(MaterialInfo info)
+        {
+            OperationResult opr = new OperationResult(OperationResultType.Success);
+            try
+            {
+                if (string.IsNullOrEmpty(info.Id))
+                {
+                    info.Id = System.Guid.NewGuid().ToString();
+                    opr = MaterialService.Create(info);
+                }
+                else
+                {
+                    opr = MaterialService.Modify(info);
+
+                }
+
+                ViewBag.DicMaterialCatalog = PublicMethod.ListAllMaterialCatalogInfo(MaterialCatalogService, null);
+
+                ViewBag.PromptMsg = opr.Message;
+            }
+            catch (Exception err)
+            {
+                ViewBag.PromptMsg = err.Message;
+            }
+
+            return View("MaterialForm", info);
         }
         #endregion
         #endregion

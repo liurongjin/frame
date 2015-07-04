@@ -6,9 +6,11 @@ using System.ComponentModel.DataAnnotations;
 namespace sct.dto.mrp
 {
 
-  public partial class MaterialInfo
-  {
-   
-  }
+    public partial class MaterialInfo
+    {
+        [DataMember]
+        [StringLength(200)]
+        public string MaterialCatalogName { get; set; }
+    }
 
 }

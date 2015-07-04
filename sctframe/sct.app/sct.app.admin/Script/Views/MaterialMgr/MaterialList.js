@@ -3,9 +3,9 @@
     //翻页事件
     PageClick = function (pageclickednumber) {
         var name = $("#txtQName").val();
-        var parentid = $("#drplMaterial").val();
+        var materialcatalogid = $("#drplMaterialCatalog").val();
         var isvalid = $("#drplIsvalid").val();
-        param = { name: name, parentid: parentid, isvalid: isvalid, pagenumber: pageclickednumber, pagesize: pagesize };
+        param = { name: name, materialcatalogid: materialcatalogid, isvalid: isvalid, pagenumber: pageclickednumber, pagesize: pagesize };
 
         InvokeAction.InvokeJsonAction('MaterialMgr', 'ListMaterial', param, function (jsonData) {
 

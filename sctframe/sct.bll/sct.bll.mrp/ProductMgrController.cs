@@ -140,5 +140,120 @@ namespace sct.bll.mrp
         }
         #endregion
         #endregion
+
+        #region Product Manage
+        #region Form
+        public ViewResult ProductList()
+        {
+            ViewBag.Title = "ProductList";
+            ViewBag.DicProductCatalog = PublicMethod.ListAllProductCatalogInfo(ProductCatalogService, null);
+            return View();
+        }
+
+        public ViewResult ProductForm(string key)
+        {
+            ViewBag.Title = "ProductForm";
+            ViewBag.DicProductCatalog = PublicMethod.ListAllProductCatalogInfo(ProductCatalogService, null);
+            if (string.IsNullOrEmpty(key))
+            {
+                ProductInfo info = new ProductInfo();
+                return View(info);
+            }
+            else
+            {
+                ProductInfo info = ProductService.Load(key);
+                return View(info);
+            }
+        }
+        #endregion
+
+        #region Action
+        [HttpPost]
+        public JsonResult ListProduct(string name, string productcatalogid, string isvalid, int pagenumber, int pagesize)
+        {
+            NameValueCollection nvc = new NameValueCollection();
+            if (!string.IsNullOrEmpty(name))
+            {
+                nvc.Add("productname", name);
+            }
+            if (!string.IsNullOrEmpty(productcatalogid))
+            {
+                nvc.Add("productcatalogidproductcatalogid", productcatalogid);
+            }
+
+            if (!string.IsNullOrEmpty(isvalid))
+            {
+                nvc.Add("isvalid", isvalid);
+            }
+            NameValueCollection orderby = new NameValueCollection();
+            orderby.Add("productname", "asc");
+            PageResult<ProductInfo> pr = ProductService.ListByCondition(nvc, orderby, pagenumber, pagesize);
+
+            return Json(new JsonResultHelper(true, new JsonDataGridHelper<ProductInfo>(pr.Data, pr.TotalRecords)));
+        }
+
+        [HttpPost]
+        public JsonResult UpdateProductValid(string key, string validstatus)
+        {
+            ProductInfo info = new ProductInfo();
+            if (!string.IsNullOrEmpty(key) && !string.IsNullOrEmpty(validstatus))
+            {
+                info.Id = key;
+                info.SYS_IsValid = int.Parse(validstatus);
+                OperationResult opr = ProductService.Modify(info);
+                return Json(new JsonResultHelper(opr.Message));
+            }
+            else
+            {
+                return Json(new JsonResultHelper(false, "选择的记录无效", ""));
+            }
+        }
+
+        [HttpPost]
+        public JsonResult DeleteProduct(string key)
+        {
+            ProductInfo info = new ProductInfo();
+            if (!string.IsNullOrEmpty(key))
+            {
+                info.Id = key;
+                OperationResult opr = ProductService.Remove(key);
+                return Json(new JsonResultHelper(opr.Message));
+            }
+            else
+            {
+                return Json(new JsonResultHelper(false, "选择的记录无效", ""));
+            }
+        }
+
+        [HttpPost]
+        public ActionResult SaveProduct(ProductInfo info)
+        {
+            OperationResult opr = new OperationResult(OperationResultType.Success);
+            try
+            {
+                if (string.IsNullOrEmpty(info.Id))
+                {
+                    info.Id = System.Guid.NewGuid().ToString();
+                    opr = ProductService.Create(info);
+                }
+                else
+                {
+                    opr = ProductService.Modify(info);
+
+                }
+
+                ViewBag.DicProductCatalog = PublicMethod.ListAllProductCatalogInfo(ProductCatalogService, null);
+
+                ViewBag.PromptMsg = opr.Message;
+            }
+            catch (Exception err)
+            {
+                ViewBag.PromptMsg = err.Message;
+            }
+
+            return View("ProductForm", info);
+        }
+        #endregion
+        #endregion
     }
 }

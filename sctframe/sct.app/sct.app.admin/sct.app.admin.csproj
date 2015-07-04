@@ -1152,6 +1152,18 @@
   <ItemGroup>
     <Content Include="Views\ProductMgr\ProductCatalogList.cshtml" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\MaterialMgr\MaterialForm.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Views\MaterialMgr\MaterialList.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\ProductMgr\ProductForm.cshtml" />
+    <Content Include="Views\ProductMgr\ProductList.cshtml" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
