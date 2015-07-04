@@ -1,0 +1,40 @@
+﻿<Window x:Class="gerenatecode.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="700" Width="800">
+    <Grid>
+        <Label Content="数据库连接串" HorizontalAlignment="Left" Margin="59,13,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtConnection" HorizontalAlignment="Left" Height="23" Margin="146,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="513"/>
+        <Button x:Name="btnTestConnection" Content="建立连接" HorizontalAlignment="Left" Margin="681,13,0,0" VerticalAlignment="Top" Width="75" Click="btnTestConnection_Click"  />
+        <CheckBox x:Name="chkEnt" Content="ent" HorizontalAlignment="Left" Margin="67,131,0,0" VerticalAlignment="Top"/>
+        <CheckBox  x:Name="chkBasicDto" Content="basicdto" HorizontalAlignment="Left" Margin="146,131,0,0" VerticalAlignment="Top"/> 
+        <CheckBox  x:Name= "chkRpt" Content="rpt" HorizontalAlignment="Left" Margin="70,152,0,0" VerticalAlignment="Top"/>
+        <CheckBox  x:Name="chkISvc" Content="isvc" HorizontalAlignment="Left" Margin="146,152,0,0" VerticalAlignment="Top"/>        
+        <TextBox x:Name="txtModelNamespace" HorizontalAlignment="Left" Height="23" Margin="149,43,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="模块命名空间" HorizontalAlignment="Left" Margin="62,43,0,0" VerticalAlignment="Top"/>
+        <ListBox x:Name="ltbAvalidList" HorizontalAlignment="Left" Height="309" Margin="38,194,0,0" VerticalAlignment="Top" Width="319"/>
+        <Label Content="可选表" HorizontalAlignment="Left" Margin="87,163,0,0" VerticalAlignment="Top"/>
+        <Label Content="已选表" HorizontalAlignment="Left" Margin="481,163,0,0" VerticalAlignment="Top" RenderTransformOrigin="2.782,0.432"/>
+        <ListBox x:Name="ltbSelectedList"  HorizontalAlignment="Left" Height="309" Margin="433,194,0,0" VerticalAlignment="Top" Width="323"/>
+        <Label Content="存放路径" HorizontalAlignment="Left" Margin="55,526,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtFilePath"  HorizontalAlignment="Left" Height="23" Margin="137,526,0,0" TextWrapping="Wrap" Text="c:\GenerateCode\" VerticalAlignment="Top" Width="257"/>
+        <Button x:Name="btnOpenFilePath" Content="打开所在目录" HorizontalAlignment="Left" Margin="437,526,0,0" VerticalAlignment="Top" Width="90" Click="btnOpenFilePath_Click"/>
+        <Button x:Name="btnGenerateCode" Content="生成代码" HorizontalAlignment="Left" Margin="206,572,0,0" VerticalAlignment="Top" Width="75" Click="btnGenerateCode_Click"/>
+        <CheckBox x:Name="chkAvalidAll" Content="" HorizontalAlignment="Left" Margin="70,170,0,0" VerticalAlignment="Top" Click="chkAvalidAll_Click"  />
+        <CheckBox x:Name="chkSelectAll" Content="" HorizontalAlignment="Left" Margin="459,170,0,0" VerticalAlignment="Top" Click="chkSelectAll_Click"/>
+        <Button x:Name="btnAddTable" Content="〉" HorizontalAlignment="Left" Margin="375,293,0,0" VerticalAlignment="Top" Width="40" Click="btnAddTable_Click"/>
+        <Button x:Name="btnRemoveTable" Content="〈" HorizontalAlignment="Left" Margin="375,375,0,0" VerticalAlignment="Top" Width="40" RenderTransformOrigin="1.142,1.159" Click="btnRemoveTable_Click"/>
+        <CheckBox x:Name="chkDBContext" Content="dbcontext" HorizontalAlignment="Left" Margin="68,110,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="chkCtxconfig" Content="ctx-config" Visibility="Hidden" HorizontalAlignment="Left" Margin="460,110,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="chkRptconfig" Content="rpt-config" HorizontalAlignment="Left" Margin="459,110,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="chkSvcconfig" Content="svc-config" HorizontalAlignment="Left" Margin="558,110,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="chkAppconfig" Content="app-config" HorizontalAlignment="Left" Margin="651,110,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="chkSwap" Content="swap" HorizontalAlignment="Left" Margin="312,131,0,0" VerticalAlignment="Top"/>
+        <CheckBox  x:Name="chkBaseSvc" Content="basesvc" HorizontalAlignment="Left" Margin="206,152,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="chkpartialdto" Content="partialdto" HorizontalAlignment="Left" Margin="218,131,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="chksvc" Content="svc" HorizontalAlignment="Left" Margin="279,152,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtProjectName" HorizontalAlignment="Left" Height="23" Margin="481,46,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="项目前名称"  HorizontalAlignment="Left" Margin="365,43,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window> 
