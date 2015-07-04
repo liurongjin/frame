@@ -1,0 +1,116 @@
+﻿/*******************************************管理后台页面，三行两列*******************************************/
+html {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    height: 100%;
+    max-height: 100%;
+}
+
+body {
+    height: 100%;
+    max-height: 100%;
+    overflow: hidden;
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+    /*background-color: #084c7e;*/
+    /*background-color:gray;*/
+}
+
+/*******************************************页头*******************************************/
+#header {
+    position: absolute;
+    margin: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 98px;
+    border: solid 1px #fff;
+}
+
+.headermodulelist {
+    position: absolute;
+    left: 180px;
+}
+
+.headerfacilitylist {
+    position: absolute;
+    right: 40px;
+}
+
+
+#header .headerlogodiv {
+    position: absolute;
+    width: 280px;
+    height: 76px;
+    display: inline;
+}
+
+
+
+#header .headerfacilitydiv {
+    position: absolute;
+    width: 100%;
+    height: 22px;
+    bottom: 0px;
+    display: inline;
+}
+
+/*******************************************内容区*******************************************/
+#bodycontainer {
+    position: absolute;
+    width: 100%;
+    top: 100px;
+    left: 0px;
+    bottom: 26px;
+}
+
+
+/*******************************************菜单*******************************************/
+#menucontainer {
+    position: absolute;
+    height: 100%;
+    width: 182px;
+    top: 0px;
+    left: 0px;
+    border: solid 1px #fff;
+    overflow: scroll; 
+}
+
+.menutitle {
+    cursor: pointer;
+    padding-left: 12px;
+    background-image: url('images/facilitybar.gif');
+}
+
+.menulabel {
+    cursor: pointer;
+    padding-left: 12px;
+}
+
+    .menulabel a {
+        text-decoration: none;
+    }
+
+
+/*******************************************编辑区*******************************************/
+#maincontainer {
+    position: absolute;
+    width: auto;
+    height: 100%;
+    left: 186px;
+    right: 0;
+    border: solid 1px #fff;
+}
+
+/*******************************************页脚*******************************************/
+#footer {
+    position: absolute;
+    width: 100%;
+    height: 24px;
+    margin: 0px;
+    bottom: 0;
+    left: 0;
+    border-top: solid 1px #fff;
+}

@@ -1,0 +1,58 @@
+﻿@{
+    ViewBag.Title = "RegionForm";
+    Layout = "~/Views/Shared/_FormLayoutPage.cshtml";
+}
+@model sct.dto.uc.RegionInfo
+@using (Html.BeginForm("SaveRegion", "BasicMgr", FormMethod.Post, new { @class = "form-horizontal" }))
+{ 
+    <div class="portlet box  blue">
+        <div class="portlet-title">
+            <div class="caption">区域设置</div>
+        </div>
+        <div class="portlet-body form">
+            <div class="control-group">
+                <label class="control-label">编码 @Html.Hidden("Id", Model.Id)</label>
+                <div class="controls">
+                    @Html.TextBoxFor(x => x.RegionCode, new { placeholder = "编码", @class = "m-wrap medium" })
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">区域名称</label>
+                <div class="controls">@Html.TextBoxFor(x => x.RegionName, new { placeholder = "区域名称", @class = "m-wrap medium" })</div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">上级区域</label>
+                <div class="controls">
+                    @Html.DropDownListFor(x => x.ParentId, sct.cm.util.HtmlSetter.ListToTreeList(ViewBag.DicRegion as List<sct.cm.data.ChooseDictionary>, 2, true, "--根目录--"))
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">邮政编码</label>
+                <div class="controls">
+                    @Html.TextBoxFor(x => x.ZipCode, new { placeholder = "邮政编码", @class = "m-wrap medium" })
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">节点</label>
+                <div class="controls">@Html.TextBoxFor(x => x.TreeNode, new { placeholder = "节点", @class = "m-wrap medium" })</div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">排序</label>
+                <div class="controls">@Html.TextBoxFor(x => x.SYS_OrderSeq, new { placeholder = "排序", @class = "m-wrap medium" })</div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label">是否启用</label>
+                <div class="controls">
+                    <label class="radio">@Html.RadioButton("SYS_IsValid", 1, Model.SYS_IsValid == 1) 启用 </label>
+                    <label class="radio">@Html.RadioButton("SYS_IsValid", 0, Model.SYS_IsValid == 0)  失效  </label>
+                </div>
+            </div>
+        </div>
+        <div class="portlet-title">
+            <div class="caption">
+                <input type="submit" id="btnSave" value="提交" class="btn blue" /><input type="button" value="取消" onclick="javascript: window.close();" class="btn blue" />
+            </div>
+        </div>
+    </div>
+}

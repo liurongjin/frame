@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{323CF839-2272-4944-97E7-971BCC8DED40}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>sct.dto.cms</RootNamespace>
+    <AssemblyName>sct.dto.cms</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Runtime.Serialization" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Basic\AdviceInfo.cs" />
+    <Compile Include="Basic\ArticleAnnexInfo.cs" />
+    <Compile Include="Basic\ArticleCatalogInfo.cs" />
+    <Compile Include="Basic\ArticleDetailInfo.cs" />
+    <Compile Include="Basic\ArticleImageInfo.cs" />
+    <Compile Include="Basic\ArticleInfo.cs" />
+    <Compile Include="Basic\ArticleVideoInfo.cs" />
+    <Compile Include="Basic\FriendLinkInfo.cs" />
+    <Compile Include="Basic\PlateInfo.cs" />
+    <Compile Include="Basic\PlateNewsInfo.cs" />
+    <Compile Include="DESwap.cs" />
+    <Compile Include="EnumSet.cs" />
+    <Compile Include="Partial\AdviceInfo.cs" />
+    <Compile Include="Partial\ArticleAnnexInfo.cs" />
+    <Compile Include="Partial\ArticleCatalogInfo.cs" />
+    <Compile Include="Partial\ArticleDetailInfo.cs" />
+    <Compile Include="Partial\ArticleImageInfo.cs" />
+    <Compile Include="Partial\ArticleInfo.cs" />
+    <Compile Include="Partial\ArticleVideoInfo.cs" />
+    <Compile Include="Partial\FriendLinkInfo.cs" />
+    <Compile Include="Partial\PlateInfo.cs" />
+    <Compile Include="Partial\PlateNewsInfo.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\sct.cm\sct.cm.data\sct.cm.data.csproj">
+      <Project>{2cb89931-c62c-4969-92a6-232bd4fd41b5}</Project>
+      <Name>sct.cm.data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\sct.ent\sct.ent.cms\sct.ent.cms.csproj">
+      <Project>{6fbb0e4e-c410-4d05-a66c-32a344f17e2b}</Project>
+      <Name>sct.ent.cms</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<objects  xmlns='http://www.springframework.net' default-autowire="byName">
+<object id="GatherBillService" type="sct.svc.MRP.Imp.GatherBillService,sct.svc.MRP.Imp">
+<property name="GatherBillRpt" ref="GatherBillRpt" />
+ </object>
+<object id="ManufacturePlanService" type="sct.svc.MRP.Imp.ManufacturePlanService,sct.svc.MRP.Imp">
+<property name="ManufacturePlanRpt" ref="ManufacturePlanRpt" />
+ </object>
+<object id="ManufacturePlanItemService" type="sct.svc.MRP.Imp.ManufacturePlanItemService,sct.svc.MRP.Imp">
+<property name="ManufacturePlanItemRpt" ref="ManufacturePlanItemRpt" />
+ </object>
+<object id="MaterialService" type="sct.svc.MRP.Imp.MaterialService,sct.svc.MRP.Imp">
+<property name="MaterialRpt" ref="MaterialRpt" />
+ </object>
+<object id="MaterialBillService" type="sct.svc.MRP.Imp.MaterialBillService,sct.svc.MRP.Imp">
+<property name="MaterialBillRpt" ref="MaterialBillRpt" />
+ </object>
+<object id="MaterialBillItemService" type="sct.svc.MRP.Imp.MaterialBillItemService,sct.svc.MRP.Imp">
+<property name="MaterialBillItemRpt" ref="MaterialBillItemRpt" />
+ </object>
+<object id="MaterialCatalogService" type="sct.svc.MRP.Imp.MaterialCatalogService,sct.svc.MRP.Imp">
+<property name="MaterialCatalogRpt" ref="MaterialCatalogRpt" />
+ </object>
+<object id="MaterialPurchaseService" type="sct.svc.MRP.Imp.MaterialPurchaseService,sct.svc.MRP.Imp">
+<property name="MaterialPurchaseRpt" ref="MaterialPurchaseRpt" />
+ </object>
+<object id="MaterialPurchaseItemService" type="sct.svc.MRP.Imp.MaterialPurchaseItemService,sct.svc.MRP.Imp">
+<property name="MaterialPurchaseItemRpt" ref="MaterialPurchaseItemRpt" />
+ </object>
+<object id="MaterialPurchasePlanService" type="sct.svc.MRP.Imp.MaterialPurchasePlanService,sct.svc.MRP.Imp">
+<property name="MaterialPurchasePlanRpt" ref="MaterialPurchasePlanRpt" />
+ </object>
+<object id="MaterialPurchasePlanItemService" type="sct.svc.MRP.Imp.MaterialPurchasePlanItemService,sct.svc.MRP.Imp">
+<property name="MaterialPurchasePlanItemRpt" ref="MaterialPurchasePlanItemRpt" />
+ </object>
+<object id="ProductService" type="sct.svc.MRP.Imp.ProductService,sct.svc.MRP.Imp">
+<property name="ProductRpt" ref="ProductRpt" />
+ </object>
+<object id="ProductBillService" type="sct.svc.MRP.Imp.ProductBillService,sct.svc.MRP.Imp">
+<property name="ProductBillRpt" ref="ProductBillRpt" />
+ </object>
+<object id="ProductBillItemService" type="sct.svc.MRP.Imp.ProductBillItemService,sct.svc.MRP.Imp">
+<property name="ProductBillItemRpt" ref="ProductBillItemRpt" />
+ </object>
+<object id="ProductCatalogService" type="sct.svc.MRP.Imp.ProductCatalogService,sct.svc.MRP.Imp">
+<property name="ProductCatalogRpt" ref="ProductCatalogRpt" />
+ </object>
+<object id="ProductOrderService" type="sct.svc.MRP.Imp.ProductOrderService,sct.svc.MRP.Imp">
+<property name="ProductOrderRpt" ref="ProductOrderRpt" />
+ </object>
+<object id="ProductOrderItemService" type="sct.svc.MRP.Imp.ProductOrderItemService,sct.svc.MRP.Imp">
+<property name="ProductOrderItemRpt" ref="ProductOrderItemRpt" />
+ </object>
+</objects>

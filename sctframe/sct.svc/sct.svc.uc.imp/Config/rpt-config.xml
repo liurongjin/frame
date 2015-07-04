@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<objects  xmlns="http://www.springframework.net" default-autowire="byName">
+<object id="AppRpt" type="sct.svc.uc.imp.AppRpt,sct.svc.uc.imp">
+</object>
+<object id="ClientTypeRpt" type="sct.svc.uc.imp.ClientTypeRpt,sct.svc.uc.imp">
+</object>
+<object id="CompanyRpt" type="sct.svc.uc.imp.CompanyRpt,sct.svc.uc.imp">
+</object>
+<object id="CompanyClientTypeRpt" type="sct.svc.uc.imp.CompanyClientTypeRpt,sct.svc.uc.imp">
+</object>
+<object id="CompanyStaffRpt" type="sct.svc.uc.imp.CompanyStaffRpt,sct.svc.uc.imp">
+</object>
+<object id="DepartmentRpt" type="sct.svc.uc.imp.DepartmentRpt,sct.svc.uc.imp">
+</object>
+<object id="FacilityRpt" type="sct.svc.uc.imp.FacilityRpt,sct.svc.uc.imp">
+</object>
+<object id="FacilityFunctionRpt" type="sct.svc.uc.imp.FacilityFunctionRpt,sct.svc.uc.imp">
+</object>
+<object id="FunctionRpt" type="sct.svc.uc.imp.FunctionRpt,sct.svc.uc.imp">
+</object>
+<object id="MenuRpt" type="sct.svc.uc.imp.MenuRpt,sct.svc.uc.imp">
+</object>
+<object id="RegionRpt" type="sct.svc.uc.imp.RegionRpt,sct.svc.uc.imp">
+</object>
+<object id="RoleRpt" type="sct.svc.uc.imp.RoleRpt,sct.svc.uc.imp">
+</object>
+<object id="RoleFacilityRpt" type="sct.svc.uc.imp.RoleFacilityRpt,sct.svc.uc.imp">
+</object>
+<object id="StaffRpt" type="sct.svc.uc.imp.StaffRpt,sct.svc.uc.imp">
+</object>
+<object id="StaffStationRpt" type="sct.svc.uc.imp.StaffStationRpt,sct.svc.uc.imp">
+</object>
+<object id="StationRpt" type="sct.svc.uc.imp.StationRpt,sct.svc.uc.imp">
+</object>
+<object id="StationRoleRpt" type="sct.svc.uc.imp.StationRoleRpt,sct.svc.uc.imp">
+</object>
+</objects>

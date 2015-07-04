@@ -1,0 +1,53 @@
+﻿@{
+    ViewBag.Title = "DepartmentList";
+    Layout = "~/Views/Shared/_MainLayoutPage.cshtml";
+}
+<!-- BEGIN PAGE TITLE & BREADCRUMB-->
+<ul class="breadcrumb">
+    <li><i class="icon-home"></i><a href="index.html">Home</a> <i class="icon-angle-right"></i></li>
+    <li><a href="#">企业资料管理</a><i class="icon-angle-right"></i></li>
+    <li><a href="#">部门管理</a></li>
+</ul>
+<!-- END PAGE TITLE & BREADCRUMB-->
+<!-- BEGIN EXAMPLE TABLE PORTLET-->
+<div class="portlet box blue">
+    <div class="portlet-title">
+        <div class="caption">@Html.Partial("../Home/PartialFacility")</div>
+        <div class="tools">
+            名称：
+            <input type="text" id="txtQName" />
+            所属公司：
+            @Html.DropDownList("drplCompany", sct.cm.util.HtmlSetter.ListToTreeList(ViewBag.DicCompany as List<sct.cm.data.ChooseDictionary>, 2, true))
+            上级部门：
+            @Html.DropDownList("drplDepartment", sct.cm.util.HtmlSetter.ListToTreeList(ViewBag.DicDepartment as List<sct.cm.data.ChooseDictionary>, 1, true))
+            是否启用： 
+            @Html.DropDownList("drplIsvalid", sct.cm.util.HtmlSetter.EnumToList(typeof(sct.cm.data.EnumSet.EnumBoolen), true))
+            <input type="button" id="btnSearch" value="查询" class="btn blue" />
+        </div>
+    </div>
+    <div class="portlet-body">
+        <table class="table table-striped table-bordered table-hover table-full-width">
+            <thead>
+                <tr>
+                    <th style="width: 60px;">
+                        <input type="checkbox" id='chkSelectAllNone' />全/反</th>
+                    <th>编码</th>
+                    <th>名称</th>
+                    <th>所属公司</th>
+                    <th>上级部门</th>
+                    <th>是否启用</th>
+                    <th>排序</th>
+                    <th>更新时间</th>
+                </tr>
+            </thead>
+            <tbody id="datalist">
+            </tbody>
+        </table>
+    </div>
+    <div class="portlet-title">
+        <div class="caption"></div>
+        <div id="pager" class="tools">
+        </div>
+    </div>
+</div>
+<script src='@Url.Content("~/Script/Views/CorpMgr/DepartmentList.js" + "?rdm=")' type="text/javascript"></script>

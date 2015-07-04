@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5D895AA0-61AB-4CB1-BEFF-471456372E3F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>sct.svc.uc.imp</RootNamespace>
+    <AssemblyName>sct.svc.uc.imp</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Base\AppBaseService.cs" />
+    <Compile Include="Base\ClientTypeBaseService.cs" />
+    <Compile Include="Base\CompanyBaseService.cs" />
+    <Compile Include="Base\CompanyClientTypeBaseService.cs" />
+    <Compile Include="Base\CompanyStaffBaseService.cs" />
+    <Compile Include="Base\DepartmentBaseService.cs" />
+    <Compile Include="Base\FacilityBaseService.cs" />
+    <Compile Include="Base\FacilityFunctionBaseService.cs" />
+    <Compile Include="Base\FunctionBaseService.cs" />
+    <Compile Include="Base\MenuBaseService.cs" />
+    <Compile Include="Base\RegionBaseService.cs" />
+    <Compile Include="Base\RoleBaseService.cs" />
+    <Compile Include="Base\RoleFacilityBaseService.cs" />
+    <Compile Include="Base\StaffBaseService.cs" />
+    <Compile Include="Base\StaffStationBaseService.cs" />
+    <Compile Include="Base\StationBaseService.cs" />
+    <Compile Include="Base\StationRoleBaseService.cs" />
+    <Compile Include="Partial\AppService.cs" />
+    <Compile Include="Partial\ClientTypeService.cs" />
+    <Compile Include="Partial\CompanyClientTypeService.cs" />
+    <Compile Include="Partial\CompanyService.cs" />
+    <Compile Include="Partial\CompanyStaffService.cs" />
+    <Compile Include="Partial\DepartmentService.cs" />
+    <Compile Include="Partial\FacilityFunctionService.cs" />
+    <Compile Include="Partial\FacilityService.cs" />
+    <Compile Include="Partial\FunctionService.cs" />
+    <Compile Include="Partial\MenuService.cs" />
+    <Compile Include="Partial\RegionService.cs" />
+    <Compile Include="Partial\RoleFacilityService.cs" />
+    <Compile Include="Partial\RoleService.cs" />
+    <Compile Include="Partial\StaffService.cs" />
+    <Compile Include="Partial\StaffStationService.cs" />
+    <Compile Include="Partial\StationRoleService.cs" />
+    <Compile Include="Partial\StationService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rpt\AppRpt.cs" />
+    <Compile Include="Rpt\ClientTypeRpt.cs" />
+    <Compile Include="Rpt\CompanyClientTypeRpt.cs" />
+    <Compile Include="Rpt\CompanyRpt.cs" />
+    <Compile Include="Rpt\CompanyStaffRpt.cs" />
+    <Compile Include="Rpt\DepartmentRpt.cs" />
+    <Compile Include="Rpt\FacilityFunctionRpt.cs" />
+    <Compile Include="Rpt\FacilityRpt.cs" />
+    <Compile Include="Rpt\FunctionRpt.cs" />
+    <Compile Include="Rpt\MenuRpt.cs" />
+    <Compile Include="Rpt\RegionRpt.cs" />
+    <Compile Include="Rpt\RoleFacilityRpt.cs" />
+    <Compile Include="Rpt\RoleRpt.cs" />
+    <Compile Include="Rpt\StaffRpt.cs" />
+    <Compile Include="Rpt\StaffStationRpt.cs" />
+    <Compile Include="Rpt\StationRoleRpt.cs" />
+    <Compile Include="Rpt\StationRpt.cs" />
+    <Compile Include="UCDbContext.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\sct.cm\sct.cm.data\sct.cm.data.csproj">
+      <Project>{2cb89931-c62c-4969-92a6-232bd4fd41b5}</Project>
+      <Name>sct.cm.data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\sct.dto\sct.dto.uc\sct.dto.uc.csproj">
+      <Project>{12ffef0e-3755-462a-bec1-dfb819c78842}</Project>
+      <Name>sct.dto.uc</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\sct.ent\sct.ent.uc\sct.ent.uc.csproj">
+      <Project>{bc0fffc3-082f-429a-b4c1-30478a8447f3}</Project>
+      <Name>sct.ent.uc</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\sct.svc.uc\sct.svc.uc.csproj">
+      <Project>{58f8c08f-a1d6-4f60-9a84-7a647c74adec}</Project>
+      <Name>sct.svc.uc</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Config\app-config.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Config\rpt-config.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Config\svc-config.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

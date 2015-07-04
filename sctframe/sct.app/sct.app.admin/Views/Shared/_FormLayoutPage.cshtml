@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Expires" content="-1000">
+    <!--start metronic.bootstrap need css-->
+    <link href='@Url.Content("~/Content/metronic.bootstrap/media/css/bootstrap.min.css")' rel="stylesheet" type="text/css")' />
+    <link href='@Url.Content("~/Content/metronic.bootstrap/media/css/bootstrap-responsive.min.css")' rel="stylesheet" type="text/css")' />
+    <link href='@Url.Content("~/Content/metronic.bootstrap/media/css/font-awesome.min.css")' rel="stylesheet" type="text/css")' />
+    <link href='@Url.Content("~/Content/metronic.bootstrap/media/css/style-metro.css")' rel="stylesheet" type="text/css")' />
+    <link href='@Url.Content("~/Content/metronic.bootstrap/media/css/style.css")' rel="stylesheet" type="text/css")' />
+    <link href='@Url.Content("~/Content/metronic.bootstrap/media/css/style-responsive.css")' rel="stylesheet" type="text/css")' />
+    <link href='@Url.Content("~/Content/metronic.bootstrap/media/css/default.css")' rel="stylesheet" type="text/css")' id="style_color" />
+    <link href='@Url.Content("~/Content/metronic.bootstrap/media/css/uniform.default.css")' rel="stylesheet" type="text/css")' />
+    <!--end metronic.bootstrap need css-->
+    <!--start metronic.bootstrap need js-->
+    <script src='@Url.Content("~/Content/bootstrap-3.3.4-dist/js/jquery.min.js")'></script>
+    <script src='@Url.Content("~/Content/bootstrap-3.3.4-dist/js/bootstrap.min.js")'></script>
+    <script src='@Url.Content("~/Script/Common/DataProcess.js")' type ="text/javascript"></script>
+    <title>@ViewBag.Title</title>
+
+    <base target="_self">
+</head>
+<body>
+    <div>
+        @RenderBody()
+    </div>
+</body>
+<script type="text/javascript">
+    $(function () {
+        if ('@ViewBag.PromptMsg' != '') {
+            alert('@ViewBag.PromptMsg');
+        }
+    });
+</script>
+</html>
+

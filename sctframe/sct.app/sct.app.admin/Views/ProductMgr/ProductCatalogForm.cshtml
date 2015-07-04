@@ -1,0 +1,49 @@
+﻿@{
+    ViewBag.Title = "ProductCatalogForm";
+    Layout = "~/Views/Shared/_FormLayoutPage.cshtml";
+}
+@model sct.dto.mrp.ProductCatalogInfo
+@using (Html.BeginForm("SaveProductCatalog", "ProductMgr", FormMethod.Post, new { @class = "form-horizontal" }))
+{ 
+    <div class="portlet box  blue">
+        <div class="portlet-title">
+            <div class="caption">成品分料设置</div>
+        </div>
+        <div class="portlet-body form">
+            <div class="control-group">
+                <label class="control-label">
+                    编码 @Html.Hidden("Id", Model.Id)</label>
+                <div class="controls">@Html.TextBoxFor(x => x.ProductCatalogCode, new { placeholder = "编码", @class = "m-wrap medium" })
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">成品分类名称</label>
+                <div class="controls">@Html.TextBoxFor(x => x.ProductCatalogName, new { placeholder = "客户分类名称", @class = "m-wrap medium" })
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">
+                    上级分类</label>
+                <div class="controls">@Html.DropDownListFor(x => x.ParentId, sct.cm.util.HtmlSetter.ListToTreeList(ViewBag.DicProductCatalog as List<sct.cm.data.ChooseDictionary>, 2, true, "--根目录--"))
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">排序</label>
+                <div class="controls">@Html.TextBoxFor(x => x.SYS_OrderSeq, new { placeholder = "0", @class = "m-wrap medium" })
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">是否启用</label>
+                <div class="controls">
+                    <label class="radio">@Html.RadioButton("SYS_IsValid", 1, Model.SYS_IsValid == 1) 启用 </label>
+                    <label class="radio">@Html.RadioButton("SYS_IsValid", 0, Model.SYS_IsValid == 0)  失效  </label>
+                </div>
+            </div>
+        </div>
+        <div class="portlet-title">
+            <div class="caption">
+                <input type="submit" id="btnSave" value="提交" class="btn blue" /><input type="button" value="取消" onclick="javascript: window.close();" class="btn blue" />
+            </div>
+        </div>
+    </div>
+}

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<objects  xmlns="http://www.springframework.net" default-autowire="byName">
+  <object id="AdviceRpt" type="sct.svc.cms.imp.AdviceRpt,sct.svc.cms.imp">
+  </object>
+  <object id="ArticleRpt" type="sct.svc.cms.imp.ArticleRpt,sct.svc.cms.imp">
+  </object>
+  <object id="ArticleAnnexRpt" type="sct.svc.cms.imp.ArticleAnnexRpt,sct.svc.cms.imp">
+  </object>
+  <object id="ArticleCatalogRpt" type="sct.svc.cms.imp.ArticleCatalogRpt,sct.svc.cms.imp">
+  </object>
+  <object id="ArticleDetailRpt" type="sct.svc.cms.imp.ArticleDetailRpt,sct.svc.cms.imp">
+  </object>
+  <object id="ArticleImageRpt" type="sct.svc.cms.imp.ArticleImageRpt,sct.svc.cms.imp">
+  </object>
+  <object id="ArticleVideoRpt" type="sct.svc.cms.imp.ArticleVideoRpt,sct.svc.cms.imp">
+  </object>
+  <object id="FriendLinkRpt" type="sct.svc.cms.imp.FriendLinkRpt,sct.svc.cms.imp">
+  </object>
+  <object id="PlateRpt" type="sct.svc.cms.imp.PlateRpt,sct.svc.cms.imp">
+  </object>
+  <object id="PlateNewsRpt" type="sct.svc.cms.imp.PlateNewsRpt,sct.svc.cms.imp">
+  </object>
+</objects>

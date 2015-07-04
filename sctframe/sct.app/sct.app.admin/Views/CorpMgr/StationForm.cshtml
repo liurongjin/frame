@@ -1,0 +1,78 @@
+﻿@{
+    ViewBag.Title = "StationForm";
+    Layout = "~/Views/Shared/_FormLayoutPage.cshtml";
+}
+@model sct.dto.uc.StationInfo
+@using (Html.BeginForm("SaveStation", "CorpMgr", FormMethod.Post, new { @class = "form-horizontal" }))
+{ 
+    <div class="portlet box  blue">
+        <div class="portlet-title">
+            <div class="caption">编辑岗位资料</div>
+        </div>
+        <div class="portlet-body form">
+
+            <div class="control-group">
+                <label class="control-label">岗位名称  @Html.Hidden("Id", Model.Id)</label>
+                <div class="controls">
+                    @Html.TextBoxFor(x => x.StationName, new { placeholder = "岗位名称", @class = "m-wrap medium" })
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">所属公司</label>
+                <div class="controls">
+                    @Html.DropDownListFor(x => x.CompanyId, sct.cm.util.HtmlSetter.ListToTreeList(ViewBag.DicCompany as List<sct.cm.data.ChooseDictionary>, 2, false))
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">所属部门</label>
+                <div class="controls">
+                    @Html.DropDownListFor(x => x.DepartmentId, sct.cm.util.HtmlSetter.ListToTreeList(ViewBag.DicDepartment as List<sct.cm.data.ChooseDictionary>, 2, false))
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">上级岗位</label>
+                <div class="controls">
+                    @Html.DropDownListFor(x => x.ParentId, sct.cm.util.HtmlSetter.ListToTreeList(ViewBag.DicStation as List<sct.cm.data.ChooseDictionary>, 1, true, "--根目录--"))
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">
+                    岗位对应角色</label>
+                <div class="controls">
+                    @{ var StationRoleInfoList = Model.StationRoleInfoList;
+                       if (StationRoleInfoList != null && StationRoleInfoList.Count > 0)
+                       {
+                           for (int i = 0; i < StationRoleInfoList.Count; i++)
+                           {
+                               
+                        <label class="checkbox">@Html.CheckBox("StationRoleInfoList[" + i.ToString() + "].Selected", Model.StationRoleInfoList[i].Selected) @Model.StationRoleInfoList[i].RoleName
+                            @Html.Hidden("StationRoleInfoList[" + i.ToString() + "].Id", Model.StationRoleInfoList[i].Id)
+                            @Html.Hidden("StationRoleInfoList[" + i.ToString() + "].RoleId", Model.StationRoleInfoList[i].RoleId)
+                            @Html.Hidden("StationRoleInfoList[" + i.ToString() + "].RoleName", Model.StationRoleInfoList[i].RoleName)
+                        </label>
+                           }
+                       }
+                    }
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">排序</label>
+                <div class="controls">
+                    @Html.TextBoxFor(x => x.SYS_OrderSeq, new { placeholder = "0", @class = "m-wrap medium" })
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">是否启用</label>
+                <div class="controls">
+                    <label class="radio">@Html.RadioButton("SYS_IsValid", 1, Model.SYS_IsValid == 1) 启用 </label>
+                    <label class="radio">@Html.RadioButton("SYS_IsValid", 0, Model.SYS_IsValid == 0)  失效  </label>
+                </div>
+            </div>
+        </div>
+        <div class="portlet-title">
+            <div class="caption">
+                <input type="submit" id="btnSave" value="提交" class="btn blue" /><input type="button" value="取消" onclick="javascript: window.close();" class="btn blue" />
+            </div>
+        </div>
+    </div>
+} 

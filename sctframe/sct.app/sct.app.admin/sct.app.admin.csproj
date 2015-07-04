@@ -1,0 +1,1189 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E30866FD-A447-4AAB-ADB2-9D3F26A15F9B}</ProjectGuid>
+    <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>sct.app.admin</RootNamespace>
+    <AssemblyName>sct.app.admin</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Common.Logging">
+      <HintPath>..\..\packages\Common.Logging.1.2.0\lib\1.0\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Spring.Aop">
+      <HintPath>..\..\packages\Spring.Aop.1.3.2\lib\net40\Spring.Aop.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Core">
+      <HintPath>..\..\packages\Spring.Core.1.3.2\lib\net40\Spring.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Data">
+      <HintPath>..\..\packages\Spring.Data.1.3.2\lib\net40\Spring.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Mvc.FixedDisplayModes, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\..\packages\Microsoft.AspNet.Mvc.FixedDisplayModes.1.0.0\lib\net40\Microsoft.Web.Mvc.FixedDisplayModes.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Microsoft.AspNet.WebApi.Client.4.0.20710.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Microsoft.AspNet.WebApi.Core.4.0.20710.0\lib\net40\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.20710.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\..\packages\Microsoft.AspNet.Mvc.4.0.20710.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\..\packages\Microsoft.AspNet.Razor.2.0.20715.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Script\Common\ueditor\net\App_Code\Config.cs" />
+    <Compile Include="Script\Common\ueditor\net\App_Code\ConfigHandler.cs" />
+    <Compile Include="Script\Common\ueditor\net\App_Code\CrawlerHandler.cs" />
+    <Compile Include="Script\Common\ueditor\net\App_Code\Handler.cs" />
+    <Compile Include="Script\Common\ueditor\net\App_Code\ListFileHandler.cs" />
+    <Compile Include="Script\Common\ueditor\net\App_Code\NotSupportedHandler.cs" />
+    <Compile Include="Script\Common\ueditor\net\App_Code\PathFormater.cs" />
+    <Compile Include="Script\Common\ueditor\net\App_Code\UploadHandler.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <EmbeddedResource Include="Content\Config\svc-config.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Content Include="Content\bootstrap-3.3.4-dist\css\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-3.3.4-dist\css\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap-3.3.4-dist\css\bootstrap.css" />
+    <Content Include="Content\bootstrap-3.3.4-dist\css\bootstrap.min.css" />
+    <Content Include="Content\bootstrap-3.3.4-dist\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\bootstrap-3.3.4-dist\js\bootstrap.js" />
+    <Content Include="Content\bootstrap-3.3.4-dist\js\bootstrap.min.js" />
+    <Content Include="Content\bootstrap-3.3.4-dist\js\jquery.min.js" />
+    <Content Include="Content\bootstrap-3.3.4-dist\js\npm.js" />
+    <Content Include="Content\Css\PlateCss\Manage.css" />
+    <Content Include="Content\Css\PlateCss\ManageFrame.css" />
+    <Content Include="Content\metronic.bootstrap\charts.html" />
+    <Content Include="Content\metronic.bootstrap\email1.html" />
+    <Content Include="Content\metronic.bootstrap\email2.html" />
+    <Content Include="Content\metronic.bootstrap\email3.html" />
+    <Content Include="Content\metronic.bootstrap\email4.html" />
+    <Content Include="Content\metronic.bootstrap\email5.html" />
+    <Content Include="Content\metronic.bootstrap\email6.html" />
+    <Content Include="Content\metronic.bootstrap\extra_404_option1.html" />
+    <Content Include="Content\metronic.bootstrap\extra_404_option2.html" />
+    <Content Include="Content\metronic.bootstrap\extra_404_option3.html" />
+    <Content Include="Content\metronic.bootstrap\extra_500_option1.html" />
+    <Content Include="Content\metronic.bootstrap\extra_500_option2.html" />
+    <Content Include="Content\metronic.bootstrap\extra_faq.html" />
+    <Content Include="Content\metronic.bootstrap\extra_image_manager.html" />
+    <Content Include="Content\metronic.bootstrap\extra_invoice.html" />
+    <Content Include="Content\metronic.bootstrap\extra_lock.html" />
+    <Content Include="Content\metronic.bootstrap\extra_pricing_table.html" />
+    <Content Include="Content\metronic.bootstrap\extra_profile.html" />
+    <Content Include="Content\metronic.bootstrap\extra_search.html" />
+    <Content Include="Content\metronic.bootstrap\form_component.html" />
+    <Content Include="Content\metronic.bootstrap\form_dropzone.html" />
+    <Content Include="Content\metronic.bootstrap\form_fileupload.html" />
+    <Content Include="Content\metronic.bootstrap\form_layout.html" />
+    <Content Include="Content\metronic.bootstrap\form_samples.html" />
+    <Content Include="Content\metronic.bootstrap\form_validation.html" />
+    <Content Include="Content\metronic.bootstrap\form_wizard.html" />
+    <Content Include="Content\metronic.bootstrap\inbox.html" />
+    <Content Include="Content\metronic.bootstrap\inbox_inbox.html" />
+    <Content Include="Content\metronic.bootstrap\index.html" />
+    <Content Include="Content\metronic.bootstrap\layout_ajax.html" />
+    <Content Include="Content\metronic.bootstrap\layout_ajax_content_2.html" />
+    <Content Include="Content\metronic.bootstrap\layout_ajax_content_3.html" />
+    <Content Include="Content\metronic.bootstrap\layout_blank_page.html" />
+    <Content Include="Content\metronic.bootstrap\layout_boxed_not_responsive.html" />
+    <Content Include="Content\metronic.bootstrap\layout_boxed_page.html" />
+    <Content Include="Content\metronic.bootstrap\layout_email.html" />
+    <Content Include="Content\metronic.bootstrap\layout_horizontal_menu1.html" />
+    <Content Include="Content\metronic.bootstrap\layout_horizontal_menu2.html" />
+    <Content Include="Content\metronic.bootstrap\layout_horizontal_sidebar_menu.html" />
+    <Content Include="Content\metronic.bootstrap\layout_promo.html" />
+    <Content Include="Content\metronic.bootstrap\layout_sidebar_closed.html" />
+    <Content Include="Content\metronic.bootstrap\login.html" />
+    <Content Include="Content\metronic.bootstrap\login_soft.html" />
+    <Content Include="Content\metronic.bootstrap\maps_google.html" />
+    <Content Include="Content\metronic.bootstrap\maps_vector.html" />
+    <Content Include="Content\metronic.bootstrap\media\css\about-us.css" />
+    <Content Include="Content\metronic.bootstrap\media\css\animate.css" />
+    <Content Include="Content\metronic.bootstrap\media\css\blog.css" />
+    <Content Include="Content\metronic.bootstrap\media\css\blue.css" />
+    <Content Include="Content\metronic.bootstrap\media\css\bootstrap-fileupload.css" />
+    <Content Include="Content\metronic.bootstrap\media\css\bootstrap-modal.css" />
+    <Content Include="Content\metronic.bootstrap\media\css\bootstrap-responsive.min.css" />
+    <Content Include="Content\metronic.bootstrap\media\css\bootstrap-responsive1.min.css" />
+    <Content Include="Content\metronic.bootstrap\media\css\bootstrap-tag.css" />
+    <Content Include="Content\metronic.bootstrap\media\css\bootstrap-toggle-buttons.css" />
+    <Content Include="Content\metronic.bootstrap\media\css\bootstrap-tree.css" />
+    <Content Include="Content\metronic.bootstrap\media\css\bootstrap-wysihtml5.css" />
+    <Content Include="Content\metronic.bootstrap\media\css\bootstrap.min.css" />
+    <Content Include="Content\metronic.bootstrap\media\css\brown.css" />
+    <Content Include="Content\metronic.bootstrap\media\css\chosen.css" />
+    <Content Include="Content\metronic.bootstrap\media\css\clockface.css" />
+    <Content Include="Content\metronic.bootstrap\media\css\colorpicker.css" />
+    <Content Include="Content\metronic.bootstrap\media\css\coming-soon.css" />
+    <Content Include="Content\metronic.bootstrap\media\css\datepicker.css" />
+    <Content Include="Content\metronic.bootstrap\media\css\daterangepicker.css" />
+    <Content Include="Content\metronic.bootstrap\media\css\datetimepicker.css" />
+    <Content Include="Content\metronic.bootstrap\media\css\default.css" />
+    <Content Include="Content\metronic.bootstrap\media\css\dropzone.css" />
+    <Content Include="Content\metronic.bootstrap\media\css\DT_bootstrap.css" />
+    <Content Include="Content\metronic.bootstrap\media\css\email.css" />
+    <Content Include="Content\metronic.bootstrap\media\css\error.css" />
+    <Content Include="Content\metronic.bootstrap\media\css\font-awesome.css" />
+    <Content Include="Content\metronic.bootstrap\media\css\font-awesome.min.css" />
+    <Content Include="Content\metronic.bootstrap\media\css\fullcalendar.css" />
+    <Content Include="Content\metronic.bootstrap\media\css\glyphicons.css" />
+    <Content Include="Content\metronic.bootstrap\media\css\grey.css" />
+    <Content Include="Content\metronic.bootstrap\media\css\halflings.css" />
+    <Content Include="Content\metronic.bootstrap\media\css\inbox.css" />
+    <Content Include="Content\metronic.bootstrap\media\css\invoice.css" />
+    <Content Include="Content\metronic.bootstrap\media\css\jquery-ui-1.10.1.custom.min.css" />
+    <Content Include="Content\metronic.bootstrap\media\css\jquery.easy-pie-chart.css" />
+    <Content Include="Content\metronic.bootstrap\media\css\jquery.fancybox.css" />
+    <Content Include="Content\metronic.bootstrap\media\css\jquery.fileupload-ui.css" />
+    <Content Include="Content\metronic.bootstrap\media\css\jquery.gritter.css" />
+    <Content Include="Content\metronic.bootstrap\media\css\jquery.nestable.css" />
+    <Content Include="Content\metronic.bootstrap\media\css\jquery.tagsinput.css" />
+    <Content Include="Content\metronic.bootstrap\media\css\jquery.ui.slider.css" />
+    <Content Include="Content\metronic.bootstrap\media\css\jqvmap.css" />
+    <Content Include="Content\metronic.bootstrap\media\css\light.css" />
+    <Content Include="Content\metronic.bootstrap\media\css\lock.css" />
+    <Content Include="Content\metronic.bootstrap\media\css\login-soft.css" />
+    <Content Include="Content\metronic.bootstrap\media\css\login.css" />
+    <Content Include="Content\metronic.bootstrap\media\css\multi-select-metro.css" />
+    <Content Include="Content\metronic.bootstrap\media\css\news.css" />
+    <Content Include="Content\metronic.bootstrap\media\css\pricing-tables.css" />
+    <Content Include="Content\metronic.bootstrap\media\css\print.css" />
+    <Content Include="Content\metronic.bootstrap\media\css\profile.css" />
+    <Content Include="Content\metronic.bootstrap\media\css\promo.css" />
+    <Content Include="Content\metronic.bootstrap\media\css\purple.css" />
+    <Content Include="Content\metronic.bootstrap\media\css\search.css" />
+    <Content Include="Content\metronic.bootstrap\media\css\select2_metro.css" />
+    <Content Include="Content\metronic.bootstrap\media\css\style-metro.css" />
+    <Content Include="Content\metronic.bootstrap\media\css\style-non-responsive.css" />
+    <Content Include="Content\metronic.bootstrap\media\css\style-responsive.css" />
+    <Content Include="Content\metronic.bootstrap\media\css\style.css" />
+    <Content Include="Content\metronic.bootstrap\media\css\timeline.css" />
+    <Content Include="Content\metronic.bootstrap\media\css\timepicker.css" />
+    <Content Include="Content\metronic.bootstrap\media\css\uniform.default.css" />
+    <Content Include="Content\metronic.bootstrap\media\image\1.jpg" />
+    <Content Include="Content\metronic.bootstrap\media\image\10.jpg" />
+    <Content Include="Content\metronic.bootstrap\media\image\11.jpg" />
+    <Content Include="Content\metronic.bootstrap\media\image\2.jpg" />
+    <Content Include="Content\metronic.bootstrap\media\image\3.jpg" />
+    <Content Include="Content\metronic.bootstrap\media\image\4.jpg" />
+    <Content Include="Content\metronic.bootstrap\media\image\5.jpg" />
+    <Content Include="Content\metronic.bootstrap\media\image\6.jpg" />
+    <Content Include="Content\metronic.bootstrap\media\image\7.jpg" />
+    <Content Include="Content\metronic.bootstrap\media\image\8.jpg" />
+    <Content Include="Content\metronic.bootstrap\media\image\9.jpg" />
+    <Content Include="Content\metronic.bootstrap\media\image\alpha.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\amazon.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\animated-overlay.gif" />
+    <Content Include="Content\metronic.bootstrap\media\image\avatar.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\avatar1.jpg" />
+    <Content Include="Content\metronic.bootstrap\media\image\avatar1_small.jpg" />
+    <Content Include="Content\metronic.bootstrap\media\image\avatar2.jpg" />
+    <Content Include="Content\metronic.bootstrap\media\image\avatar3.jpg" />
+    <Content Include="Content\metronic.bootstrap\media\image\behance.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\bg-input-focus.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\bg-input.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\bg-opacity.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\bg-white-lock.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\bg\1.jpg" />
+    <Content Include="Content\metronic.bootstrap\media\image\bg\2.jpg" />
+    <Content Include="Content\metronic.bootstrap\media\image\bg\3.jpg" />
+    <Content Include="Content\metronic.bootstrap\media\image\bg\4.jpg" />
+    <Content Include="Content\metronic.bootstrap\media\image\blank.gif" />
+    <Content Include="Content\metronic.bootstrap\media\image\blogger.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\bstree-halflings.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\chosen-sprite.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\datatable-row-openclose.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\deviantart.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\dribbble.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\dropbox.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\earth.jpg" />
+    <Content Include="Content\metronic.bootstrap\media\image\evernote.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\facebook.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\fancybox_loading.gif" />
+    <Content Include="Content\metronic.bootstrap\media\image\fancybox_overlay.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\fancybox_sprite.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\favicon.ico" />
+    <Content Include="Content\metronic.bootstrap\media\image\fontawesome-webfont.svg" />
+    <Content Include="Content\metronic.bootstrap\media\image\forrst.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\github.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\glyphicons-halflings-white.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\glyphicons-halflings.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\glyphicons-regular.svg" />
+    <Content Include="Content\metronic.bootstrap\media\image\glyphicons-white.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\glyphicons-white.svg" />
+    <Content Include="Content\metronic.bootstrap\media\image\glyphicons.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\glyphiconshalflings-regular.svg" />
+    <Content Include="Content\metronic.bootstrap\media\image\glyphicons_halflings-white.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\glyphicons_halflings-white.svg" />
+    <Content Include="Content\metronic.bootstrap\media\image\glyphicons_halflings.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\glyphicons_halflings.svg" />
+    <Content Include="Content\metronic.bootstrap\media\image\googleplus.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\gritter-light.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\gritter.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\hor-menu-search-close-white.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\hor-menu-search-close.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\hor-menu-search.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\hue.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\icon-color-close.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\icon-color.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\icon-img-down.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\icon-img-up.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\ie-spacer.gif" />
+    <Content Include="Content\metronic.bootstrap\media\image\image1.jpg" />
+    <Content Include="Content\metronic.bootstrap\media\image\image2.jpg" />
+    <Content Include="Content\metronic.bootstrap\media\image\image3.jpg" />
+    <Content Include="Content\metronic.bootstrap\media\image\image4.jpg" />
+    <Content Include="Content\metronic.bootstrap\media\image\image5.jpg" />
+    <Content Include="Content\metronic.bootstrap\media\image\img1.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\img1_2.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\img2.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\img3.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\img4.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\inbox-nav-arrow-blue.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\instagram.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\iphone.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\item_img.jpg" />
+    <Content Include="Content\metronic.bootstrap\media\image\item_img1.jpg" />
+    <Content Include="Content\metronic.bootstrap\media\image\jolicloud.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\KwPYo.jpg" />
+    <Content Include="Content\metronic.bootstrap\media\image\last-fm.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\linkedin.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\loading.gif" />
+    <Content Include="Content\metronic.bootstrap\media\image\logo-big.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\logo.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\logo_azteca.jpg" />
+    <Content Include="Content\metronic.bootstrap\media\image\logo_conquer.jpg" />
+    <Content Include="Content\metronic.bootstrap\media\image\logo_metronic.jpg" />
+    <Content Include="Content\metronic.bootstrap\media\image\menu-toggler.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\overlay-icon.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\photo1.jpg" />
+    <Content Include="Content\metronic.bootstrap\media\image\photo2.jpg" />
+    <Content Include="Content\metronic.bootstrap\media\image\photo3.jpg" />
+    <Content Include="Content\metronic.bootstrap\media\image\photo4.jpg" />
+    <Content Include="Content\metronic.bootstrap\media\image\photo5.jpg" />
+    <Content Include="Content\metronic.bootstrap\media\image\photo6.jpg" />
+    <Content Include="Content\metronic.bootstrap\media\image\picasa.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\pintrest.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\portlet-collapse-icon-white.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\portlet-collapse-icon.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\portlet-config-icon-white.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\portlet-config-icon.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\portlet-expand-icon-white.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\portlet-expand-icon.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\portlet-reload-icon-white.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\portlet-reload-icon.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\portlet-remove-icon-white.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\portlet-remove-icon.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\preview_02.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\preview_03.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\preview_04.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\preview_05.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\preview_06.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\preview_07.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\preview_08.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\preview_09.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\preview_10.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\preview_11.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\preview_12.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\preview_13.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\preview_14.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\preview_15.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\preview_16.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\preview_17.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\profile-img.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\profile.jpg" />
+    <Content Include="Content\metronic.bootstrap\media\image\progressbar.gif" />
+    <Content Include="Content\metronic.bootstrap\media\image\remove-icon-small.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\rss.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\saturation.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\search-icon.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\select2-spinner.gif" />
+    <Content Include="Content\metronic.bootstrap\media\image\select2.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\select2x2.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\sidebar-menu-arrow.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\sidebar-search-close.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\sidebar-toggler.jpg" />
+    <Content Include="Content\metronic.bootstrap\media\image\skype.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\social_facebook.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\social_googleplus.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\social_linkedin.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\social_rss.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\social_twitter.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\sort_asc.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\sort_asc_disabled.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\sort_both.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\sort_desc.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\sort_desc_disabled.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\spotify.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\sprite.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\spritemap%402x.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\spritemap.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\stumbleupon.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\switch.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\syncfusion-icons-white.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\syncfusion-icons.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\tumblr.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\twitter.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\ui-bg_diagonals-thick_18_b81900_40x40.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\ui-bg_diagonals-thick_20_666666_40x40.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\ui-bg_flat_10_000000_40x100.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\ui-bg_glass_100_f6f6f6_1x400.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\ui-bg_glass_100_fdf5ce_1x400.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\ui-bg_gloss-wave_35_f6a828_500x100.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\ui-icons_222222_256x240.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\ui-icons_228ef1_256x240.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\ui-icons_888888_256x240.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\ui-icons_ef8c08_256x240.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\ui-icons_ffd27a_256x240.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\vimeo.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\vk.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\walmart.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\wordpress.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\xing.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\yahoo.png" />
+    <Content Include="Content\metronic.bootstrap\media\image\youtube.png" />
+    <Content Include="Content\metronic.bootstrap\media\js\additional-methods.min.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\app.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\bootstrap-colorpicker.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\bootstrap-datepicker.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\bootstrap-datetimepicker.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\bootstrap-fileupload.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\bootstrap-modal.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\bootstrap-modalmanager.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\bootstrap-rtl.min.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\bootstrap-tag.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\bootstrap-timepicker.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\bootstrap-tree.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\bootstrap-wysihtml5.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\bootstrap.min.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\breakpoints.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\breakpoints.min.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\calendar.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\canvas-to-blob.min.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\charts.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\chosen.jquery.min.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\ckeditor.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\clockface.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\coming-soon.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\contact-us.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\date.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\daterangepicker.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\dropzone.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\DT_bootstrap.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\excanvas.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\excanvas.min.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\form-components.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\form-fileupload.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\form-samples.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\form-validation.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\form-wizard.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\fullcalendar.min.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\gallery.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\gmaps.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\inbox.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\index.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\jquery-1.10.1.min.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\jquery-1.8.3.min.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\jquery-migrate-1.2.1.min.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\jquery-ui-1.10.1.custom.min.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\jquery.backstretch.min.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\jquery.blockui.min.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\jquery.bootpag.min.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\jquery.bootstrap.wizard.min.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\jquery.cookie.min.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\jquery.countdown.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\jquery.dataTables.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\jquery.dataTables.min.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\jquery.easy-pie-chart.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\jquery.fancybox.pack.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\jquery.fileupload-fp.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\jquery.fileupload-ui.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\jquery.fileupload.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\jquery.flot.crosshair.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\jquery.flot.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\jquery.flot.pie.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\jquery.flot.resize.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\jquery.flot.stack.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\jquery.gritter.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\jquery.iframe-transport.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\jquery.input-ip-address-control-1.0.min.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\jquery.inputmask.bundle.min.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\jquery.knob.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\jquery.multi-select.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\jquery.nestable.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\jquery.pulsate.min.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\jquery.slimscroll.min.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\jquery.sparkline.min.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\jquery.tagsinput.min.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\jquery.toggle.buttons.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\jquery.ui.widget.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\jquery.uniform.min.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\jquery.validate.min.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\jquery.vmap.europe.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\jquery.vmap.germany.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\jquery.vmap.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\jquery.vmap.russia.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\jquery.vmap.sampledata.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\jquery.vmap.usa.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\jquery.vmap.world.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\jquery.xdr-transport.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\load-image.min.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\lock.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\login-soft.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\login.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\maps-google.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\maps-vector.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\portlet-draggable.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\respond.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\respond.min.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\search.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\select2.min.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\table-advanced.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\table-editable.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\table-managed.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\tmpl.min.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\ui-general.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\ui-jqueryui.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\ui-modals.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\ui-nestable.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\ui-sliders.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\ui-tree.js" />
+    <Content Include="Content\metronic.bootstrap\media\js\wysihtml5-0.3.0.js" />
+    <Content Include="Content\metronic.bootstrap\page_about.html" />
+    <Content Include="Content\metronic.bootstrap\page_blog.html" />
+    <Content Include="Content\metronic.bootstrap\page_blog_item.html" />
+    <Content Include="Content\metronic.bootstrap\page_calendar.html" />
+    <Content Include="Content\metronic.bootstrap\page_coming_soon.html" />
+    <Content Include="Content\metronic.bootstrap\page_contact.html" />
+    <Content Include="Content\metronic.bootstrap\page_news.html" />
+    <Content Include="Content\metronic.bootstrap\page_news_item.html" />
+    <Content Include="Content\metronic.bootstrap\page_timeline.html" />
+    <Content Include="Content\metronic.bootstrap\portlet_draggable.html" />
+    <Content Include="Content\metronic.bootstrap\portlet_general.html" />
+    <Content Include="Content\metronic.bootstrap\source.txt" />
+    <Content Include="Content\metronic.bootstrap\table_advanced.html" />
+    <Content Include="Content\metronic.bootstrap\table_basic.html" />
+    <Content Include="Content\metronic.bootstrap\table_editable.html" />
+    <Content Include="Content\metronic.bootstrap\table_managed.html" />
+    <Content Include="Content\metronic.bootstrap\table_responsive.html" />
+    <Content Include="Content\metronic.bootstrap\ui_buttons.html" />
+    <Content Include="Content\metronic.bootstrap\ui_general.html" />
+    <Content Include="Content\metronic.bootstrap\ui_jqueryui.html" />
+    <Content Include="Content\metronic.bootstrap\ui_modals.html" />
+    <Content Include="Content\metronic.bootstrap\ui_nestable.html" />
+    <Content Include="Content\metronic.bootstrap\ui_sliders.html" />
+    <Content Include="Content\metronic.bootstrap\ui_tabs_accordions.html" />
+    <Content Include="Content\metronic.bootstrap\ui_tiles.html" />
+    <Content Include="Content\metronic.bootstrap\ui_tree.html" />
+    <Content Include="Content\metronic.bootstrap\ui_typography.html" />
+    <Content Include="Global.asax" />
+    <Content Include="Script\Common\DataProcess.js" />
+    <Content Include="Script\Common\jquery-1.7.1.min.js" />
+    <Content Include="Script\Common\jquery-pager\index.html" />
+    <Content Include="Script\Common\jquery-pager\jquery-1.3.2.min.js" />
+    <Content Include="Script\Common\jquery-pager\jquery.pager.js" />
+    <Content Include="Script\Common\jquery-pager\Pager.css" />
+    <Content Include="Script\Common\jquery.form.js" />
+    <Content Include="Script\Common\jwplayer\demo.mp4" />
+    <Content Include="Script\Common\jwplayer\jwplayer.js" />
+    <Content Include="Script\Common\jwplayer\player.swf" />
+    <Content Include="Script\Common\jwplayer\swfobject.js" />
+    <Content Include="Script\Common\jwplayer\yt.swf" />
+    <Content Include="Script\Common\My97DatePicker\calendar.js" />
+    <Content Include="Script\Common\My97DatePicker\lang\en.js" />
+    <Content Include="Script\Common\My97DatePicker\lang\zh-cn.js" />
+    <Content Include="Script\Common\My97DatePicker\lang\zh-tw.js" />
+    <Content Include="Script\Common\My97DatePicker\skin\datePicker.gif" />
+    <Content Include="Script\Common\My97DatePicker\skin\default\datepicker.css" />
+    <Content Include="Script\Common\My97DatePicker\skin\default\img.gif" />
+    <Content Include="Script\Common\My97DatePicker\skin\WdatePicker.css" />
+    <Content Include="Script\Common\My97DatePicker\skin\whyGreen\bg.jpg" />
+    <Content Include="Script\Common\My97DatePicker\skin\whyGreen\datepicker.css" />
+    <Content Include="Script\Common\My97DatePicker\skin\whyGreen\img.gif" />
+    <Content Include="Script\Common\My97DatePicker\WdatePicker.js" />
+    <Content Include="Script\Common\ueditor\dialogs\anchor\anchor.html" />
+    <Content Include="Script\Common\ueditor\dialogs\attachment\attachment.css" />
+    <Content Include="Script\Common\ueditor\dialogs\attachment\attachment.html" />
+    <Content Include="Script\Common\ueditor\dialogs\attachment\attachment.js" />
+    <Content Include="Script\Common\ueditor\dialogs\attachment\fileTypeImages\icon_chm.gif" />
+    <Content Include="Script\Common\ueditor\dialogs\attachment\fileTypeImages\icon_default.png" />
+    <Content Include="Script\Common\ueditor\dialogs\attachment\fileTypeImages\icon_doc.gif" />
+    <Content Include="Script\Common\ueditor\dialogs\attachment\fileTypeImages\icon_exe.gif" />
+    <Content Include="Script\Common\ueditor\dialogs\attachment\fileTypeImages\icon_jpg.gif" />
+    <Content Include="Script\Common\ueditor\dialogs\attachment\fileTypeImages\icon_mp3.gif" />
+    <Content Include="Script\Common\ueditor\dialogs\attachment\fileTypeImages\icon_mv.gif" />
+    <Content Include="Script\Common\ueditor\dialogs\attachment\fileTypeImages\icon_pdf.gif" />
+    <Content Include="Script\Common\ueditor\dialogs\attachment\fileTypeImages\icon_ppt.gif" />
+    <Content Include="Script\Common\ueditor\dialogs\attachment\fileTypeImages\icon_psd.gif" />
+    <Content Include="Script\Common\ueditor\dialogs\attachment\fileTypeImages\icon_rar.gif" />
+    <Content Include="Script\Common\ueditor\dialogs\attachment\fileTypeImages\icon_txt.gif" />
+    <Content Include="Script\Common\ueditor\dialogs\attachment\fileTypeImages\icon_xls.gif" />
+    <Content Include="Script\Common\ueditor\dialogs\attachment\images\alignicon.gif" />
+    <Content Include="Script\Common\ueditor\dialogs\attachment\images\alignicon.png" />
+    <Content Include="Script\Common\ueditor\dialogs\attachment\images\bg.png" />
+    <Content Include="Script\Common\ueditor\dialogs\attachment\images\file-icons.gif" />
+    <Content Include="Script\Common\ueditor\dialogs\attachment\images\file-icons.png" />
+    <Content Include="Script\Common\ueditor\dialogs\attachment\images\icons.gif" />
+    <Content Include="Script\Common\ueditor\dialogs\attachment\images\icons.png" />
+    <Content Include="Script\Common\ueditor\dialogs\attachment\images\image.png" />
+    <Content Include="Script\Common\ueditor\dialogs\attachment\images\progress.png" />
+    <Content Include="Script\Common\ueditor\dialogs\attachment\images\success.gif" />
+    <Content Include="Script\Common\ueditor\dialogs\attachment\images\success.png" />
+    <Content Include="Script\Common\ueditor\dialogs\background\background.css" />
+    <Content Include="Script\Common\ueditor\dialogs\background\background.html" />
+    <Content Include="Script\Common\ueditor\dialogs\background\background.js" />
+    <Content Include="Script\Common\ueditor\dialogs\background\images\bg.png" />
+    <Content Include="Script\Common\ueditor\dialogs\background\images\success.png" />
+    <Content Include="Script\Common\ueditor\dialogs\charts\chart.config.js" />
+    <Content Include="Script\Common\ueditor\dialogs\charts\charts.css" />
+    <Content Include="Script\Common\ueditor\dialogs\charts\charts.html" />
+    <Content Include="Script\Common\ueditor\dialogs\charts\charts.js" />
+    <Content Include="Script\Common\ueditor\dialogs\charts\images\charts0.png" />
+    <Content Include="Script\Common\ueditor\dialogs\charts\images\charts1.png" />
+    <Content Include="Script\Common\ueditor\dialogs\charts\images\charts2.png" />
+    <Content Include="Script\Common\ueditor\dialogs\charts\images\charts3.png" />
+    <Content Include="Script\Common\ueditor\dialogs\charts\images\charts4.png" />
+    <Content Include="Script\Common\ueditor\dialogs\charts\images\charts5.png" />
+    <Content Include="Script\Common\ueditor\dialogs\emotion\emotion.css" />
+    <Content Include="Script\Common\ueditor\dialogs\emotion\emotion.html" />
+    <Content Include="Script\Common\ueditor\dialogs\emotion\emotion.js" />
+    <Content Include="Script\Common\ueditor\dialogs\emotion\images\0.gif" />
+    <Content Include="Script\Common\ueditor\dialogs\emotion\images\bface.gif" />
+    <Content Include="Script\Common\ueditor\dialogs\emotion\images\cface.gif" />
+    <Content Include="Script\Common\ueditor\dialogs\emotion\images\fface.gif" />
+    <Content Include="Script\Common\ueditor\dialogs\emotion\images\jxface2.gif" />
+    <Content Include="Script\Common\ueditor\dialogs\emotion\images\neweditor-tab-bg.png" />
+    <Content Include="Script\Common\ueditor\dialogs\emotion\images\tface.gif" />
+    <Content Include="Script\Common\ueditor\dialogs\emotion\images\wface.gif" />
+    <Content Include="Script\Common\ueditor\dialogs\emotion\images\yface.gif" />
+    <Content Include="Script\Common\ueditor\dialogs\gmap\gmap.html" />
+    <Content Include="Script\Common\ueditor\dialogs\help\help.css" />
+    <Content Include="Script\Common\ueditor\dialogs\help\help.html" />
+    <Content Include="Script\Common\ueditor\dialogs\help\help.js" />
+    <Content Include="Script\Common\ueditor\dialogs\image\image.css" />
+    <Content Include="Script\Common\ueditor\dialogs\image\image.html" />
+    <Content Include="Script\Common\ueditor\dialogs\image\image.js" />
+    <Content Include="Script\Common\ueditor\dialogs\image\images\alignicon.jpg" />
+    <Content Include="Script\Common\ueditor\dialogs\image\images\bg.png" />
+    <Content Include="Script\Common\ueditor\dialogs\image\images\icons.gif" />
+    <Content Include="Script\Common\ueditor\dialogs\image\images\icons.png" />
+    <Content Include="Script\Common\ueditor\dialogs\image\images\image.png" />
+    <Content Include="Script\Common\ueditor\dialogs\image\images\progress.png" />
+    <Content Include="Script\Common\ueditor\dialogs\image\images\success.gif" />
+    <Content Include="Script\Common\ueditor\dialogs\image\images\success.png" />
+    <Content Include="Script\Common\ueditor\dialogs\insertframe\insertframe.html" />
+    <Content Include="Script\Common\ueditor\dialogs\internal.js" />
+    <Content Include="Script\Common\ueditor\dialogs\link\link.html" />
+    <Content Include="Script\Common\ueditor\dialogs\map\map.html" />
+    <Content Include="Script\Common\ueditor\dialogs\map\show.html" />
+    <Content Include="Script\Common\ueditor\dialogs\music\music.css" />
+    <Content Include="Script\Common\ueditor\dialogs\music\music.html" />
+    <Content Include="Script\Common\ueditor\dialogs\music\music.js" />
+    <Content Include="Script\Common\ueditor\dialogs\preview\preview.html" />
+    <Content Include="Script\Common\ueditor\dialogs\scrawl\images\addimg.png" />
+    <Content Include="Script\Common\ueditor\dialogs\scrawl\images\brush.png" />
+    <Content Include="Script\Common\ueditor\dialogs\scrawl\images\delimg.png" />
+    <Content Include="Script\Common\ueditor\dialogs\scrawl\images\delimgH.png" />
+    <Content Include="Script\Common\ueditor\dialogs\scrawl\images\empty.png" />
+    <Content Include="Script\Common\ueditor\dialogs\scrawl\images\emptyH.png" />
+    <Content Include="Script\Common\ueditor\dialogs\scrawl\images\eraser.png" />
+    <Content Include="Script\Common\ueditor\dialogs\scrawl\images\redo.png" />
+    <Content Include="Script\Common\ueditor\dialogs\scrawl\images\redoH.png" />
+    <Content Include="Script\Common\ueditor\dialogs\scrawl\images\scale.png" />
+    <Content Include="Script\Common\ueditor\dialogs\scrawl\images\scaleH.png" />
+    <Content Include="Script\Common\ueditor\dialogs\scrawl\images\size.png" />
+    <Content Include="Script\Common\ueditor\dialogs\scrawl\images\undo.png" />
+    <Content Include="Script\Common\ueditor\dialogs\scrawl\images\undoH.png" />
+    <Content Include="Script\Common\ueditor\dialogs\scrawl\scrawl.css" />
+    <Content Include="Script\Common\ueditor\dialogs\scrawl\scrawl.html" />
+    <Content Include="Script\Common\ueditor\dialogs\scrawl\scrawl.js" />
+    <Content Include="Script\Common\ueditor\dialogs\searchreplace\searchreplace.html" />
+    <Content Include="Script\Common\ueditor\dialogs\searchreplace\searchreplace.js" />
+    <Content Include="Script\Common\ueditor\dialogs\snapscreen\snapscreen.html" />
+    <Content Include="Script\Common\ueditor\dialogs\spechars\spechars.html" />
+    <Content Include="Script\Common\ueditor\dialogs\spechars\spechars.js" />
+    <Content Include="Script\Common\ueditor\dialogs\table\dragicon.png" />
+    <Content Include="Script\Common\ueditor\dialogs\table\edittable.css" />
+    <Content Include="Script\Common\ueditor\dialogs\table\edittable.html" />
+    <Content Include="Script\Common\ueditor\dialogs\table\edittable.js" />
+    <Content Include="Script\Common\ueditor\dialogs\table\edittd.html" />
+    <Content Include="Script\Common\ueditor\dialogs\table\edittip.html" />
+    <Content Include="Script\Common\ueditor\dialogs\template\config.js" />
+    <Content Include="Script\Common\ueditor\dialogs\template\images\bg.gif" />
+    <Content Include="Script\Common\ueditor\dialogs\template\images\pre0.png" />
+    <Content Include="Script\Common\ueditor\dialogs\template\images\pre1.png" />
+    <Content Include="Script\Common\ueditor\dialogs\template\images\pre2.png" />
+    <Content Include="Script\Common\ueditor\dialogs\template\images\pre3.png" />
+    <Content Include="Script\Common\ueditor\dialogs\template\images\pre4.png" />
+    <Content Include="Script\Common\ueditor\dialogs\template\template.css" />
+    <Content Include="Script\Common\ueditor\dialogs\template\template.html" />
+    <Content Include="Script\Common\ueditor\dialogs\template\template.js" />
+    <Content Include="Script\Common\ueditor\dialogs\video\images\bg.png" />
+    <Content Include="Script\Common\ueditor\dialogs\video\images\center_focus.jpg" />
+    <Content Include="Script\Common\ueditor\dialogs\video\images\file-icons.gif" />
+    <Content Include="Script\Common\ueditor\dialogs\video\images\file-icons.png" />
+    <Content Include="Script\Common\ueditor\dialogs\video\images\icons.gif" />
+    <Content Include="Script\Common\ueditor\dialogs\video\images\icons.png" />
+    <Content Include="Script\Common\ueditor\dialogs\video\images\image.png" />
+    <Content Include="Script\Common\ueditor\dialogs\video\images\left_focus.jpg" />
+    <Content Include="Script\Common\ueditor\dialogs\video\images\none_focus.jpg" />
+    <Content Include="Script\Common\ueditor\dialogs\video\images\progress.png" />
+    <Content Include="Script\Common\ueditor\dialogs\video\images\right_focus.jpg" />
+    <Content Include="Script\Common\ueditor\dialogs\video\images\success.gif" />
+    <Content Include="Script\Common\ueditor\dialogs\video\images\success.png" />
+    <Content Include="Script\Common\ueditor\dialogs\video\video.css" />
+    <Content Include="Script\Common\ueditor\dialogs\video\video.html" />
+    <Content Include="Script\Common\ueditor\dialogs\video\video.js" />
+    <Content Include="Script\Common\ueditor\dialogs\webapp\webapp.html" />
+    <Content Include="Script\Common\ueditor\dialogs\wordimage\fClipboard_ueditor.swf" />
+    <Content Include="Script\Common\ueditor\dialogs\wordimage\imageUploader.swf" />
+    <Content Include="Script\Common\ueditor\dialogs\wordimage\tangram.js" />
+    <Content Include="Script\Common\ueditor\dialogs\wordimage\wordimage.html" />
+    <Content Include="Script\Common\ueditor\dialogs\wordimage\wordimage.js" />
+    <Content Include="Script\Common\ueditor\index.html" />
+    <Content Include="Script\Common\ueditor\lang\en\en.js" />
+    <Content Include="Script\Common\ueditor\lang\en\images\addimage.png" />
+    <Content Include="Script\Common\ueditor\lang\en\images\alldeletebtnhoverskin.png" />
+    <Content Include="Script\Common\ueditor\lang\en\images\alldeletebtnupskin.png" />
+    <Content Include="Script\Common\ueditor\lang\en\images\background.png" />
+    <Content Include="Script\Common\ueditor\lang\en\images\button.png" />
+    <Content Include="Script\Common\ueditor\lang\en\images\copy.png" />
+    <Content Include="Script\Common\ueditor\lang\en\images\deletedisable.png" />
+    <Content Include="Script\Common\ueditor\lang\en\images\deleteenable.png" />
+    <Content Include="Script\Common\ueditor\lang\en\images\listbackground.png" />
+    <Content Include="Script\Common\ueditor\lang\en\images\localimage.png" />
+    <Content Include="Script\Common\ueditor\lang\en\images\music.png" />
+    <Content Include="Script\Common\ueditor\lang\en\images\rotateleftdisable.png" />
+    <Content Include="Script\Common\ueditor\lang\en\images\rotateleftenable.png" />
+    <Content Include="Script\Common\ueditor\lang\en\images\rotaterightdisable.png" />
+    <Content Include="Script\Common\ueditor\lang\en\images\rotaterightenable.png" />
+    <Content Include="Script\Common\ueditor\lang\en\images\upload.png" />
+    <Content Include="Script\Common\ueditor\lang\zh-cn\images\copy.png" />
+    <Content Include="Script\Common\ueditor\lang\zh-cn\images\localimage.png" />
+    <Content Include="Script\Common\ueditor\lang\zh-cn\images\music.png" />
+    <Content Include="Script\Common\ueditor\lang\zh-cn\images\upload.png" />
+    <Content Include="Script\Common\ueditor\lang\zh-cn\zh-cn.js" />
+    <Content Include="Script\Common\ueditor\net\net.sln" />
+    <Content Include="Script\Common\ueditor\themes\default\css\ueditor.css" />
+    <Content Include="Script\Common\ueditor\themes\default\css\ueditor.min.css" />
+    <Content Include="Script\Common\ueditor\themes\default\dialogbase.css" />
+    <Content Include="Script\Common\ueditor\themes\default\images\anchor.gif" />
+    <Content Include="Script\Common\ueditor\themes\default\images\arrow.png" />
+    <Content Include="Script\Common\ueditor\themes\default\images\arrow_down.png" />
+    <Content Include="Script\Common\ueditor\themes\default\images\arrow_up.png" />
+    <Content Include="Script\Common\ueditor\themes\default\images\button-bg.gif" />
+    <Content Include="Script\Common\ueditor\themes\default\images\cancelbutton.gif" />
+    <Content Include="Script\Common\ueditor\themes\default\images\charts.png" />
+    <Content Include="Script\Common\ueditor\themes\default\images\cursor_h.gif" />
+    <Content Include="Script\Common\ueditor\themes\default\images\cursor_h.png" />
+    <Content Include="Script\Common\ueditor\themes\default\images\cursor_v.gif" />
+    <Content Include="Script\Common\ueditor\themes\default\images\cursor_v.png" />
+    <Content Include="Script\Common\ueditor\themes\default\images\dialog-title-bg.png" />
+    <Content Include="Script\Common\ueditor\themes\default\images\filescan.png" />
+    <Content Include="Script\Common\ueditor\themes\default\images\highlighted.gif" />
+    <Content Include="Script\Common\ueditor\themes\default\images\icons-all.gif" />
+    <Content Include="Script\Common\ueditor\themes\default\images\icons.gif" />
+    <Content Include="Script\Common\ueditor\themes\default\images\icons.png" />
+    <Content Include="Script\Common\ueditor\themes\default\images\loaderror.png" />
+    <Content Include="Script\Common\ueditor\themes\default\images\loading.gif" />
+    <Content Include="Script\Common\ueditor\themes\default\images\lock.gif" />
+    <Content Include="Script\Common\ueditor\themes\default\images\neweditor-tab-bg.png" />
+    <Content Include="Script\Common\ueditor\themes\default\images\pagebreak.gif" />
+    <Content Include="Script\Common\ueditor\themes\default\images\scale.png" />
+    <Content Include="Script\Common\ueditor\themes\default\images\sortable.png" />
+    <Content Include="Script\Common\ueditor\themes\default\images\spacer.gif" />
+    <Content Include="Script\Common\ueditor\themes\default\images\sparator_v.png" />
+    <Content Include="Script\Common\ueditor\themes\default\images\table-cell-align.png" />
+    <Content Include="Script\Common\ueditor\themes\default\images\tangram-colorpicker.png" />
+    <Content Include="Script\Common\ueditor\themes\default\images\toolbar_bg.png" />
+    <Content Include="Script\Common\ueditor\themes\default\images\unhighlighted.gif" />
+    <Content Include="Script\Common\ueditor\themes\default\images\upload.png" />
+    <Content Include="Script\Common\ueditor\themes\default\images\videologo.gif" />
+    <Content Include="Script\Common\ueditor\themes\default\images\word.gif" />
+    <Content Include="Script\Common\ueditor\themes\default\images\wordpaste.png" />
+    <Content Include="Script\Common\ueditor\themes\iframe.css" />
+    <Content Include="Script\Common\ueditor\third-party\codemirror\codemirror.css" />
+    <Content Include="Script\Common\ueditor\third-party\codemirror\codemirror.js" />
+    <Content Include="Script\Common\ueditor\third-party\highcharts\adapters\mootools-adapter.js" />
+    <Content Include="Script\Common\ueditor\third-party\highcharts\adapters\mootools-adapter.src.js" />
+    <Content Include="Script\Common\ueditor\third-party\highcharts\adapters\prototype-adapter.js" />
+    <Content Include="Script\Common\ueditor\third-party\highcharts\adapters\prototype-adapter.src.js" />
+    <Content Include="Script\Common\ueditor\third-party\highcharts\adapters\standalone-framework.js" />
+    <Content Include="Script\Common\ueditor\third-party\highcharts\adapters\standalone-framework.src.js" />
+    <Content Include="Script\Common\ueditor\third-party\highcharts\highcharts-more.js" />
+    <Content Include="Script\Common\ueditor\third-party\highcharts\highcharts-more.src.js" />
+    <Content Include="Script\Common\ueditor\third-party\highcharts\highcharts.js" />
+    <Content Include="Script\Common\ueditor\third-party\highcharts\highcharts.src.js" />
+    <Content Include="Script\Common\ueditor\third-party\highcharts\modules\annotations.js" />
+    <Content Include="Script\Common\ueditor\third-party\highcharts\modules\annotations.src.js" />
+    <Content Include="Script\Common\ueditor\third-party\highcharts\modules\canvas-tools.js" />
+    <Content Include="Script\Common\ueditor\third-party\highcharts\modules\canvas-tools.src.js" />
+    <Content Include="Script\Common\ueditor\third-party\highcharts\modules\data.js" />
+    <Content Include="Script\Common\ueditor\third-party\highcharts\modules\data.src.js" />
+    <Content Include="Script\Common\ueditor\third-party\highcharts\modules\drilldown.js" />
+    <Content Include="Script\Common\ueditor\third-party\highcharts\modules\drilldown.src.js" />
+    <Content Include="Script\Common\ueditor\third-party\highcharts\modules\exporting.js" />
+    <Content Include="Script\Common\ueditor\third-party\highcharts\modules\exporting.src.js" />
+    <Content Include="Script\Common\ueditor\third-party\highcharts\modules\funnel.js" />
+    <Content Include="Script\Common\ueditor\third-party\highcharts\modules\funnel.src.js" />
+    <Content Include="Script\Common\ueditor\third-party\highcharts\modules\heatmap.js" />
+    <Content Include="Script\Common\ueditor\third-party\highcharts\modules\heatmap.src.js" />
+    <Content Include="Script\Common\ueditor\third-party\highcharts\modules\map.js" />
+    <Content Include="Script\Common\ueditor\third-party\highcharts\modules\map.src.js" />
+    <Content Include="Script\Common\ueditor\third-party\highcharts\modules\no-data-to-display.js" />
+    <Content Include="Script\Common\ueditor\third-party\highcharts\modules\no-data-to-display.src.js" />
+    <Content Include="Script\Common\ueditor\third-party\highcharts\themes\dark-blue.js" />
+    <Content Include="Script\Common\ueditor\third-party\highcharts\themes\dark-green.js" />
+    <Content Include="Script\Common\ueditor\third-party\highcharts\themes\gray.js" />
+    <Content Include="Script\Common\ueditor\third-party\highcharts\themes\grid.js" />
+    <Content Include="Script\Common\ueditor\third-party\highcharts\themes\skies.js" />
+    <Content Include="Script\Common\ueditor\third-party\jquery-1.10.2.js" />
+    <Content Include="Script\Common\ueditor\third-party\jquery-1.10.2.min.js" />
+    <Content Include="Script\Common\ueditor\third-party\snapscreen\UEditorSnapscreen.exe" />
+    <Content Include="Script\Common\ueditor\third-party\SyntaxHighlighter\shCore.js" />
+    <Content Include="Script\Common\ueditor\third-party\SyntaxHighlighter\shCoreDefault.css" />
+    <Content Include="Script\Common\ueditor\third-party\video-js\font\vjs.svg" />
+    <Content Include="Script\Common\ueditor\third-party\video-js\video-js.css" />
+    <Content Include="Script\Common\ueditor\third-party\video-js\video-js.min.css" />
+    <Content Include="Script\Common\ueditor\third-party\video-js\video-js.swf" />
+    <Content Include="Script\Common\ueditor\third-party\video-js\video.dev.js" />
+    <Content Include="Script\Common\ueditor\third-party\video-js\video.js" />
+    <Content Include="Script\Common\ueditor\third-party\webuploader\Uploader.swf" />
+    <Content Include="Script\Common\ueditor\third-party\webuploader\webuploader.css" />
+    <Content Include="Script\Common\ueditor\third-party\webuploader\webuploader.custom.js" />
+    <Content Include="Script\Common\ueditor\third-party\webuploader\webuploader.custom.min.js" />
+    <Content Include="Script\Common\ueditor\third-party\webuploader\webuploader.flashonly.js" />
+    <Content Include="Script\Common\ueditor\third-party\webuploader\webuploader.flashonly.min.js" />
+    <Content Include="Script\Common\ueditor\third-party\webuploader\webuploader.html5only.js" />
+    <Content Include="Script\Common\ueditor\third-party\webuploader\webuploader.html5only.min.js" />
+    <Content Include="Script\Common\ueditor\third-party\webuploader\webuploader.js" />
+    <Content Include="Script\Common\ueditor\third-party\webuploader\webuploader.min.js" />
+    <Content Include="Script\Common\ueditor\third-party\webuploader\webuploader.withoutimage.js" />
+    <Content Include="Script\Common\ueditor\third-party\webuploader\webuploader.withoutimage.min.js" />
+    <Content Include="Script\Common\ueditor\third-party\zeroclipboard\ZeroClipboard.js" />
+    <Content Include="Script\Common\ueditor\third-party\zeroclipboard\ZeroClipboard.min.js" />
+    <Content Include="Script\Common\ueditor\third-party\zeroclipboard\ZeroClipboard.swf" />
+    <Content Include="Script\Common\ueditor\ueditor.all.js" />
+    <Content Include="Script\Common\ueditor\ueditor.all.min.js" />
+    <Content Include="Script\Common\ueditor\ueditor.config.js" />
+    <Content Include="Script\Common\ueditor\ueditor.parse.js" />
+    <Content Include="Script\Common\ueditor\ueditor.parse.min.js" />
+    <Content Include="Script\Common\uploadify\Change Log.txt" />
+    <Content Include="Script\Common\uploadify\check-exists.php" />
+    <Content Include="Script\Common\uploadify\index.php" />
+    <Content Include="Script\Common\uploadify\jquery.uploadify.js" />
+    <Content Include="Script\Common\uploadify\jquery.uploadify.min.js" />
+    <Content Include="Script\Common\uploadify\license.txt" />
+    <Content Include="Script\Common\uploadify\uploadify-cancel.png" />
+    <Content Include="Script\Common\uploadify\uploadify.css" />
+    <Content Include="Script\Common\uploadify\uploadify.php" />
+    <Content Include="Script\Common\uploadify\uploadify.swf" />
+    <Content Include="Script\Common\uploadify\__MACOSX\._Change Log.txt" />
+    <Content Include="Script\Common\uploadify\__MACOSX\._uploadify.swf" />
+    <Content Include="Script\Views\ArticleMgr\ArticleCatalogList.js" />
+    <Content Include="Script\Views\ArticleMgr\ArticleList.js" />
+    <Content Include="Script\Views\BasicMgr\RegionList.js" />
+    <Content Include="Script\Views\BasicMgr\AppList.js" />
+    <Content Include="Script\Views\BasicMgr\ClientTypeList.js" />
+    <Content Include="Script\Views\CorpMgr\CompanyList.js" />
+    <Content Include="Script\Views\CorpMgr\DepartmentList.js" />
+    <Content Include="Script\Views\CorpMgr\StationList.js" />
+    <Content Include="Script\Views\CorpMgr\StaffList.js" />
+    <Content Include="Script\Views\MaterialMgr\MaterialCatalogList.js" />
+    <Content Include="Script\Views\MaterialMgr\MaterialList.js" />
+    <Content Include="Script\Views\PlateMgr\PlateList.js" />
+    <Content Include="Script\Views\PlateMgr\PlateNewsList.js" />
+    <Content Include="Script\Views\ProductMgr\ProductCatalogList.js" />
+    <Content Include="Script\Views\ProductMgr\ProductList.js" />
+    <Content Include="Script\Views\SysMgr\FunctionList.js" />
+    <Content Include="Script\Views\SysMgr\FacilityList.js" />
+    <Content Include="Script\Views\SysMgr\MenuList.js" />
+    <Content Include="Script\Views\SysMgr\RoleList.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Content\Css\PlateCss\Images\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\MainPage.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\sct.bll\sct.bll.cms\sct.bll.cms.csproj">
+      <Project>{c40710fa-80a1-473d-bd37-fa707beeb117}</Project>
+      <Name>sct.bll.cms</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\sct.bll\sct.bll.mrp\sct.bll.mrp.csproj">
+      <Project>{53fa4339-ccf4-41ca-b080-574a87f0b372}</Project>
+      <Name>sct.bll.mrp</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\sct.bll\sct.bll.uc\sct.bll.uc.csproj">
+      <Project>{872b056f-9275-4a21-aaa6-897512615714}</Project>
+      <Name>sct.bll.uc</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\sct.bll\sct.bll.util\sct.bll.util.csproj">
+      <Project>{9c4f3b3d-16cb-47c9-8f8a-22ef15c787ae}</Project>
+      <Name>sct.bll.util</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\sct.cm\sct.cm.data\sct.cm.data.csproj">
+      <Project>{2cb89931-c62c-4969-92a6-232bd4fd41b5}</Project>
+      <Name>sct.cm.data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\sct.cm\sct.cm.util\sct.cm.util.csproj">
+      <Project>{9814e87d-757c-4053-86c5-a94184287121}</Project>
+      <Name>sct.cm.util</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\sct.dto\sct.dto.cms\sct.dto.cms.csproj">
+      <Project>{323cf839-2272-4944-97e7-971bcc8ded40}</Project>
+      <Name>sct.dto.cms</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\sct.dto\sct.dto.mrp\sct.dto.mrp.csproj">
+      <Project>{833b0000-10f4-486c-bf0a-9aa4bc268c0f}</Project>
+      <Name>sct.dto.mrp</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\sct.dto\sct.dto.uc\sct.dto.uc.csproj">
+      <Project>{12ffef0e-3755-462a-bec1-dfb819c78842}</Project>
+      <Name>sct.dto.uc</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\sct.svc\sct.svc.cms.imp\sct.svc.cms.imp.csproj">
+      <Project>{f5fbb27e-d989-4b4a-8523-92ef0097e3b1}</Project>
+      <Name>sct.svc.cms.imp</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\sct.svc\sct.svc.cms\sct.svc.cms.csproj">
+      <Project>{b8185688-ccf4-4c05-a3bd-571e1469e516}</Project>
+      <Name>sct.svc.cms</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\sct.svc\sct.svc.mrp.imp\sct.svc.mrp.imp.csproj">
+      <Project>{217afdae-9aef-439e-af3d-1a65439a414c}</Project>
+      <Name>sct.svc.mrp.imp</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\sct.svc\sct.svc.mrp\sct.svc.mrp.csproj">
+      <Project>{c5eea18e-fbb7-458d-b0cd-9cbb7a56a6c3}</Project>
+      <Name>sct.svc.mrp</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\sct.svc\sct.svc.uc.imp\sct.svc.uc.imp.csproj">
+      <Project>{5d895aa0-61ab-4cb1-beff-471456372e3f}</Project>
+      <Name>sct.svc.uc.imp</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\sct.svc\sct.svc.uc\sct.svc.uc.csproj">
+      <Project>{58f8c08f-a1d6-4f60-9a84-7a647c74adec}</Project>
+      <Name>sct.svc.uc</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Script\Common\ueditor\net\config.json" />
+    <Content Include="Script\Common\ueditor\net\controller.ashx" />
+    <Content Include="Script\Common\ueditor\net\README.md" />
+    <Content Include="Script\Common\ueditor\net\Web.config" />
+    <Content Include="Script\Common\ueditor\third-party\jquery-1.10.2.min.map" />
+    <Content Include="Script\Common\ueditor\third-party\video-js\font\vjs.eot" />
+    <Content Include="Script\Common\ueditor\third-party\video-js\font\vjs.ttf" />
+    <Content Include="Script\Common\ueditor\third-party\video-js\font\vjs.woff" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\PlateMgr\PlateList.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\PlateMgr\PlateForm.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\PlateMgr\PlateNewsList.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\PlateMgr\PlateNewsForm.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_FrameLayoutPage.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_MainLayoutPage.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\PartialFacility.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_FormLayoutPage.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\ArticleMgr\ArticleCatalogList.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\ArticleMgr\ArticleCatalogForm.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\ArticleMgr\ArticleList.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\ArticleMgr\ArticleForm.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\BasicMgr\RegionList.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\BasicMgr\RegionForm.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Config\log4net.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\BasicMgr\AppList.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\BasicMgr\AppForm.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\SysMgr\FunctionList.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\SysMgr\FunctionForm.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\SysMgr\FacilityList.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\SysMgr\FacilityForm.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\SysMgr\MenuList.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\SysMgr\MenuForm.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\SysMgr\RoleList.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\SysMgr\RoleForm.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\BasicMgr\ClientTypeList.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\BasicMgr\ClientTypeForm.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\metronic.bootstrap\media\image\css" />
+    <Content Include="Content\metronic.bootstrap\media\image\fontawesome-webfont.eot" />
+    <Content Include="Content\metronic.bootstrap\media\image\fontawesome-webfont.ttf" />
+    <Content Include="Content\metronic.bootstrap\media\image\fontawesome-webfont.woff" />
+    <Content Include="Content\metronic.bootstrap\media\image\glyphicons-regular.eot" />
+    <Content Include="Content\metronic.bootstrap\media\image\glyphicons-regular.ttf" />
+    <Content Include="Content\metronic.bootstrap\media\image\glyphicons-regular.woff" />
+    <Content Include="Content\metronic.bootstrap\media\image\glyphiconshalflings-regular.eot" />
+    <Content Include="Content\metronic.bootstrap\media\image\glyphiconshalflings-regular.ttf" />
+    <Content Include="Content\metronic.bootstrap\media\image\glyphiconshalflings-regular.woff" />
+    <Content Include="Content\metronic.bootstrap\media\image\js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-3.3.4-dist\css\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap-3.3.4-dist\css\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-3.3.4-dist\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap-3.3.4-dist\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\bootstrap-3.3.4-dist\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\bootstrap-3.3.4-dist\fonts\glyphicons-halflings-regular.woff2" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\Login.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\CorpMgr\CompanyList.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\CorpMgr\CompanyForm.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\CorpMgr\DepartmentList.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\CorpMgr\DepartmentForm.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\CorpMgr\StationList.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\CorpMgr\StationForm.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\CorpMgr\StaffList.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\CorpMgr\StaffForm.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\MaterialMgr\MaterialCatalogList.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\MaterialMgr\MaterialCatalogForm.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\ProductMgr\ProductCatalogForm.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\ProductMgr\ProductCatalogList.cshtml" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>6056</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:17508/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

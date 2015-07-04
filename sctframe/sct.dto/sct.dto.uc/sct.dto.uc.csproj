@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{12FFEF0E-3755-462A-BEC1-DFB819C78842}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>sct.dto.uc</RootNamespace>
+    <AssemblyName>sct.dto.uc</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Runtime.Serialization" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Basic\AppInfo.cs" />
+    <Compile Include="Basic\ClientTypeInfo.cs" />
+    <Compile Include="Basic\CompanyClientTypeInfo.cs" />
+    <Compile Include="Basic\CompanyInfo.cs" />
+    <Compile Include="Basic\CompanyStaffInfo.cs" />
+    <Compile Include="Basic\DepartmentInfo.cs" />
+    <Compile Include="Basic\FacilityFunctionInfo.cs" />
+    <Compile Include="Basic\FacilityInfo.cs" />
+    <Compile Include="Basic\FunctionInfo.cs" />
+    <Compile Include="Basic\MenuInfo.cs" />
+    <Compile Include="Basic\RegionInfo.cs" />
+    <Compile Include="Basic\RoleFacilityInfo.cs" />
+    <Compile Include="Basic\RoleInfo.cs" />
+    <Compile Include="Basic\StaffInfo.cs" />
+    <Compile Include="Basic\StaffStationInfo.cs" />
+    <Compile Include="Basic\StationInfo.cs" />
+    <Compile Include="Basic\StationRoleInfo.cs" />
+    <Compile Include="DESwap.cs" />
+    <Compile Include="Partial\AppInfo.cs" />
+    <Compile Include="Partial\ClientTypeInfo.cs" />
+    <Compile Include="Partial\CompanyClientTypeInfo.cs" />
+    <Compile Include="Partial\CompanyInfo.cs" />
+    <Compile Include="Partial\CompanyStaffInfo.cs" />
+    <Compile Include="Partial\DepartmentInfo.cs" />
+    <Compile Include="Partial\FacilityFunctionInfo.cs" />
+    <Compile Include="Partial\FacilityInfo.cs" />
+    <Compile Include="Partial\FunctionInfo.cs" />
+    <Compile Include="Partial\MenuInfo.cs" />
+    <Compile Include="Partial\RegionInfo.cs" />
+    <Compile Include="Partial\RoleFacilityInfo.cs" />
+    <Compile Include="Partial\RoleInfo.cs" />
+    <Compile Include="Partial\StaffInfo.cs" />
+    <Compile Include="Partial\StaffStationInfo.cs" />
+    <Compile Include="Partial\StationInfo.cs" />
+    <Compile Include="Partial\StationRoleInfo.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\sct.cm\sct.cm.data\sct.cm.data.csproj">
+      <Project>{2cb89931-c62c-4969-92a6-232bd4fd41b5}</Project>
+      <Name>sct.cm.data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\sct.ent\sct.ent.uc\sct.ent.uc.csproj">
+      <Project>{bc0fffc3-082f-429a-b4c1-30478a8447f3}</Project>
+      <Name>sct.ent.uc</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

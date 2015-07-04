@@ -1,0 +1,73 @@
+﻿@{
+    ViewBag.Title = "FacilityForm";
+    Layout = "~/Views/Shared/_FormLayoutPage.cshtml";
+}
+@model sct.dto.uc.FacilityInfo
+@using (Html.BeginForm("SaveFacility", "SysMgr", FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    <div class="portlet box  blue">
+        <div class="portlet-title">
+            <div class="caption">权限设置</div>
+        </div>
+        <div class="portlet-body form">
+            <div class="control-group">
+                <label class="control-label">权限编码 @Html.Hidden("Id", Model.Id)</label>
+                <div class="controls">
+                    @Html.TextBoxFor(x => x.FacilityCode, new { placeholder = "权限编码", @class = "m-wrap medium" })
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">权限名称</label>
+                <div class="controls">@Html.TextBoxFor(x => x.FacilityName, new { placeholder = "权限名称", @class = "m-wrap medium" })</div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">
+                    所在应用</label>
+                <div class="controls">@Html.DropDownListFor(x => x.AppId, sct.cm.util.HtmlSetter.ListToTreeList(ViewBag.DicApp as List<sct.cm.data.ChooseDictionary>, 1, false))
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">
+                    所在菜单</label>
+                <div class="controls">@Html.DropDownListFor(x => x.MenuId, sct.cm.util.HtmlSetter.ListToTreeList(ViewBag.DicMenu as List<sct.cm.data.ChooseDictionary>, 2, false))
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">
+                    权限对应功能</label>
+                <div class="controls">
+                    @{ var FacilityFunctionInfoList = Model.FacilityFunctionInfoList;
+                       if (FacilityFunctionInfoList != null && FacilityFunctionInfoList.Count > 0)
+                       {
+                           for (int i = 0; i < FacilityFunctionInfoList.Count; i++)
+                           {
+                               
+                        <label class="checkbox">@Html.CheckBox("FacilityFunctionInfoList[" + i.ToString() + "].Selected", Model.FacilityFunctionInfoList[i].Selected) @Model.FacilityFunctionInfoList[i].FunctionName
+                            @Html.Hidden("FacilityFunctionInfoList[" + i.ToString() + "].Id", Model.FacilityFunctionInfoList[i].Id)
+                            @Html.Hidden("FacilityFunctionInfoList[" + i.ToString() + "].FunctionId", Model.FacilityFunctionInfoList[i].FunctionId)
+                            @Html.Hidden("FacilityFunctionInfoList[" + i.ToString() + "].FunctionName", Model.FacilityFunctionInfoList[i].FunctionName)
+                        </label>
+                           }
+                       }
+                    }
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">排序</label>
+                <div class="controls">@Html.TextBoxFor(x => x.SYS_OrderSeq, new { placeholder = "0", @class = "m-wrap medium" })</div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">是否启用</label>
+                <div class="controls">
+                    <label class="radio">@Html.RadioButton("SYS_IsValid", 1, Model.SYS_IsValid == 1) 启用 </label>
+                    <label class="radio">@Html.RadioButton("SYS_IsValid", 0, Model.SYS_IsValid == 0)  失效  </label>
+                </div>
+            </div>
+        </div>
+        <div class="portlet-title">
+            <div class="caption">
+                <input type="submit" id="btnSave" value="提交" class="btn blue" /><input type="button" value="取消" onclick="javascript: window.close();" class="btn blue" />
+            </div>
+        </div>
+    </div>
+}

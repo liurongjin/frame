@@ -1,0 +1,140 @@
+﻿@{
+    ViewBag.Title = "CompanyForm";
+    Layout = "~/Views/Shared/_FormLayoutPage.cshtml";
+}
+<!--日期--->
+<script src='@Url.Content("~/Script/Common/My97DatePicker/WdatePicker.js")' type="text/javascript"></script>
+
+@model sct.dto.uc.CompanyInfo
+@using (Html.BeginForm("SaveCompany", "CorpMgr", FormMethod.Post, new { @class = "form-horizontal" }))
+{ 
+    <div class="portlet box  blue">
+        <div class="portlet-title">
+            <div class="caption">编辑公司资料</div>
+        </div>
+        <div class="portlet-body form">
+            <div class="control-group">
+                <label class="control-label">
+                    编码 @Html.Hidden("Id", Model.Id)</label>
+                <div class="controls">@Html.TextBoxFor(x => x.CompanyCode, new { placeholder = "编码", @class = "m-wrap medium" })
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">公司名</label>
+                <div class="controls">
+                    @Html.TextBoxFor(x => x.CompanyName, new { placeholder = "公司名", @class = "m-wrap medium" })
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">本系统</label>
+                <div class="controls">
+                    <label class="radio">@Html.RadioButton("IsOwner", 1, Model.IsOwner == 1) 是 </label>
+                    <label class="radio">@Html.RadioButton("IsOwner", 0, Model.IsOwner == 0)  否  </label>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">公司简称</label>
+                <div class="controls">
+                    @Html.TextBoxFor(x => x.CompanyAbbreviation, new { placeholder = "公司简称", @class = "m-wrap medium" })
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">上级公司</label>
+                <div class="controls">
+                    @Html.DropDownListFor(x => x.ParentId, sct.cm.util.HtmlSetter.ListToTreeList(ViewBag.DicCompany as List<sct.cm.data.ChooseDictionary>, 1, true, "--根目录--"))
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">组织代码证</label>
+                <div class="controls">
+                    @Html.TextBoxFor(x => x.CodeCertificate, new { placeholder = "组织代码证", @class = "m-wrap medium" })
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">工商注册号</label>
+                <div class="controls">
+                    @Html.TextBoxFor(x => x.BusinessCertiticate, new { placeholder = "组织代码证", @class = "m-wrap medium" })
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">注册日期</label>
+                <div class="controls">
+                    @Html.TextBox("RegDate", Model.RegDate.ToString("yyyy-MM-dd"))
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label">注册资金</label>
+                <div class="controls">
+                    @Html.TextBoxFor(x => x.RegMoney, new { placeholder = "注册资金", @class = "m-wrap medium" })
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label">电话</label>
+                <div class="controls">
+                    @Html.TextBoxFor(x => x.Phone, new { placeholder = "电话", @class = "m-wrap medium" })
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">传真</label>
+                <div class="controls">
+                    @Html.TextBoxFor(x => x.Fax, new { placeholder = "传真", @class = "m-wrap medium" })
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label">网址</label>
+                <div class="controls">
+                    @Html.TextBoxFor(x => x.WebSite, new { placeholder = "网址", @class = "m-wrap medium" })
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">
+                    所在区域</label>
+                <div class="controls">
+                    @Html.DropDownListFor(x => x.RegionId, sct.cm.util.HtmlSetter.ListToTreeList(ViewBag.DicRegion as List<sct.cm.data.ChooseDictionary>, 3, false))
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">详细地址</label>
+                <div class="controls">
+                    @Html.TextBoxFor(x => x.DetailAddress, new { placeholder = "详细地址", @class = "m-wrap medium" })
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">公司简介</label>
+                <div class="controls">
+                    @Html.TextAreaFor(x => x.Intro, new { placeholder = "公司简介", @class = "m-wrap medium" })
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">排序</label>
+                <div class="controls">
+                    @Html.TextBoxFor(x => x.SYS_OrderSeq, new { placeholder = "0", @class = "m-wrap medium" })
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">是否启用</label>
+                <div class="controls">
+                    <label class="radio">@Html.RadioButton("SYS_IsValid", 1, Model.SYS_IsValid == 1) 启用 </label>
+                    <label class="radio">@Html.RadioButton("SYS_IsValid", 0, Model.SYS_IsValid == 0)  失效  </label>
+                </div>
+            </div>
+        </div>
+        <div class="portlet-title">
+            <div class="caption">
+                <input type="submit" id="btnSave" value="提交" class="btn blue" /><input type="button" value="取消" onclick="javascript: window.close();" class="btn blue" />
+            </div>
+        </div>
+    </div>
+}
+
+<script type="text/javascript"> 
+    $(function () { 
+        /*********************************************日期控件初始化*********************************************/
+        $("[name='RegDate']").click(function () {
+            WdatePicker({ startDate: '2009-01-18' });
+        });
+    });
+</script>

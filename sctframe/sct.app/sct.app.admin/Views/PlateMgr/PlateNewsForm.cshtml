@@ -1,0 +1,255 @@
+﻿@{
+    ViewBag.Title = "PlateNewsForm";
+    Layout = "~/Views/Shared/_FormLayoutPage.cshtml";
+}
+<!--上传图片-->
+<link href='@Url.Content("~/Script/Common/uploadify/uploadify.css")' rel="stylesheet" type="text/css" />
+<script src='@Url.Content("~/Script/Common/uploadify/jquery.uploadify.min.js")' type="text/javascript"></script>
+<!--配置文本编辑框-->
+<script type="text/javascript" charset="utf-8" src='@Url.Content("~/Script/Common/ueditor/ueditor.config.js")'></script>
+<script type="text/javascript" charset="utf-8" src='@Url.Content("~/Script/Common/ueditor/ueditor.all.min.js")'> </script>
+<!--建议手动加在语言，避免在ie下有时因为加载语言失败导致编辑器加载失败-->
+<!--这里加载的语言文件会覆盖你在配置项目里添加的语言类型，比如你在配置项目里配置的是英文，这里加载的中文，那最后就是中文-->
+<script type="text/javascript" charset="utf-8" src='@Url.Content("~/Script/Common/ueditor/lang/zh-cn/zh-cn.js")'></script>
+
+<!--视频播放-->
+<script src='@Url.Content("~/Script/Common/jwplayer/jwplayer.js")' type="text/javascript"></script>
+
+@model sct.dto.cms.PlateNewsInfo
+@using (Html.BeginForm("SavePlateNews", "PlateMgr", FormMethod.Post, new { @class = "form-horizontal" }))
+{ 
+    <div class="portlet box  blue">
+        <div class="portlet-title">
+            <div class="caption">版块内容管理</div>
+        </div>
+        <div class="portlet-body form">
+            <div class="control-group">
+                <label class="control-label">标题：@Html.Hidden("Id", Model.Id)</label>
+                <div class="controls">@Html.TextBoxFor(x => x.Title)          </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">所属板块：</label>
+                <div class="controls">@Html.DropDownListFor(x => x.PlateId, sct.cm.util.HtmlSetter.ListToTreeList(ViewBag.DicPlate as List<sct.cm.data.ChooseDictionary>, 2, false))          </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">关联文章分类：</label>
+                <div class="controls">@Html.DropDownListFor(x => x.ArticleCatalogId, sct.cm.util.HtmlSetter.ListToTreeList(ViewBag.DicArticleCatalog as List<sct.cm.data.ChooseDictionary>, 3, true, "--请选择--"))          </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">摘要：</label>
+                <div class="controls">@Html.TextBoxFor(x => x.Summary)</div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">标签：</label>
+                <div class="controls">@Html.TextBoxFor(x => x.NewsLabel)</div>
+            </div>
+            <div class="control-group divarticle">
+                <label class="control-label">
+                    内容：</label>
+                <div class="controls">
+                    <script id="ContentText" type="text/plain" style="width: 600px; height: 300px;">@Html.Raw(Model.ContentText)</script>
+                </div>
+            </div>
+            <div class="control-group divpicture" style="display: none">
+                <label class="control-label">
+                    图片：</label>
+                <div class="controls">
+                    <div>@Html.TextBoxFor(x => x.ImageUrl, new { @style = "display:none;" })
+                        <div id="prevImageUrl">
+                            <img id="curImageUrl" style="width: 120px; height: 80px" src="@Model.ImageUrl" />
+                        </div>
+                        <input type="file" id="file_upload_ImageUrl" name="file_upload_ImageUrl" />
+                    </div>
+                </div>
+            </div>
+            <div class="control-group divvideo" style="display: none">
+                <label class="control-label">
+                    视频预览图：
+                </label>
+                <div class="controls">
+                    <div>@Html.TextBoxFor(x => x.VideoImage, new { @style = "display:none;" })
+                        <div id="prevVideoImage">
+                            <img id="curVideoImage" style="width: 120px; height: 80px" src="@Model.VideoImage" />
+                        </div>
+                        <input type="file" id="file_upload_VideoImage" name="file_upload_ImageUrl" />
+                    </div>
+                </div>
+            </div>
+            <div class="control-group divvideo" style="display: none">
+                <label class="control-label">视频：</label>
+                <div class="controls">
+                    <div>
+                        <div id="container"></div>@Html.TextBoxFor(x => x.VideoUrl, new { @style = "display:none;" })
+                        <input type="file" id="file_upload_VideoUrl" name="file_upload_VideoUrl" />
+                    </div>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">
+                    目标地址：</label>
+                <div class="controls">@Html.TextBoxFor(x => x.TargetUrl, new { placeholder = "应用编码", @class = "m-wrap medium" })
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">排序</label>
+                <div class="controls">
+                    @Html.TextBoxFor(x => x.SYS_OrderSeq, new { placeholder = "0", @class = "m-wrap medium" })
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">是否启用</label>
+                <div class="controls">
+                    <label class="radio">@Html.RadioButton("SYS_IsValid", 1, Model.SYS_IsValid == 1) 启用 </label>
+                    <label class="radio">@Html.RadioButton("SYS_IsValid", 0, Model.SYS_IsValid == 0)  失效  </label>
+                </div>
+            </div>
+        </div>
+        <div class="portlet-title">
+            <div class="caption">
+                <input type="submit" id="btnSave" value="提交" class="btn blue" /><input type="button" value="取消" onclick="javascript: window.close();" class="btn blue" />
+            </div>
+        </div>
+    </div>
+}
+
+<script type="text/javascript">
+    /**********************************************控制隐藏和显示块**********************************************/
+    function displayViewDiv(platetype) {
+        $('div[class="control-group divarticle"]').hide();
+        $('div[class="control-group divpicture"]').hide();
+        $('div[class="control-group divvideo"]').hide();
+        if (platetype.indexOf("[Text]") > 0) {
+            $('div[class="control-group divarticle"]').show();
+        }
+        if (platetype.indexOf("[Picture]") > 0) {
+            $('div[class="control-group divpicture"]').show();
+        }
+        if (platetype.indexOf("[Article]") > 0) {
+            $('div[class="control-group divarticle"]').show();
+        }
+        if (platetype.indexOf("[Video]") > 0) {
+            $('div[class="control-group divvideo"]').show();
+        }
+    }
+
+    $(function () {
+        /**********************************************设置显示编辑区内容**********************************************/
+        var platetype = $("#PlateId").find("option:selected").text();
+        if (platetype != "") {
+            displayViewDiv(platetype);
+        }
+
+        /**********************************************加载类型显示区事件**********************************************/
+        $('#PlateId').change(function () {
+            var platetype = $("#PlateId").find("option:selected").text();
+            displayViewDiv(platetype);
+        });
+
+        /*建议使用工厂方法getEditor创建和引用编辑器实例，如果在某个闭包下引用该编辑器，直接调用UE.getEditor('editor')就能拿到相关的实例*/
+        var ue = UE.getEditor('ContentText');
+
+        /**********************************************初始化加载播放器**********************************************/
+        thePlayer = jwplayer('container').setup({
+            flashplayer: '@Url.Content("~/Script/Common/jwplayer/player.swf")',
+            /*file: 'Url.Content("~/Script/Common/jwplayer/demo.mp4")',视频*/
+            /*image: "",视频预览图片 */
+            /*controlbar: "over",/*控制条位置 */
+            /*screencolor: "#fff",/*播放器颜色 */
+            autostart: false,/*自动播放*/
+            /*dock: false */
+        });
+
+        /**********************************************加载视频**********************************************/
+        if ($.trim($("[name='VideoUrl']").val()) != "") {
+            jwplayer().load([{ file: $("[name='VideoUrl']").val(), image: $("[name='VideoImage']").val() }]);
+        }
+
+        /*图片上传*/
+        $('#file_upload_ImageUrl').uploadify({
+            'swf': '@Url.Content("~/Script/Common/uploadify/uploadify.swf")',
+            'uploader': '@Url.Content("~/UploadHandler/UploadImage")',
+            'buttonText': '点击浏览图片',
+            'multi': false,//多文件上传
+            //'uploadLimit': 2,//允许上传文件的个数
+            //'queueSizeLimit': 3,//同时上传的文件
+            'fileTypeDesc': '请选择图片，仅支持格式JPG,BMP,PNG,GIF，最大4M',
+            'fileTypeExts': '*.JPG;*.GIF;*.PNG;*.BMP;',
+            'onUploadSuccess': function (file, data, response) {//上传完成时触发（每个文件触发一次
+                if (response == true) {//如果服务器返回200表示成功
+                    var obj = JSON.parse(data);
+                    if (obj.IsSuccess) {
+                        $("#curImageUrl").attr("src", obj.JsonData);
+                        $("[name='ImageUrl']").val(obj.JsonData);
+                    }
+                    else {
+                        alert(obj.Message);
+                    }
+
+                } else {
+                    alert('上传失败', 'e');
+                }
+            },
+            'onUploadError': function (file, data, response) {
+                alert('上传失败', 'e');
+            }
+        });
+
+        /*********************************************视频预览图上传*********************************************/
+        $('#file_upload_VideoImage').uploadify({
+            'swf': '@Url.Content("~/Script/Common/uploadify/uploadify.swf")',
+            'uploader': '@Url.Content("~/UploadHandler/UploadImage")',
+            'buttonText': '点击浏览图片',
+            'multi': false,//多文件上传
+            //'uploadLimit': 2,//允许上传文件的个数
+            //'queueSizeLimit': 3,//同时上传的文件
+            'fileTypeDesc': '请选择图片，仅支持格式JPG,BMP,PNG,GIF，最大4M',
+            'fileTypeExts': '*.JPG;*.GIF;*.PNG;*.BMP;',
+            'onUploadSuccess': function (file, data, response) {//上传完成时触发（每个文件触发一次
+                if (response == true) {//如果服务器返回200表示成功
+                    var obj = JSON.parse(data);
+                    if (obj.IsSuccess) {
+                        $("#curVideoImage").attr("src", obj.JsonData);
+                        $("[name='VideoImage']").val(obj.JsonData);
+                    }
+                    else {
+                        alert(obj.Message);
+                    }
+
+                } else {
+                    alert('上传失败', 'e');
+                }
+            },
+            'onUploadError': function (file, data, response) {
+                alert('上传失败', 'e');
+            }
+        })
+
+        /*********************************************视频上传*********************************************/
+        $('#file_upload_VideoUrl').uploadify({
+            'swf': '@Url.Content("~/Script/Common/uploadify/uploadify.swf")',
+            'uploader': '@Url.Content("~/UploadHandler/UploadVideo")',
+            'buttonText': '点击浏览视频',
+            'multi': false,
+            'fileTypeDesc': '请选择视频，仅支持格式MP4，最大8M',
+            'fileTypeExts': '*.MP4',
+            'onUploadSuccess': function (file, data, response) {
+                if (response == true) {
+                    var obj = JSON.parse(data);
+                    if (obj.IsSuccess) {
+                        $("[name='VideoUrl']").val(obj.JsonData);
+                        jwplayer().load([{ file: $("[name='VideoUrl']").val(), image: $("[name='VideoImage']").val() }]);
+                    }
+                    else {
+                        alert(obj.Message);
+                    }
+
+                } else {
+                    alert('上传失败', 'e');
+                }
+            },
+            'onUploadError': function (file, data, response) {
+                alert('上传失败', 'e');
+            }
+        })
+    });
+</script>

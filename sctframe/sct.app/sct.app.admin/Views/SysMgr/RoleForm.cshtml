@@ -1,0 +1,66 @@
+﻿@{
+    ViewBag.Title = "RoleForm";
+    Layout = "~/Views/Shared/_FormLayoutPage.cshtml";
+}
+@model sct.dto.uc.RoleInfo
+@using (Html.BeginForm("SaveRole", "SysMgr", FormMethod.Post, new { @class = "form-horizontal" }))
+{ 
+    <div class="portlet box  blue">
+        <div class="portlet-title">
+            <div class="caption">配置角色</div>
+        </div>
+        <div class="portlet-body form">
+            <div class="control-group">
+                <label class="control-label">角色编码 @Html.Hidden("Id", Model.Id)</label>
+                <div class="controls">@Html.TextBoxFor(x => x.RoleCode, new { placeholder = "角色编码", @class = "m-wrap medium" })
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">角色名称</label>
+                <div class="controls">@Html.TextBoxFor(x => x.RoleName, new { placeholder = "角色名称", @class = "m-wrap medium" })
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">所在应用</label>
+                <div class="controls">@Html.DropDownListFor(x => x.AppId, sct.cm.util.HtmlSetter.ListToTreeList(ViewBag.DicApp as List<sct.cm.data.ChooseDictionary>, 1, false))               </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">
+                    角色对应权限</label>
+                <div class="controls">
+                    @{ var RoleFacilityInfoList = Model.RoleFacilityInfoList;
+                       if (RoleFacilityInfoList != null && RoleFacilityInfoList.Count > 0)
+                       {
+                           for (int i = 0; i < RoleFacilityInfoList.Count; i++)
+                           {
+                               
+                        <label class="checkbox">@Html.CheckBox("RoleFacilityInfoList[" + i.ToString() + "].Selected", Model.RoleFacilityInfoList[i].Selected) @Model.RoleFacilityInfoList[i].FacilityName
+                            @Html.Hidden("RoleFacilityInfoList[" + i.ToString() + "].Id", Model.RoleFacilityInfoList[i].Id)
+                            @Html.Hidden("RoleFacilityInfoList[" + i.ToString() + "].FacilityId", Model.RoleFacilityInfoList[i].FacilityId)
+                            @Html.Hidden("RoleFacilityInfoList[" + i.ToString() + "].FacilityName", Model.RoleFacilityInfoList[i].FacilityName)
+                        </label>
+                           }
+                       }
+                    }
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">排序</label>
+                <div class="controls">@Html.TextBoxFor(x => x.SYS_OrderSeq, new { placeholder = "0", @class = "m-wrap medium" })
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">是否启用</label>
+                <div class="controls">
+                    <label class="radio">@Html.RadioButton("SYS_IsValid", 1, Model.SYS_IsValid == 1) 启用 </label>
+                    <label class="radio">@Html.RadioButton("SYS_IsValid", 0, Model.SYS_IsValid == 0)  失效  </label>
+                </div>
+            </div>
+        </div>
+        <div class="portlet-title">
+            <div class="caption">
+                <input type="submit" id="btnSave" value="提交" class="btn blue" /><input type="button" value="取消" onclick="javascript: window.close();" class="btn blue" />
+            </div>
+        </div>
+    </div>
+}

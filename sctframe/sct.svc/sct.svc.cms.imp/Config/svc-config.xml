@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<objects  xmlns='http://www.springframework.net' default-autowire="byName">
+  <object id="AdviceService" type="sct.svc.Cms.Imp.AdviceService,sct.svc.Cms.Imp">
+    <property name="AdviceRpt" ref="AdviceRpt" />
+  </object>
+  <object id="ArticleService" type="sct.svc.Cms.Imp.ArticleService,sct.svc.Cms.Imp">
+    <property name="ArticleRpt" ref="ArticleRpt" />
+    <property name="ArticleDetailRpt" ref="ArticleDetailRpt" />
+    <property name="ArticleImageRpt" ref="ArticleImageRpt" />
+    <property name="ArticleVideoRpt" ref="ArticleVideoRpt" />
+  </object>
+  <object id="ArticleAnnexService" type="sct.svc.Cms.Imp.ArticleAnnexService,sct.svc.Cms.Imp">
+    <property name="ArticleAnnexRpt" ref="ArticleAnnexRpt" />
+  </object>
+  <object id="ArticleCatalogService" type="sct.svc.Cms.Imp.ArticleCatalogService,sct.svc.Cms.Imp">
+    <property name="ArticleCatalogRpt" ref="ArticleCatalogRpt" />
+  </object>
+  <object id="ArticleDetailService" type="sct.svc.Cms.Imp.ArticleDetailService,sct.svc.Cms.Imp">
+    <property name="ArticleDetailRpt" ref="ArticleDetailRpt" />
+  </object>
+  <object id="ArticleImageService" type="sct.svc.Cms.Imp.ArticleImageService,sct.svc.Cms.Imp">
+    <property name="ArticleImageRpt" ref="ArticleImageRpt" />
+  </object>
+  <object id="ArticleVideoService" type="sct.svc.Cms.Imp.ArticleVideoService,sct.svc.Cms.Imp">
+    <property name="ArticleVideoRpt" ref="ArticleVideoRpt" />
+  </object>
+  <object id="FriendLinkService" type="sct.svc.Cms.Imp.FriendLinkService,sct.svc.Cms.Imp">
+    <property name="FriendLinkRpt" ref="FriendLinkRpt" />
+  </object>
+  <object id="PlateService" type="sct.svc.Cms.Imp.PlateService,sct.svc.Cms.Imp">
+    <property name="PlateRpt" ref="PlateRpt" />
+  </object>
+  <object id="PlateNewsService" type="sct.svc.Cms.Imp.PlateNewsService,sct.svc.Cms.Imp">
+    <property name="PlateNewsRpt" ref="PlateNewsRpt" />
+  </object>
+</objects>

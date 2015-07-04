@@ -1,0 +1,106 @@
+﻿@{
+    ViewBag.Title = "ArticleCatalogForm";
+    Layout = "~/Views/Shared/_FormLayoutPage.cshtml";
+}
+<!--上传图片-->
+<link href='@Url.Content("~/Script/Common/uploadify/uploadify.css")' rel="stylesheet" type="text/css" />
+<script src='@Url.Content("~/Script/Common/uploadify/jquery.uploadify.min.js")' type="text/javascript"></script>
+@model sct.dto.cms.ArticleCatalogInfo
+@using (Html.BeginForm("SaveArticleCatalog", "ArticleMgr", FormMethod.Post, new { @class = "form-horizontal" }))
+{ 
+    <div class="portlet box  blue">
+        <div class="portlet-title">
+            <div class="caption">资讯栏目设置</div>
+        </div>
+        <div class="portlet-body form">
+            <div class="control-group">
+                <label class="control-label">栏目编码：@Html.Hidden("Id", Model.Id)</label>
+                <div class="controls">@Html.TextBoxFor(x => x.Code, new { placeholder = "栏目编码", @class = "m-wrap medium" })
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">栏目名称：</label>
+                <div class="controls">@Html.TextBoxFor(x => x.Name, new { placeholder = "栏目名称", @class = "m-wrap medium" })
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">上级分类：</label>
+                <div class="controls">@Html.DropDownListFor(x => x.ParentId, sct.cm.util.HtmlSetter.ListToTreeList(ViewBag.DicArticleCatalog as List<sct.cm.data.ChooseDictionary>, 2, true, "--根目录--"))                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">
+                    是否栏目：</label>
+                <div class="controls">
+                    <label class="radio">@Html.RadioButton("IsColumn", 1, Model.IsColumn == 1) 是</label>
+                    <label class="radio">@Html.RadioButton("IsColumn", 0, Model.IsColumn == 0) 否</label>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">
+                    图片：</label>
+                <div class="controls">@Html.TextBoxFor(x => x.Image, new { @style = "display:none;" })
+                    <div id="prevImage">
+                        <img id="curImage" style="width: 120px; height: 80px" src="@Model.Image" />
+                    </div>
+                    <input type="file" id="file_upload_Image" name="file_upload_Image" />
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">
+                    链接地址：</label>
+                <div class="controls">@Html.TextBoxFor(x => x.LinkUrl, new { placeholder = "链接地址", @class = "m-wrap medium" })
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">
+                    排序</label>
+                <div class="controls">@Html.TextBoxFor(x => x.SYS_OrderSeq, new { placeholder = "0", @class = "m-wrap medium" })
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">是否启用</label>
+                <div class="controls">
+                    <label class="radio">@Html.RadioButton("SYS_IsValid", 1, Model.SYS_IsValid == 1) 启用 </label>
+                    <label class="radio">@Html.RadioButton("SYS_IsValid", 0, Model.SYS_IsValid == 0)  失效  </label>
+                </div>
+            </div>
+        </div>
+        <div class="portlet-title">
+            <div class="caption">
+                <input type="submit" id="btnSave" value="提交" class="btn blue" /><input type="button" value="取消" onclick="javascript: window.close();" class="btn blue" />
+            </div>
+        </div>
+    </div>
+}
+<script type="text/javascript">
+    $(function () {
+        $('#file_upload_Image').uploadify({
+            'swf': '@Url.Content("~/Script/Common/uploadify/uploadify.swf")',
+            'uploader': '@Url.Content("~/UploadHandler/UploadImage")',
+            'buttonText': '点击浏览图片',
+            'multi': false,//多文件上传
+            //'uploadLimit': 2,//允许上传文件的个数
+            //'queueSizeLimit': 3,//同时上传的文件
+            'fileTypeDesc': '请选择图片，仅支持格式JPG,BMP,PNG,GIF，最大4M',
+            'fileTypeExts': '*.JPG;*.GIF;*.PNG;*.BMP;',
+            'onUploadSuccess': function (file, data, response) {//上传完成时触发（每个文件触发一次
+                if (response == true) {//如果服务器返回200表示成功
+                    var obj = JSON.parse(data);
+                    if (obj.IsSuccess) {
+                        $("#curImage").attr("src", obj.JsonData);
+                        $("[name='Image']").val(obj.JsonData);
+                    }
+                    else {
+                        alert(obj.Message);
+                    }
+
+                } else {
+                    alert('上传失败', 'e');
+                }
+            },
+            'onUploadError': function (file, data, response) {
+                alert('上传失败', 'e');
+            }
+        })
+    });
+</script>

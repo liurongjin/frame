@@ -1,0 +1,89 @@
+﻿@{
+    ViewBag.Title = "FunctionForm";
+    Layout = "~/Views/Shared/_FormLayoutPage.cshtml";
+}
+<!--上传图片-->
+<link href='@Url.Content("~/Script/Common/uploadify/uploadify.css")' rel="stylesheet" type="text/css" />
+<script src='@Url.Content("~/Script/Common/uploadify/jquery.uploadify.min.js")' type="text/javascript"></script>
+@model sct.dto.uc.FunctionInfo
+@using (Html.BeginForm("SaveFunction", "SysMgr", FormMethod.Post, new { @class = "form-horizontal" }))
+{ 
+    <div class="portlet box  blue">
+        <div class="portlet-title">
+            <div class="caption">功能编辑</div>
+        </div>
+        <div class="portlet-body form">
+            <div class="control-group">
+                <label class="control-label">功能编码 @Html.Hidden("Id", Model.Id)</label>
+                <div class="controls">
+                    @Html.TextBoxFor(x => x.FunctionCode, new { placeholder = "功能编码", @class = "m-wrap medium" })
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">功能名称</label>
+                <div class="controls">@Html.TextBoxFor(x => x.FunctionName, new { placeholder = "功能名称", @class = "m-wrap medium" })
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">功能图标</label>
+                <div class="controls">
+                    <div>@Html.TextBoxFor(x => x.FunctionIcon, new { @style = "display:none;" })
+                        <div id="prevFunctionIcon">
+                            <img id="curFunctionIcon" style="width: 120px; height: 80px" src="@Model.FunctionIcon" />
+                        </div>
+                        <input type="file" id="file_upload_FunctionIcon" name="file_upload_FunctionIcon" />
+                    </div>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">排序</label>
+                <div class="controls">@Html.TextBoxFor(x => x.SYS_OrderSeq, new { placeholder = "排序", @class = "m-wrap medium" }) </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">是否启用</label>
+                <div class="controls">
+                    <label class="radio">@Html.RadioButton("SYS_IsValid", 1, Model.SYS_IsValid == 1) 启用 </label>
+                    <label class="radio">@Html.RadioButton("SYS_IsValid", 0, Model.SYS_IsValid == 0)  失效  </label>
+                </div>
+            </div>
+        </div>
+        <div class="portlet-title">
+            <div class="caption">
+                <input type="submit" id="btnSave" value="提交" class="btn blue" /><input type="button" value="取消" onclick="javascript: window.close();" class="btn blue" />
+            </div>
+        </div>
+    </div>
+}
+
+<script type="text/javascript">
+    $(function () {
+        $('#file_upload_FunctionIcon').uploadify({
+            'swf': '@Url.Content("~/Script/Common/uploadify/uploadify.swf")',
+            'uploader': '@Url.Content("~/UploadHandler/UploadImage")',
+            'buttonText': '点击浏览图片',
+            'multi': false,//多文件上传
+            //'uploadLimit': 2,//允许上传文件的个数
+            //'queueSizeLimit': 3,//同时上传的文件
+            'fileTypeDesc': '请选择图片，仅支持格式JPG,BMP,PNG,GIF，最大4M',
+            'fileTypeExts': '*.JPG;*.GIF;*.PNG;*.BMP;',
+            'onUploadSuccess': function (file, data, response) {//上传完成时触发（每个文件触发一次
+                if (response == true) {//如果服务器返回200表示成功
+                    var obj = JSON.parse(data);
+                    if (obj.IsSuccess) {
+                        $("#curFunctionIcon").attr("src", obj.JsonData);
+                        $("[name='FunctionIcon']").val(obj.JsonData);
+                    }
+                    else {
+                        alert(obj.Message);
+                    }
+
+                } else {
+                    alert('上传失败', 'e');
+                }
+            },
+            'onUploadError': function (file, data, response) {
+                alert('上传失败', 'e');
+            }
+        })
+    });
+</script>

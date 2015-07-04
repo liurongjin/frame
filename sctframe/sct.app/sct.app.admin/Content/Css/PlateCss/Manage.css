@@ -1,0 +1,61 @@
+﻿/*管理后台页面，列表和编辑页*/
+/*html {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    height: 100%;
+    max-height: 100%;
+}
+
+body {
+    height: 100%;
+    max-height: 100%;
+    padding: 0px;
+    margin: 0px;
+    border: 0px;     
+}*/
+
+/******************************************列表页面样式******************************************/
+
+/*查询区*/ 
+/*.datatablelist {
+    width: 100%;
+    border-collapse: separate;
+}*/
+
+/*行*/
+/*.trrow {
+    background-color: #e5f4fd;
+    width: 100%;
+    cursor: pointer;
+}*/
+
+/*分隔行*/
+/*.trseprow {
+    background-color: gray;
+    width: 100%;
+    cursor: pointer;
+}*/
+
+/*分页控件*/
+/*#pager {
+    position: absolute;
+    right: 40px;
+}*/ 
+/******************************************编辑页面样式******************************************/
+/*.edittable {
+    width: 100%;
+}
+
+.edittrtitle {
+    text-align: right;
+    width:80px;
+}
+
+.edittrcontent {
+    text-align: right;
+    width:auto;
+}*/
+
+
+ 

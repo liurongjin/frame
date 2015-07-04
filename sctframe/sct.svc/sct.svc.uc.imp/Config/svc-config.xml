@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<objects  xmlns='http://www.springframework.net' default-autowire="byName">
+  <object id="AppService" type="sct.svc.UC.Imp.AppService,sct.svc.UC.Imp">
+    <property name="AppRpt" ref="AppRpt" />
+  </object>
+  <object id="ClientTypeService" type="sct.svc.UC.Imp.ClientTypeService,sct.svc.UC.Imp">
+    <property name="ClientTypeRpt" ref="ClientTypeRpt" />
+  </object>
+  <object id="CompanyService" type="sct.svc.UC.Imp.CompanyService,sct.svc.UC.Imp">
+    <property name="CompanyRpt" ref="CompanyRpt" />
+  </object>
+  <object id="CompanyClientTypeService" type="sct.svc.UC.Imp.CompanyClientTypeService,sct.svc.UC.Imp">
+    <property name="CompanyClientTypeRpt" ref="CompanyClientTypeRpt" />
+  </object>
+  <object id="CompanyStaffService" type="sct.svc.UC.Imp.CompanyStaffService,sct.svc.UC.Imp">
+    <property name="CompanyStaffRpt" ref="CompanyStaffRpt" />
+  </object>
+  <object id="DepartmentService" type="sct.svc.UC.Imp.DepartmentService,sct.svc.UC.Imp">
+    <property name="DepartmentRpt" ref="DepartmentRpt" />
+  </object>
+  <object id="FacilityService" type="sct.svc.UC.Imp.FacilityService,sct.svc.UC.Imp">
+    <property name="FacilityRpt" ref="FacilityRpt" />
+    <property name="FacilityFunctionRpt" ref="FacilityFunctionRpt" />
+  </object>
+  <object id="FacilityFunctionService" type="sct.svc.UC.Imp.FacilityFunctionService,sct.svc.UC.Imp">
+    <property name="FacilityFunctionRpt" ref="FacilityFunctionRpt" />
+  </object>
+  <object id="FunctionService" type="sct.svc.UC.Imp.FunctionService,sct.svc.UC.Imp">
+    <property name="FunctionRpt" ref="FunctionRpt" />
+  </object>
+  <object id="MenuService" type="sct.svc.UC.Imp.MenuService,sct.svc.UC.Imp">
+    <property name="MenuRpt" ref="MenuRpt" />
+  </object>
+  <object id="RegionService" type="sct.svc.UC.Imp.RegionService,sct.svc.UC.Imp">
+    <property name="RegionRpt" ref="RegionRpt" />
+  </object>
+  <object id="RoleService" type="sct.svc.UC.Imp.RoleService,sct.svc.UC.Imp">
+    <property name="RoleRpt" ref="RoleRpt" />
+    <property name="RoleFacilityRpt" ref="RoleFacilityRpt" />
+  </object>
+  <object id="RoleFacilityService" type="sct.svc.UC.Imp.RoleFacilityService,sct.svc.UC.Imp">
+    <property name="RoleFacilityRpt" ref="RoleFacilityRpt" />
+  </object>
+  <object id="StaffService" type="sct.svc.UC.Imp.StaffService,sct.svc.UC.Imp">
+    <property name="StaffRpt" ref="StaffRpt" />
+    <property name="StaffStationRpt" ref="StaffStationRpt" />
+  </object>
+  <object id="StaffStationService" type="sct.svc.UC.Imp.StaffStationService,sct.svc.UC.Imp">
+    <property name="StaffStationRpt" ref="StaffStationRpt" />
+  </object>
+  <object id="StationService" type="sct.svc.UC.Imp.StationService,sct.svc.UC.Imp">
+    <property name="StationRpt" ref="StationRpt" />
+    <property name="StationRoleRpt" ref="StationRoleRpt" />
+  </object>
+  <object id="StationRoleService" type="sct.svc.UC.Imp.StationRoleService,sct.svc.UC.Imp">
+    <property name="StationRoleRpt" ref="StationRoleRpt" />
+  </object>
+</objects>
