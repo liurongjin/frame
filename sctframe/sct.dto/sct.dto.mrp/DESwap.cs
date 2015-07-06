@@ -837,10 +837,22 @@ namespace sct.dto.mrp
            info._ImageUrlIsDirty = 0;
         }
 
+       if (info._MinStockIsDirty == 1)
+        {
+           entity.MinStock = info.MinStock;
+           info._MinStockIsDirty = 0;
+        }
+
        if (info._StockIsDirty == 1)
         {
            entity.Stock = info.Stock;
            info._StockIsDirty = 0;
+        }
+
+       if (info._MaxStockIsDirty == 1)
+        {
+           entity.MaxStock = info.MaxStock;
+           info._MaxStockIsDirty = 0;
         }
 
        if (info._IntroIsDirty == 1)
@@ -958,8 +970,14 @@ namespace sct.dto.mrp
        info.ImageUrl = entity.ImageUrl;
        info._ImageUrlIsDirty = 0;
 
+       info.MinStock = entity.MinStock;
+       info._MinStockIsDirty = 0;
+
        info.Stock = entity.Stock;
        info._StockIsDirty = 0;
+
+       info.MaxStock = entity.MaxStock;
+       info._MaxStockIsDirty = 0;
 
        info.Intro = entity.Intro;
        info._IntroIsDirty = 0;
@@ -2728,10 +2746,22 @@ namespace sct.dto.mrp
            info._ImageUrlIsDirty = 0;
         }
 
+       if (info._MinStockIsDirty == 1)
+        {
+           entity.MinStock = info.MinStock;
+           info._MinStockIsDirty = 0;
+        }
+
        if (info._StockIsDirty == 1)
         {
            entity.Stock = info.Stock;
            info._StockIsDirty = 0;
+        }
+
+       if (info._MaxStockIsDirty == 1)
+        {
+           entity.MaxStock = info.MaxStock;
+           info._MaxStockIsDirty = 0;
         }
 
        if (info._IntroIsDirty == 1)
@@ -2849,8 +2879,14 @@ namespace sct.dto.mrp
        info.ImageUrl = entity.ImageUrl;
        info._ImageUrlIsDirty = 0;
 
+       info.MinStock = entity.MinStock;
+       info._MinStockIsDirty = 0;
+
        info.Stock = entity.Stock;
        info._StockIsDirty = 0;
+
+       info.MaxStock = entity.MaxStock;
+       info._MaxStockIsDirty = 0;
 
        info.Intro = entity.Intro;
        info._IntroIsDirty = 0;
@@ -4046,6 +4082,149 @@ namespace sct.dto.mrp
 
        info.Note = entity.Note;
        info._NoteIsDirty = 0;
+
+       info.SYS_OrderSeq = entity.SYS_OrderSeq;
+       info._SYS_OrderSeqIsDirty = 0;
+
+       info.SYS_IsValid = entity.SYS_IsValid;
+       info._SYS_IsValidIsDirty = 0;
+
+       info.SYS_IsDeleted = entity.SYS_IsDeleted;
+       info._SYS_IsDeletedIsDirty = 0;
+
+       info.SYS_Remark = entity.SYS_Remark;
+       info._SYS_RemarkIsDirty = 0;
+
+       info.SYS_StaffId = entity.SYS_StaffId;
+       info._SYS_StaffIdIsDirty = 0;
+
+       info.SYS_StationId = entity.SYS_StationId;
+       info._SYS_StationIdIsDirty = 0;
+
+       info.SYS_DepartmentId = entity.SYS_DepartmentId;
+       info._SYS_DepartmentIdIsDirty = 0;
+
+       info.SYS_CompanyId = entity.SYS_CompanyId;
+       info._SYS_CompanyIdIsDirty = 0;
+
+       info.SYS_AppId = entity.SYS_AppId;
+       info._SYS_AppIdIsDirty = 0;
+
+       info.SYS_CreateTime = entity.SYS_CreateTime;
+       info._SYS_CreateTimeIsDirty = 0;
+
+       info.SYS_ModifyTime = entity.SYS_ModifyTime;
+       info._SYS_ModifyTimeIsDirty = 0;
+
+       info.SYS_DeleteTime = entity.SYS_DeleteTime;
+       info._SYS_DeleteTimeIsDirty = 0;
+
+    }
+
+    public static void UnitDTE(UnitInfo info, Unit entity)
+    {
+       if (info._IdIsDirty == 1)
+        {
+           entity.Id = info.Id;
+           info._IdIsDirty = 0;
+        }
+
+       if (info._UnitCodeIsDirty == 1)
+        {
+           entity.UnitCode = info.UnitCode;
+           info._UnitCodeIsDirty = 0;
+        }
+
+       if (info._UnitNameIsDirty == 1)
+        {
+           entity.UnitName = info.UnitName;
+           info._UnitNameIsDirty = 0;
+        }
+
+       if (info._SYS_OrderSeqIsDirty == 1)
+        {
+           entity.SYS_OrderSeq = info.SYS_OrderSeq;
+           info._SYS_OrderSeqIsDirty = 0;
+        }
+
+       if (info._SYS_IsValidIsDirty == 1)
+        {
+           entity.SYS_IsValid = info.SYS_IsValid;
+           info._SYS_IsValidIsDirty = 0;
+        }
+
+       if (info._SYS_IsDeletedIsDirty == 1)
+        {
+           entity.SYS_IsDeleted = info.SYS_IsDeleted;
+           info._SYS_IsDeletedIsDirty = 0;
+        }
+
+       if (info._SYS_RemarkIsDirty == 1)
+        {
+           entity.SYS_Remark = info.SYS_Remark;
+           info._SYS_RemarkIsDirty = 0;
+        }
+
+       if (info._SYS_StaffIdIsDirty == 1)
+        {
+           entity.SYS_StaffId = info.SYS_StaffId;
+           info._SYS_StaffIdIsDirty = 0;
+        }
+
+       if (info._SYS_StationIdIsDirty == 1)
+        {
+           entity.SYS_StationId = info.SYS_StationId;
+           info._SYS_StationIdIsDirty = 0;
+        }
+
+       if (info._SYS_DepartmentIdIsDirty == 1)
+        {
+           entity.SYS_DepartmentId = info.SYS_DepartmentId;
+           info._SYS_DepartmentIdIsDirty = 0;
+        }
+
+       if (info._SYS_CompanyIdIsDirty == 1)
+        {
+           entity.SYS_CompanyId = info.SYS_CompanyId;
+           info._SYS_CompanyIdIsDirty = 0;
+        }
+
+       if (info._SYS_AppIdIsDirty == 1)
+        {
+           entity.SYS_AppId = info.SYS_AppId;
+           info._SYS_AppIdIsDirty = 0;
+        }
+
+       if (info._SYS_CreateTimeIsDirty == 1)
+        {
+           entity.SYS_CreateTime = info.SYS_CreateTime;
+           info._SYS_CreateTimeIsDirty = 0;
+        }
+
+       if (info._SYS_ModifyTimeIsDirty == 1)
+        {
+           entity.SYS_ModifyTime = info.SYS_ModifyTime;
+           info._SYS_ModifyTimeIsDirty = 0;
+        }
+
+       if (info._SYS_DeleteTimeIsDirty == 1)
+        {
+           entity.SYS_DeleteTime = info.SYS_DeleteTime;
+           info._SYS_DeleteTimeIsDirty = 0;
+        }
+
+    }
+
+    public static void UnitETD(Unit entity, UnitInfo info)
+    {
+       info.Id = entity.Id;
+       info._IdIsDirty = 0;
+
+       info.UnitCode = entity.UnitCode;
+       info._UnitCodeIsDirty = 0;
+
+       info.UnitName = entity.UnitName;
+       info._UnitNameIsDirty = 0;
 
        info.SYS_OrderSeq = entity.SYS_OrderSeq;
        info._SYS_OrderSeqIsDirty = 0;

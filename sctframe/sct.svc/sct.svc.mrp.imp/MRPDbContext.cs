@@ -48,6 +48,8 @@ namespace sct.svc.mrp.imp
 
     public DbSet<ProductOrderItem>  ProductOrderItem  {　get;　set;　}
 
+    public DbSet<Unit>  Unit  {　get;　set;　}
+
     #endregion
 
     protected override void OnModelCreating(DbModelBuilder modelBuilder)

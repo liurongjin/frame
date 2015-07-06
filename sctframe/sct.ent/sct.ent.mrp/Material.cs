@@ -37,7 +37,11 @@ namespace sct.ent.mrp
     [StringLength(200)]
     public string ImageUrl{ get; set; } 
 
+    public decimal MinStock{ get; set; } 
+
     public decimal Stock{ get; set; } 
+
+    public decimal MaxStock{ get; set; } 
 
     [StringLength(500)]
     public string Intro{ get; set; } 

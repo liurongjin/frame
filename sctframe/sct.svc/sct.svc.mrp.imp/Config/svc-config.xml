@@ -51,4 +51,7 @@
 <object id="ProductOrderItemService" type="sct.svc.MRP.Imp.ProductOrderItemService,sct.svc.MRP.Imp">
 <property name="ProductOrderItemRpt" ref="ProductOrderItemRpt" />
  </object>
+<object id="UnitService" type="sct.svc.MRP.Imp.UnitService,sct.svc.MRP.Imp">
+<property name="UnitRpt" ref="UnitRpt" />
+ </object>
 </objects>

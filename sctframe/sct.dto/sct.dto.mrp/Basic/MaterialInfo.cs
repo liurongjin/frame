@@ -218,6 +218,24 @@ namespace sct.dto.mrp
     }
 
     [DataMember]
+    internal int  _MinStockIsDirty = 0; 
+
+    [DataMember]
+    internal decimal  _MinStock; 
+
+    [DataMember]
+    public decimal  MinStock
+    {
+      get{
+         return _MinStock;
+      }
+      set{
+         _MinStock = value;
+         _MinStockIsDirty = 1;
+      }
+    }
+
+    [DataMember]
     internal int  _StockIsDirty = 0; 
 
     [DataMember]
@@ -232,6 +250,24 @@ namespace sct.dto.mrp
       set{
          _Stock = value;
          _StockIsDirty = 1;
+      }
+    }
+
+    [DataMember]
+    internal int  _MaxStockIsDirty = 0; 
+
+    [DataMember]
+    internal decimal  _MaxStock; 
+
+    [DataMember]
+    public decimal  MaxStock
+    {
+      get{
+         return _MaxStock;
+      }
+      set{
+         _MaxStock = value;
+         _MaxStockIsDirty = 1;
       }
     }
 

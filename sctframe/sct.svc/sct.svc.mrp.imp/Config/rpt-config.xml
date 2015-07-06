@@ -34,4 +34,6 @@
 </object>
 <object id="ProductOrderItemRpt" type="sct.svc.mrp.imp.ProductOrderItemRpt,sct.svc.mrp.imp">
 </object>
+<object id="UnitRpt" type="sct.svc.mrp.imp.UnitRpt,sct.svc.mrp.imp">
+</object>
 </objects>

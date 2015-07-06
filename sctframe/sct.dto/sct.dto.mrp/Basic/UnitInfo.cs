@@ -7,7 +7,7 @@ namespace sct.dto.mrp
 {
 
 [DataContract]
-  public partial class ProductOrderItemInfo
+  public partial class UnitInfo
   {
     [DataMember]
     internal int  _IdIsDirty = 0; 
@@ -29,97 +29,21 @@ namespace sct.dto.mrp
     }
 
     [DataMember]
-    internal int  _ProductOrderIdIsDirty = 0; 
+    internal int  _UnitCodeIsDirty = 0; 
 
     [DataMember]
-    internal string  _ProductOrderId; 
-
-    [DataMember]
-    [StringLength(36)]
-    public string  ProductOrderId
-    {
-      get{
-         return _ProductOrderId;
-      }
-      set{
-         _ProductOrderId = value;
-         _ProductOrderIdIsDirty = 1;
-      }
-    }
-
-    [DataMember]
-    internal int  _ProductIdIsDirty = 0; 
-
-    [DataMember]
-    internal string  _ProductId; 
-
-    [DataMember]
-    [StringLength(36)]
-    public string  ProductId
-    {
-      get{
-         return _ProductId;
-      }
-      set{
-         _ProductId = value;
-         _ProductIdIsDirty = 1;
-      }
-    }
-
-    [DataMember]
-    internal int  _ProductNameIsDirty = 0; 
-
-    [DataMember]
-    internal string  _ProductName; 
+    internal string  _UnitCode; 
 
     [DataMember]
     [StringLength(200)]
-    public string  ProductName
+    public string  UnitCode
     {
       get{
-         return _ProductName;
+         return _UnitCode;
       }
       set{
-         _ProductName = value;
-         _ProductNameIsDirty = 1;
-      }
-    }
-
-    [DataMember]
-    internal int  _SpecialIsDirty = 0; 
-
-    [DataMember]
-    internal string  _Special; 
-
-    [DataMember]
-    [StringLength(50)]
-    public string  Special
-    {
-      get{
-         return _Special;
-      }
-      set{
-         _Special = value;
-         _SpecialIsDirty = 1;
-      }
-    }
-
-    [DataMember]
-    internal int  _UnitIdIsDirty = 0; 
-
-    [DataMember]
-    internal string  _UnitId; 
-
-    [DataMember]
-    [StringLength(36)]
-    public string  UnitId
-    {
-      get{
-         return _UnitId;
-      }
-      set{
-         _UnitId = value;
-         _UnitIdIsDirty = 1;
+         _UnitCode = value;
+         _UnitCodeIsDirty = 1;
       }
     }
 
@@ -130,7 +54,7 @@ namespace sct.dto.mrp
     internal string  _UnitName; 
 
     [DataMember]
-    [StringLength(50)]
+    [StringLength(200)]
     public string  UnitName
     {
       get{
@@ -139,79 +63,6 @@ namespace sct.dto.mrp
       set{
          _UnitName = value;
          _UnitNameIsDirty = 1;
-      }
-    }
-
-    [DataMember]
-    internal int  _AmountIsDirty = 0; 
-
-    [DataMember]
-    internal decimal  _Amount; 
-
-    [DataMember]
-    public decimal  Amount
-    {
-      get{
-         return _Amount;
-      }
-      set{
-         _Amount = value;
-         _AmountIsDirty = 1;
-      }
-    }
-
-    [DataMember]
-    internal int  _PriceIsDirty = 0; 
-
-    [DataMember]
-    internal decimal  _Price; 
-
-    [DataMember]
-    public decimal  Price
-    {
-      get{
-         return _Price;
-      }
-      set{
-         _Price = value;
-         _PriceIsDirty = 1;
-      }
-    }
-
-    [DataMember]
-    internal int  _SumPriceIsDirty = 0; 
-
-    [DataMember]
-    internal decimal  _SumPrice; 
-
-    [DataMember]
-    public decimal  SumPrice
-    {
-      get{
-         return _SumPrice;
-      }
-      set{
-         _SumPrice = value;
-         _SumPriceIsDirty = 1;
-      }
-    }
-
-    [DataMember]
-    internal int  _NoteIsDirty = 0; 
-
-    [DataMember]
-    internal string  _Note; 
-
-    [DataMember]
-    [StringLength(200)]
-    public string  Note
-    {
-      get{
-         return _Note;
-      }
-      set{
-         _Note = value;
-         _NoteIsDirty = 1;
       }
     }
 

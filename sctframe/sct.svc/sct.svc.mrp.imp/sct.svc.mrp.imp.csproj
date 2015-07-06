@@ -63,6 +63,7 @@
     <Compile Include="Base\ProductCatalogBaseService.cs" />
     <Compile Include="Base\ProductOrderBaseService.cs" />
     <Compile Include="Base\ProductOrderItemBaseService.cs" />
+    <Compile Include="Base\UnitBaseService.cs" />
     <Compile Include="MRPDbContext.cs" />
     <Compile Include="Partial\GatherBillService.cs" />
     <Compile Include="Partial\ManufacturePlanItemService.cs" />
@@ -81,6 +82,7 @@
     <Compile Include="Partial\ProductOrderItemService.cs" />
     <Compile Include="Partial\ProductOrderService.cs" />
     <Compile Include="Partial\ProductService.cs" />
+    <Compile Include="Partial\UnitService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rpt\GatherBillRpt.cs" />
     <Compile Include="Rpt\ManufacturePlanItemRpt.cs" />
@@ -99,6 +101,7 @@
     <Compile Include="Rpt\ProductOrderItemRpt.cs" />
     <Compile Include="Rpt\ProductOrderRpt.cs" />
     <Compile Include="Rpt\ProductRpt.cs" />
+    <Compile Include="Rpt\UnitRpt.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Config\app-config.xml" />

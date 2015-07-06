@@ -58,6 +58,7 @@
     <Compile Include="Basic\ProductInfo.cs" />
     <Compile Include="Basic\ProductOrderInfo.cs" />
     <Compile Include="Basic\ProductOrderItemInfo.cs" />
+    <Compile Include="Basic\UnitInfo.cs" />
     <Compile Include="DESwap.cs" />
     <Compile Include="Partial\GatherBillInfo.cs" />
     <Compile Include="Partial\ManufacturePlanInfo.cs" />
@@ -76,6 +77,7 @@
     <Compile Include="Partial\ProductInfo.cs" />
     <Compile Include="Partial\ProductOrderInfo.cs" />
     <Compile Include="Partial\ProductOrderItemInfo.cs" />
+    <Compile Include="Partial\UnitInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
