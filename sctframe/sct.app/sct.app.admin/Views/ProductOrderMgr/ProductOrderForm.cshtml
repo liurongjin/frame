@@ -1,0 +1,88 @@
+﻿@{
+    ViewBag.Title = "ProductOrderForm";
+    Layout = "~/Views/Shared/_FormLayoutPage.cshtml";
+}
+@model sct.dto.mrp.ProductOrderInfo
+@using (Html.BeginForm("SaveProductOrder", "ProductMgr", FormMethod.Post, new { @class = "form-horizontal" }))
+{ 
+    <div class="portlet box  blue">
+        <div class="portlet-title">
+            <div class="caption">销售单设置</div>
+        </div>
+        <div class="portlet-body form">
+            <div class="control-group">
+                <label class="control-label">
+                    销售单编码 @Html.Hidden("Id", Model.Id)</label>
+                <div class="controls">@Html.TextBoxFor(x => x.OrderNO, new { placeholder = "销售单编码", @class = "m-wrap medium" })
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">原合同编号</label>
+                <div class="controls">@Html.TextBoxFor(x => x.SourceConstractNo, new { placeholder = "原合同编号", @class = "m-wrap medium" })
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">合同签订日期</label>
+                <div class="controls">@Html.TextBoxFor(x => x.ConstractFormDate, new { placeholder = "合同签订日期", @class = "m-wrap medium" })
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">排序</label>
+                <div class="controls">@Html.TextBoxFor(x => x.SYS_OrderSeq, new { placeholder = "0", @class = "m-wrap medium" })
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">是否启用</label>
+                <div class="controls">
+                    <label class="radio">@Html.RadioButton("SYS_IsValid", 1, Model.SYS_IsValid == 1) 启用 </label>
+                    <label class="radio">@Html.RadioButton("SYS_IsValid", 0, Model.SYS_IsValid == 0)  失效  </label>
+                </div>
+            </div>
+        </div>
+        <div class="portlet box blue">
+            <div class="portlet-title">
+                <div class="caption"></div>
+                <div class="tools"> &nbsp;
+                </div>
+            </div>
+            <div class="portlet-body">
+                <table class="table table-striped table-bordered table-hover table-full-width">
+                    <thead>
+                        <tr>
+                            <th style="width: 60px;">
+                                <input type="checkbox" id='chkSelectAllNone' />全/反</th>
+                            <th>成品编码</th>
+                            <th>成品名称</th>
+                            <th>所属分类</th>
+                            <th>当前库存</th>
+                            <th>最低库存</th>
+                            <th>最高库存</th>
+                            <th>是否启用</th>
+                            <th>排序</th>
+                            <th>更新时间</th>
+                        </tr>
+                        <tr>
+                            <td>全/反</td>
+                            <td>成品编码</td>
+                            <td>成品名称</td>
+                            <td>所属分类</td>
+                            <td>当前库存</td>
+                            <td>最低库存</td>
+                            <td>最高库存</td>
+                            <td>是否启用</td>
+                            <td>排序</td>
+                            <td>更新时间</td>
+                        </tr>
+                    </thead>
+                    <tbody id="datalist">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="portlet-title">
+            <div class="caption">
+                <input type="submit" id="btnSave" value="提交" class="btn blue" /><input type="button" value="取消" onclick="javascript: window.close();" class="btn blue" />
+            </div>
+        </div>
+    </div>
+}

@@ -25,8 +25,10 @@
                     htmllist += '<td><input type = "checkbox" name ="chkSelect"  value="' + jsonData.rows[i].Id + '" /></td>' +
                                     '<td>' + jsonData.rows[i].ProductCode + '</td>' +
                                     '<td>' + jsonData.rows[i].ProductName + '</td>' +
-                                     '<td>' + jsonData.rows[i].ProductName + '</td>' +
                                     '<td>' + jsonData.rows[i].ProductCatalogName + '</td>' +
+                                    '<td>' + jsonData.rows[i].Stock + '</td>' +
+                                    '<td>' + jsonData.rows[i].MinStock + '</td>' +
+                                    '<td>' + jsonData.rows[i].MaxStock + '</td>' +
                                     '<td>' + (jsonData.rows[i].SYS_IsValid == 1 ? '启用' : '失效') + '</td>' +
                                     '<td>' + jsonData.rows[i].SYS_OrderSeq + '</td>' +
                                     '<td>' + FormatDateString(jsonData.rows[i].SYS_ModifyTime) + '</td></tr>';

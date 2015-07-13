@@ -57,5 +57,28 @@ namespace sct.bll.mrp
                                      select new ChooseDictionary { Text = slist.ProductCatalogName, Value = slist.Id, ParentId = slist.ParentId }).ToList();
             return dicProductCatalog;
         }
+
+
+        /// <summary>
+        /// 获取计量单位
+        /// </summary>
+        /// <param name="UnitService"></param>
+        /// <param name="key">移除当前键,当为""或null不移除</param>
+        /// <returns></returns>
+        public static List<ChooseDictionary> ListAllUnitInfo(IUnitService UnitService, string key)
+        {
+            NameValueCollection nvc = new NameValueCollection();
+            nvc.Add("isvalid", "1");
+            NameValueCollection orderby = new NameValueCollection();
+            orderby.Add("unitname", "asc");
+            List<UnitInfo> datalist = UnitService.ListAllByCondition(nvc, orderby);
+            if (!string.IsNullOrEmpty(key))
+            {
+                datalist.Remove(datalist.Where(x => x.Id.Equals(key)).SingleOrDefault());
+            }
+            var dicUnit = (from slist in datalist
+                           select new ChooseDictionary { Text = slist.UnitName, Value = slist.Id, ParentId = null }).ToList();
+            return dicUnit;
+        }
     }
 }

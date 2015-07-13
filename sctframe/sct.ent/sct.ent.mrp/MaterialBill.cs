@@ -24,6 +24,9 @@ namespace sct.ent.mrp
     [StringLength(200)]
     public string RefNO{ get; set; } 
 
+    [StringLength(36)]
+    public string WareHouseId{ get; set; } 
+
     [StringLength(50)]
     public string BillNO{ get; set; } 
 

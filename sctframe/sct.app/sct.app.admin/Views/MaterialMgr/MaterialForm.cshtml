@@ -32,7 +32,7 @@
             <div class="control-group">
                 <label class="control-label">
                     所属分类</label>
-                <div class="controls">@Html.DropDownListFor(x => x.MaterialCatalogId, sct.cm.util.HtmlSetter.ListToTreeList(ViewBag.DicMaterialCatalog as List<sct.cm.data.ChooseDictionary>, 2, true, "--根目录--"))
+                <div class="controls">@Html.DropDownListFor(x => x.MaterialCatalogId, sct.cm.util.HtmlSetter.ListToTreeList(ViewBag.DicMaterialCatalog as List<sct.cm.data.ChooseDictionary>, 2, false))
                 </div>
             </div>
             <div class="control-group">
@@ -49,7 +49,7 @@
             <div class="control-group">
                 <label class="control-label">
                     计量单位</label>
-                <div class="controls">@Html.DropDownListFor(x => x.UnitId, sct.cm.util.HtmlSetter.ListToTreeList(ViewBag.DicMaterialCatalog as List<sct.cm.data.ChooseDictionary>, 2, true, "--根目录--"))
+                <div class="controls">@Html.DropDownListFor(x => x.UnitId, sct.cm.util.HtmlSetter.ListToTreeList(ViewBag.DicUnit as List<sct.cm.data.ChooseDictionary>, 1, false))
                 </div>
             </div>
             <div class="control-group">
@@ -73,8 +73,18 @@
                 </div>
             </div>
             <div class="control-group">
-                <label class="control-label">库存</label>
-                <div class="controls">@Html.TextBoxFor(x => x.Stock, new { placeholder = "库存", @class = "m-wrap medium" })
+                <label class="control-label">最低库存</label>
+                <div class="controls">@Html.TextBoxFor(x => x.MinStock, new { placeholder = "最低库存", @class = "m-wrap medium" })
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">当前库存</label>
+                <div class="controls">@Html.TextBoxFor(x => x.Stock, new { placeholder = "当前库存", @class = "m-wrap medium" })
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">最高库存</label>
+                <div class="controls">@Html.TextBoxFor(x => x.MaxStock, new { placeholder = "最高库存", @class = "m-wrap medium" })
                 </div>
             </div>
             <div class="control-group">

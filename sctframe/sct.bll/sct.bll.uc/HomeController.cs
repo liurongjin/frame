@@ -19,7 +19,7 @@ namespace sct.bll.uc
         /// </summary>
         public IStaffService StaffService = UnitFactory.CreateUnit("StaffService") as IStaffService;
 
-        //[StaffAuthorize(Permissons = "rolemgr,User")]
+        //[StaffAuthorize(Permissons = "Admin, User")]
         public ViewResult Index()
         {
 

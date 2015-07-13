@@ -1,0 +1,45 @@
+﻿@{
+    ViewBag.Title = "UnitForm";
+    Layout = "~/Views/Shared/_FormLayoutPage.cshtml";
+}
+@model sct.dto.mrp.UnitInfo
+@using (Html.BeginForm("SaveUnit", "MrpbasicMgr", FormMethod.Post, new { @class = "form-horizontal" }))
+{  
+    <div class="portlet box  blue">
+        <div class="portlet-title">
+            <div class="caption">配置计量单位</div>
+        </div>
+        <div class="portlet-body form">
+            <div class="control-group">
+                <label class="control-label">单位编码 @Html.Hidden("Id", Model.Id)</label>
+                <div class="controls">
+                    @Html.TextBoxFor(x => x.UnitCode, new { placeholder = "单位编码", @class = "m-wrap medium" })
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">单位名称</label>
+                <div class="controls">@Html.TextBoxFor(x => x.UnitName, new { placeholder = "单位名称", @class = "m-wrap medium" })
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">排序</label>
+                <div class="controls">@Html.TextBoxFor(x => x.SYS_OrderSeq, new { placeholder = "0", @class = "m-wrap medium" })
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">是否启用</label>
+                <div class="controls">
+                    <label class="radio">@Html.RadioButton("SYS_IsValid", 1, Model.SYS_IsValid == 1) 启用 </label>
+                    <label class="radio">@Html.RadioButton("SYS_IsValid", 0, Model.SYS_IsValid == 0)  失效  </label>
+                </div>
+            </div>
+        </div>
+        <div class="portlet-title">
+            <div class="caption">
+                <input type="submit" id="btnSave" value="提交" class="btn blue" /><input type="button" value="取消" onclick="javascript: window.close();" class="btn blue" />
+            </div>
+        </div>
+    </div>
+}
+
+

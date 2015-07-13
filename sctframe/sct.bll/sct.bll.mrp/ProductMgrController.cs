@@ -25,6 +25,11 @@ namespace sct.bll.mrp
         /// </summary>
         public IProductService ProductService = UnitFactory.CreateUnit("ProductService") as IProductService;
 
+        /// <summary>
+        /// 计量单位
+        /// </summary>
+        public IUnitService UnitService = UnitFactory.CreateUnit("UnitService") as IUnitService;
+
 
         #region ProductCatalog Manage
         #region Form
@@ -147,6 +152,7 @@ namespace sct.bll.mrp
         {
             ViewBag.Title = "ProductList";
             ViewBag.DicProductCatalog = PublicMethod.ListAllProductCatalogInfo(ProductCatalogService, null);
+            ViewBag.DicUnit = PublicMethod.ListAllUnitInfo(UnitService, null);
             return View();
         }
 
@@ -154,6 +160,7 @@ namespace sct.bll.mrp
         {
             ViewBag.Title = "ProductForm";
             ViewBag.DicProductCatalog = PublicMethod.ListAllProductCatalogInfo(ProductCatalogService, null);
+            ViewBag.DicUnit = PublicMethod.ListAllUnitInfo(UnitService, null);
             if (string.IsNullOrEmpty(key))
             {
                 ProductInfo info = new ProductInfo();
@@ -243,6 +250,7 @@ namespace sct.bll.mrp
                 }
 
                 ViewBag.DicProductCatalog = PublicMethod.ListAllProductCatalogInfo(ProductCatalogService, null);
+                ViewBag.DicUnit = PublicMethod.ListAllUnitInfo(UnitService, null);
 
                 ViewBag.PromptMsg = opr.Message;
             }

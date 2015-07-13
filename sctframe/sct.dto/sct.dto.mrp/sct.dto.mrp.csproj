@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Basic\CompanyWareHouseInfo.cs" />
     <Compile Include="Basic\GatherBillInfo.cs" />
     <Compile Include="Basic\ManufacturePlanInfo.cs" />
     <Compile Include="Basic\ManufacturePlanItemInfo.cs" />
@@ -52,14 +53,18 @@
     <Compile Include="Basic\MaterialPurchaseItemInfo.cs" />
     <Compile Include="Basic\MaterialPurchasePlanInfo.cs" />
     <Compile Include="Basic\MaterialPurchasePlanItemInfo.cs" />
+    <Compile Include="Basic\MaterialWareStockInfo.cs" />
     <Compile Include="Basic\ProductBillInfo.cs" />
     <Compile Include="Basic\ProductBillItemInfo.cs" />
     <Compile Include="Basic\ProductCatalogInfo.cs" />
     <Compile Include="Basic\ProductInfo.cs" />
     <Compile Include="Basic\ProductOrderInfo.cs" />
     <Compile Include="Basic\ProductOrderItemInfo.cs" />
+    <Compile Include="Basic\ProductWareStockInfo.cs" />
     <Compile Include="Basic\UnitInfo.cs" />
+    <Compile Include="Basic\WareHouseInfo.cs" />
     <Compile Include="DESwap.cs" />
+    <Compile Include="Partial\CompanyWareHouseInfo.cs" />
     <Compile Include="Partial\GatherBillInfo.cs" />
     <Compile Include="Partial\ManufacturePlanInfo.cs" />
     <Compile Include="Partial\ManufacturePlanItemInfo.cs" />
@@ -71,13 +76,16 @@
     <Compile Include="Partial\MaterialPurchaseItemInfo.cs" />
     <Compile Include="Partial\MaterialPurchasePlanInfo.cs" />
     <Compile Include="Partial\MaterialPurchasePlanItemInfo.cs" />
+    <Compile Include="Partial\MaterialWareStockInfo.cs" />
     <Compile Include="Partial\ProductBillInfo.cs" />
     <Compile Include="Partial\ProductBillItemInfo.cs" />
     <Compile Include="Partial\ProductCatalogInfo.cs" />
     <Compile Include="Partial\ProductInfo.cs" />
     <Compile Include="Partial\ProductOrderInfo.cs" />
     <Compile Include="Partial\ProductOrderItemInfo.cs" />
+    <Compile Include="Partial\ProductWareStockInfo.cs" />
     <Compile Include="Partial\UnitInfo.cs" />
+    <Compile Include="Partial\WareHouseInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
