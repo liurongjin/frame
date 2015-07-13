@@ -916,6 +916,7 @@
     <Content Include="Script\Views\SysMgr\FacilityList.js" />
     <Content Include="Script\Views\SysMgr\MenuList.js" />
     <Content Include="Script\Views\SysMgr\RoleList.js" />
+    <Content Include="Script\Views\WareHouseMgr\WareHouseList.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -1178,6 +1179,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\ProductOrderMgr\ProductOrderForm.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\WareHouseMgr\WareHouseList.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\WareHouseMgr\WareHouseForm.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

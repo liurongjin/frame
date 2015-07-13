@@ -2,6 +2,7 @@
 using sct.cm.util;
 using sct.dto.mrp;
 using sct.svc.mrp;
+using sct.svc.uc;
 using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
@@ -18,20 +19,24 @@ namespace sct.bll.mrp
         /// </summary>
         public IWareHouseService WareHouseService = UnitFactory.CreateUnit("WareHouseService") as IWareHouseService;
 
+        /// <summary>
+        /// 区域
+        /// </summary>
+        public IRegionService RegionService = UnitFactory.CreateUnit("RegionService") as IRegionService;
 
         #region WareHouse Manage
         #region Form
         public ViewResult WareHouseList()
         {
             ViewBag.Title = "WareHouseList";
-            //ViewBag.DicWareHouse = PublicMethod.ListAllWareHouseInfo(WareHouseService, null);
+            ViewBag.DicRegion = PublicMethod.ListAllRegionInfo(RegionService, null);
             return View();
         }
 
         public ViewResult WareHouseForm(string key)
         {
             ViewBag.Title = "WareHouseForm";
-            //ViewBag.DicWareHouse = PublicMethod.ListAllWareHouseInfo(WareHouseService, key);
+            ViewBag.DicRegion = PublicMethod.ListAllRegionInfo(RegionService, null);
             if (string.IsNullOrEmpty(key))
             {
                 WareHouseInfo info = new WareHouseInfo();
@@ -47,16 +52,16 @@ namespace sct.bll.mrp
 
         #region Action
         [HttpPost]
-        public JsonResult ListWareHouse(string name, string parentid, string isvalid, int pagenumber, int pagesize)
+        public JsonResult ListWareHouse(string name, string regionid, string isvalid, int pagenumber, int pagesize)
         {
             NameValueCollection nvc = new NameValueCollection();
             if (!string.IsNullOrEmpty(name))
             {
                 nvc.Add("WareHousename", name);
             }
-            if (!string.IsNullOrEmpty(parentid))
+            if (!string.IsNullOrEmpty(regionid))
             {
-                nvc.Add("parentid", parentid);
+                nvc.Add("regionid", regionid);
             }
 
             if (!string.IsNullOrEmpty(isvalid))
@@ -120,7 +125,7 @@ namespace sct.bll.mrp
 
                 }
 
-                //ViewBag.DicWareHouse = PublicMethod.ListAllWareHouseInfo(WareHouseService, info.Id);
+                ViewBag.DicRegion = PublicMethod.ListAllRegionInfo(RegionService, null);
 
                 ViewBag.PromptMsg = opr.Message;
             }
