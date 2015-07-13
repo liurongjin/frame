@@ -141,6 +141,25 @@ namespace sct.dto.mrp
     }
 
     [DataMember]
+    internal int  _WareHouseIdIsDirty = 0; 
+
+    [DataMember]
+    internal string  _WareHouseId; 
+
+    [DataMember]
+    [StringLength(36)]
+    public string  WareHouseId
+    {
+      get{
+         return _WareHouseId;
+      }
+      set{
+         _WareHouseId = value;
+         _WareHouseIdIsDirty = 1;
+      }
+    }
+
+    [DataMember]
     internal int  _BillNOIsDirty = 0; 
 
     [DataMember]

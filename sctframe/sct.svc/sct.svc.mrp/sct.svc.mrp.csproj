@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ICompanyWareHouseService.cs" />
     <Compile Include="IGatherBillService.cs" />
     <Compile Include="IManufacturePlanItemService.cs" />
     <Compile Include="IManufacturePlanService.cs" />
@@ -50,13 +51,16 @@
     <Compile Include="IMaterialPurchasePlanService.cs" />
     <Compile Include="IMaterialPurchaseService.cs" />
     <Compile Include="IMaterialService.cs" />
+    <Compile Include="IMaterialWareStockService.cs" />
     <Compile Include="IProductBillItemService.cs" />
     <Compile Include="IProductBillService.cs" />
     <Compile Include="IProductCatalogService.cs" />
     <Compile Include="IProductOrderItemService.cs" />
     <Compile Include="IProductOrderService.cs" />
     <Compile Include="IProductService.cs" />
+    <Compile Include="IProductWareStockService.cs" />
     <Compile Include="IUnitService.cs" />
+    <Compile Include="IWareHouseService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -7,6 +7,158 @@ namespace sct.dto.mrp
   public class DESwap
   {
 
+    public static void CompanyWareHouseDTE(CompanyWareHouseInfo info, CompanyWareHouse entity)
+    {
+       if (info._IdIsDirty == 1)
+        {
+           entity.Id = info.Id;
+           info._IdIsDirty = 0;
+        }
+
+       if (info._CompanyIdIsDirty == 1)
+        {
+           entity.CompanyId = info.CompanyId;
+           info._CompanyIdIsDirty = 0;
+        }
+
+       if (info._DepartmentIdIsDirty == 1)
+        {
+           entity.DepartmentId = info.DepartmentId;
+           info._DepartmentIdIsDirty = 0;
+        }
+
+       if (info._WareHouseIdIsDirty == 1)
+        {
+           entity.WareHouseId = info.WareHouseId;
+           info._WareHouseIdIsDirty = 0;
+        }
+
+       if (info._SYS_OrderSeqIsDirty == 1)
+        {
+           entity.SYS_OrderSeq = info.SYS_OrderSeq;
+           info._SYS_OrderSeqIsDirty = 0;
+        }
+
+       if (info._SYS_IsValidIsDirty == 1)
+        {
+           entity.SYS_IsValid = info.SYS_IsValid;
+           info._SYS_IsValidIsDirty = 0;
+        }
+
+       if (info._SYS_IsDeletedIsDirty == 1)
+        {
+           entity.SYS_IsDeleted = info.SYS_IsDeleted;
+           info._SYS_IsDeletedIsDirty = 0;
+        }
+
+       if (info._SYS_RemarkIsDirty == 1)
+        {
+           entity.SYS_Remark = info.SYS_Remark;
+           info._SYS_RemarkIsDirty = 0;
+        }
+
+       if (info._SYS_StaffIdIsDirty == 1)
+        {
+           entity.SYS_StaffId = info.SYS_StaffId;
+           info._SYS_StaffIdIsDirty = 0;
+        }
+
+       if (info._SYS_StationIdIsDirty == 1)
+        {
+           entity.SYS_StationId = info.SYS_StationId;
+           info._SYS_StationIdIsDirty = 0;
+        }
+
+       if (info._SYS_DepartmentIdIsDirty == 1)
+        {
+           entity.SYS_DepartmentId = info.SYS_DepartmentId;
+           info._SYS_DepartmentIdIsDirty = 0;
+        }
+
+       if (info._SYS_CompanyIdIsDirty == 1)
+        {
+           entity.SYS_CompanyId = info.SYS_CompanyId;
+           info._SYS_CompanyIdIsDirty = 0;
+        }
+
+       if (info._SYS_AppIdIsDirty == 1)
+        {
+           entity.SYS_AppId = info.SYS_AppId;
+           info._SYS_AppIdIsDirty = 0;
+        }
+
+       if (info._SYS_CreateTimeIsDirty == 1)
+        {
+           entity.SYS_CreateTime = info.SYS_CreateTime;
+           info._SYS_CreateTimeIsDirty = 0;
+        }
+
+       if (info._SYS_ModifyTimeIsDirty == 1)
+        {
+           entity.SYS_ModifyTime = info.SYS_ModifyTime;
+           info._SYS_ModifyTimeIsDirty = 0;
+        }
+
+       if (info._SYS_DeleteTimeIsDirty == 1)
+        {
+           entity.SYS_DeleteTime = info.SYS_DeleteTime;
+           info._SYS_DeleteTimeIsDirty = 0;
+        }
+
+    }
+
+    public static void CompanyWareHouseETD(CompanyWareHouse entity, CompanyWareHouseInfo info)
+    {
+       info.Id = entity.Id;
+       info._IdIsDirty = 0;
+
+       info.CompanyId = entity.CompanyId;
+       info._CompanyIdIsDirty = 0;
+
+       info.DepartmentId = entity.DepartmentId;
+       info._DepartmentIdIsDirty = 0;
+
+       info.WareHouseId = entity.WareHouseId;
+       info._WareHouseIdIsDirty = 0;
+
+       info.SYS_OrderSeq = entity.SYS_OrderSeq;
+       info._SYS_OrderSeqIsDirty = 0;
+
+       info.SYS_IsValid = entity.SYS_IsValid;
+       info._SYS_IsValidIsDirty = 0;
+
+       info.SYS_IsDeleted = entity.SYS_IsDeleted;
+       info._SYS_IsDeletedIsDirty = 0;
+
+       info.SYS_Remark = entity.SYS_Remark;
+       info._SYS_RemarkIsDirty = 0;
+
+       info.SYS_StaffId = entity.SYS_StaffId;
+       info._SYS_StaffIdIsDirty = 0;
+
+       info.SYS_StationId = entity.SYS_StationId;
+       info._SYS_StationIdIsDirty = 0;
+
+       info.SYS_DepartmentId = entity.SYS_DepartmentId;
+       info._SYS_DepartmentIdIsDirty = 0;
+
+       info.SYS_CompanyId = entity.SYS_CompanyId;
+       info._SYS_CompanyIdIsDirty = 0;
+
+       info.SYS_AppId = entity.SYS_AppId;
+       info._SYS_AppIdIsDirty = 0;
+
+       info.SYS_CreateTime = entity.SYS_CreateTime;
+       info._SYS_CreateTimeIsDirty = 0;
+
+       info.SYS_ModifyTime = entity.SYS_ModifyTime;
+       info._SYS_ModifyTimeIsDirty = 0;
+
+       info.SYS_DeleteTime = entity.SYS_DeleteTime;
+       info._SYS_DeleteTimeIsDirty = 0;
+
+    }
+
     public static void GatherBillDTE(GatherBillInfo info, GatherBill entity)
     {
        if (info._IdIsDirty == 1)
@@ -1064,6 +1216,12 @@ namespace sct.dto.mrp
            info._RefNOIsDirty = 0;
         }
 
+       if (info._WareHouseIdIsDirty == 1)
+        {
+           entity.WareHouseId = info.WareHouseId;
+           info._WareHouseIdIsDirty = 0;
+        }
+
        if (info._BillNOIsDirty == 1)
         {
            entity.BillNO = info.BillNO;
@@ -1256,6 +1414,9 @@ namespace sct.dto.mrp
 
        info.RefNO = entity.RefNO;
        info._RefNOIsDirty = 0;
+
+       info.WareHouseId = entity.WareHouseId;
+       info._WareHouseIdIsDirty = 0;
 
        info.BillNO = entity.BillNO;
        info._BillNOIsDirty = 0;
@@ -2678,6 +2839,176 @@ namespace sct.dto.mrp
 
     }
 
+    public static void MaterialWareStockDTE(MaterialWareStockInfo info, MaterialWareStock entity)
+    {
+       if (info._IdIsDirty == 1)
+        {
+           entity.Id = info.Id;
+           info._IdIsDirty = 0;
+        }
+
+       if (info._MaterialIdIsDirty == 1)
+        {
+           entity.MaterialId = info.MaterialId;
+           info._MaterialIdIsDirty = 0;
+        }
+
+       if (info._WareHouseIdIsDirty == 1)
+        {
+           entity.WareHouseId = info.WareHouseId;
+           info._WareHouseIdIsDirty = 0;
+        }
+
+       if (info._MinStockIsDirty == 1)
+        {
+           entity.MinStock = info.MinStock;
+           info._MinStockIsDirty = 0;
+        }
+
+       if (info._StockIsDirty == 1)
+        {
+           entity.Stock = info.Stock;
+           info._StockIsDirty = 0;
+        }
+
+       if (info._MaxStockIsDirty == 1)
+        {
+           entity.MaxStock = info.MaxStock;
+           info._MaxStockIsDirty = 0;
+        }
+
+       if (info._SYS_OrderSeqIsDirty == 1)
+        {
+           entity.SYS_OrderSeq = info.SYS_OrderSeq;
+           info._SYS_OrderSeqIsDirty = 0;
+        }
+
+       if (info._SYS_IsValidIsDirty == 1)
+        {
+           entity.SYS_IsValid = info.SYS_IsValid;
+           info._SYS_IsValidIsDirty = 0;
+        }
+
+       if (info._SYS_IsDeletedIsDirty == 1)
+        {
+           entity.SYS_IsDeleted = info.SYS_IsDeleted;
+           info._SYS_IsDeletedIsDirty = 0;
+        }
+
+       if (info._SYS_RemarkIsDirty == 1)
+        {
+           entity.SYS_Remark = info.SYS_Remark;
+           info._SYS_RemarkIsDirty = 0;
+        }
+
+       if (info._SYS_StaffIdIsDirty == 1)
+        {
+           entity.SYS_StaffId = info.SYS_StaffId;
+           info._SYS_StaffIdIsDirty = 0;
+        }
+
+       if (info._SYS_StationIdIsDirty == 1)
+        {
+           entity.SYS_StationId = info.SYS_StationId;
+           info._SYS_StationIdIsDirty = 0;
+        }
+
+       if (info._SYS_DepartmentIdIsDirty == 1)
+        {
+           entity.SYS_DepartmentId = info.SYS_DepartmentId;
+           info._SYS_DepartmentIdIsDirty = 0;
+        }
+
+       if (info._SYS_CompanyIdIsDirty == 1)
+        {
+           entity.SYS_CompanyId = info.SYS_CompanyId;
+           info._SYS_CompanyIdIsDirty = 0;
+        }
+
+       if (info._SYS_AppIdIsDirty == 1)
+        {
+           entity.SYS_AppId = info.SYS_AppId;
+           info._SYS_AppIdIsDirty = 0;
+        }
+
+       if (info._SYS_CreateTimeIsDirty == 1)
+        {
+           entity.SYS_CreateTime = info.SYS_CreateTime;
+           info._SYS_CreateTimeIsDirty = 0;
+        }
+
+       if (info._SYS_ModifyTimeIsDirty == 1)
+        {
+           entity.SYS_ModifyTime = info.SYS_ModifyTime;
+           info._SYS_ModifyTimeIsDirty = 0;
+        }
+
+       if (info._SYS_DeleteTimeIsDirty == 1)
+        {
+           entity.SYS_DeleteTime = info.SYS_DeleteTime;
+           info._SYS_DeleteTimeIsDirty = 0;
+        }
+
+    }
+
+    public static void MaterialWareStockETD(MaterialWareStock entity, MaterialWareStockInfo info)
+    {
+       info.Id = entity.Id;
+       info._IdIsDirty = 0;
+
+       info.MaterialId = entity.MaterialId;
+       info._MaterialIdIsDirty = 0;
+
+       info.WareHouseId = entity.WareHouseId;
+       info._WareHouseIdIsDirty = 0;
+
+       info.MinStock = entity.MinStock;
+       info._MinStockIsDirty = 0;
+
+       info.Stock = entity.Stock;
+       info._StockIsDirty = 0;
+
+       info.MaxStock = entity.MaxStock;
+       info._MaxStockIsDirty = 0;
+
+       info.SYS_OrderSeq = entity.SYS_OrderSeq;
+       info._SYS_OrderSeqIsDirty = 0;
+
+       info.SYS_IsValid = entity.SYS_IsValid;
+       info._SYS_IsValidIsDirty = 0;
+
+       info.SYS_IsDeleted = entity.SYS_IsDeleted;
+       info._SYS_IsDeletedIsDirty = 0;
+
+       info.SYS_Remark = entity.SYS_Remark;
+       info._SYS_RemarkIsDirty = 0;
+
+       info.SYS_StaffId = entity.SYS_StaffId;
+       info._SYS_StaffIdIsDirty = 0;
+
+       info.SYS_StationId = entity.SYS_StationId;
+       info._SYS_StationIdIsDirty = 0;
+
+       info.SYS_DepartmentId = entity.SYS_DepartmentId;
+       info._SYS_DepartmentIdIsDirty = 0;
+
+       info.SYS_CompanyId = entity.SYS_CompanyId;
+       info._SYS_CompanyIdIsDirty = 0;
+
+       info.SYS_AppId = entity.SYS_AppId;
+       info._SYS_AppIdIsDirty = 0;
+
+       info.SYS_CreateTime = entity.SYS_CreateTime;
+       info._SYS_CreateTimeIsDirty = 0;
+
+       info.SYS_ModifyTime = entity.SYS_ModifyTime;
+       info._SYS_ModifyTimeIsDirty = 0;
+
+       info.SYS_DeleteTime = entity.SYS_DeleteTime;
+       info._SYS_DeleteTimeIsDirty = 0;
+
+    }
+
     public static void ProductDTE(ProductInfo info, Product entity)
     {
        if (info._IdIsDirty == 1)
@@ -2973,6 +3304,12 @@ namespace sct.dto.mrp
            info._RefNOIsDirty = 0;
         }
 
+       if (info._WareHouseIdIsDirty == 1)
+        {
+           entity.WareHouseId = info.WareHouseId;
+           info._WareHouseIdIsDirty = 0;
+        }
+
        if (info._BillNOIsDirty == 1)
         {
            entity.BillNO = info.BillNO;
@@ -3165,6 +3502,9 @@ namespace sct.dto.mrp
 
        info.RefNO = entity.RefNO;
        info._RefNOIsDirty = 0;
+
+       info.WareHouseId = entity.WareHouseId;
+       info._WareHouseIdIsDirty = 0;
 
        info.BillNO = entity.BillNO;
        info._BillNOIsDirty = 0;
@@ -4121,6 +4461,176 @@ namespace sct.dto.mrp
 
     }
 
+    public static void ProductWareStockDTE(ProductWareStockInfo info, ProductWareStock entity)
+    {
+       if (info._IdIsDirty == 1)
+        {
+           entity.Id = info.Id;
+           info._IdIsDirty = 0;
+        }
+
+       if (info._ProductIdIsDirty == 1)
+        {
+           entity.ProductId = info.ProductId;
+           info._ProductIdIsDirty = 0;
+        }
+
+       if (info._WareHouseIdIsDirty == 1)
+        {
+           entity.WareHouseId = info.WareHouseId;
+           info._WareHouseIdIsDirty = 0;
+        }
+
+       if (info._MinStockIsDirty == 1)
+        {
+           entity.MinStock = info.MinStock;
+           info._MinStockIsDirty = 0;
+        }
+
+       if (info._StockIsDirty == 1)
+        {
+           entity.Stock = info.Stock;
+           info._StockIsDirty = 0;
+        }
+
+       if (info._MaxStockIsDirty == 1)
+        {
+           entity.MaxStock = info.MaxStock;
+           info._MaxStockIsDirty = 0;
+        }
+
+       if (info._SYS_OrderSeqIsDirty == 1)
+        {
+           entity.SYS_OrderSeq = info.SYS_OrderSeq;
+           info._SYS_OrderSeqIsDirty = 0;
+        }
+
+       if (info._SYS_IsValidIsDirty == 1)
+        {
+           entity.SYS_IsValid = info.SYS_IsValid;
+           info._SYS_IsValidIsDirty = 0;
+        }
+
+       if (info._SYS_IsDeletedIsDirty == 1)
+        {
+           entity.SYS_IsDeleted = info.SYS_IsDeleted;
+           info._SYS_IsDeletedIsDirty = 0;
+        }
+
+       if (info._SYS_RemarkIsDirty == 1)
+        {
+           entity.SYS_Remark = info.SYS_Remark;
+           info._SYS_RemarkIsDirty = 0;
+        }
+
+       if (info._SYS_StaffIdIsDirty == 1)
+        {
+           entity.SYS_StaffId = info.SYS_StaffId;
+           info._SYS_StaffIdIsDirty = 0;
+        }
+
+       if (info._SYS_StationIdIsDirty == 1)
+        {
+           entity.SYS_StationId = info.SYS_StationId;
+           info._SYS_StationIdIsDirty = 0;
+        }
+
+       if (info._SYS_DepartmentIdIsDirty == 1)
+        {
+           entity.SYS_DepartmentId = info.SYS_DepartmentId;
+           info._SYS_DepartmentIdIsDirty = 0;
+        }
+
+       if (info._SYS_CompanyIdIsDirty == 1)
+        {
+           entity.SYS_CompanyId = info.SYS_CompanyId;
+           info._SYS_CompanyIdIsDirty = 0;
+        }
+
+       if (info._SYS_AppIdIsDirty == 1)
+        {
+           entity.SYS_AppId = info.SYS_AppId;
+           info._SYS_AppIdIsDirty = 0;
+        }
+
+       if (info._SYS_CreateTimeIsDirty == 1)
+        {
+           entity.SYS_CreateTime = info.SYS_CreateTime;
+           info._SYS_CreateTimeIsDirty = 0;
+        }
+
+       if (info._SYS_ModifyTimeIsDirty == 1)
+        {
+           entity.SYS_ModifyTime = info.SYS_ModifyTime;
+           info._SYS_ModifyTimeIsDirty = 0;
+        }
+
+       if (info._SYS_DeleteTimeIsDirty == 1)
+        {
+           entity.SYS_DeleteTime = info.SYS_DeleteTime;
+           info._SYS_DeleteTimeIsDirty = 0;
+        }
+
+    }
+
+    public static void ProductWareStockETD(ProductWareStock entity, ProductWareStockInfo info)
+    {
+       info.Id = entity.Id;
+       info._IdIsDirty = 0;
+
+       info.ProductId = entity.ProductId;
+       info._ProductIdIsDirty = 0;
+
+       info.WareHouseId = entity.WareHouseId;
+       info._WareHouseIdIsDirty = 0;
+
+       info.MinStock = entity.MinStock;
+       info._MinStockIsDirty = 0;
+
+       info.Stock = entity.Stock;
+       info._StockIsDirty = 0;
+
+       info.MaxStock = entity.MaxStock;
+       info._MaxStockIsDirty = 0;
+
+       info.SYS_OrderSeq = entity.SYS_OrderSeq;
+       info._SYS_OrderSeqIsDirty = 0;
+
+       info.SYS_IsValid = entity.SYS_IsValid;
+       info._SYS_IsValidIsDirty = 0;
+
+       info.SYS_IsDeleted = entity.SYS_IsDeleted;
+       info._SYS_IsDeletedIsDirty = 0;
+
+       info.SYS_Remark = entity.SYS_Remark;
+       info._SYS_RemarkIsDirty = 0;
+
+       info.SYS_StaffId = entity.SYS_StaffId;
+       info._SYS_StaffIdIsDirty = 0;
+
+       info.SYS_StationId = entity.SYS_StationId;
+       info._SYS_StationIdIsDirty = 0;
+
+       info.SYS_DepartmentId = entity.SYS_DepartmentId;
+       info._SYS_DepartmentIdIsDirty = 0;
+
+       info.SYS_CompanyId = entity.SYS_CompanyId;
+       info._SYS_CompanyIdIsDirty = 0;
+
+       info.SYS_AppId = entity.SYS_AppId;
+       info._SYS_AppIdIsDirty = 0;
+
+       info.SYS_CreateTime = entity.SYS_CreateTime;
+       info._SYS_CreateTimeIsDirty = 0;
+
+       info.SYS_ModifyTime = entity.SYS_ModifyTime;
+       info._SYS_ModifyTimeIsDirty = 0;
+
+       info.SYS_DeleteTime = entity.SYS_DeleteTime;
+       info._SYS_DeleteTimeIsDirty = 0;
+
+    }
+
     public static void UnitDTE(UnitInfo info, Unit entity)
     {
        if (info._IdIsDirty == 1)
@@ -4225,6 +4735,176 @@ namespace sct.dto.mrp
 
        info.UnitName = entity.UnitName;
        info._UnitNameIsDirty = 0;
+
+       info.SYS_OrderSeq = entity.SYS_OrderSeq;
+       info._SYS_OrderSeqIsDirty = 0;
+
+       info.SYS_IsValid = entity.SYS_IsValid;
+       info._SYS_IsValidIsDirty = 0;
+
+       info.SYS_IsDeleted = entity.SYS_IsDeleted;
+       info._SYS_IsDeletedIsDirty = 0;
+
+       info.SYS_Remark = entity.SYS_Remark;
+       info._SYS_RemarkIsDirty = 0;
+
+       info.SYS_StaffId = entity.SYS_StaffId;
+       info._SYS_StaffIdIsDirty = 0;
+
+       info.SYS_StationId = entity.SYS_StationId;
+       info._SYS_StationIdIsDirty = 0;
+
+       info.SYS_DepartmentId = entity.SYS_DepartmentId;
+       info._SYS_DepartmentIdIsDirty = 0;
+
+       info.SYS_CompanyId = entity.SYS_CompanyId;
+       info._SYS_CompanyIdIsDirty = 0;
+
+       info.SYS_AppId = entity.SYS_AppId;
+       info._SYS_AppIdIsDirty = 0;
+
+       info.SYS_CreateTime = entity.SYS_CreateTime;
+       info._SYS_CreateTimeIsDirty = 0;
+
+       info.SYS_ModifyTime = entity.SYS_ModifyTime;
+       info._SYS_ModifyTimeIsDirty = 0;
+
+       info.SYS_DeleteTime = entity.SYS_DeleteTime;
+       info._SYS_DeleteTimeIsDirty = 0;
+
+    }
+
+    public static void WareHouseDTE(WareHouseInfo info, WareHouse entity)
+    {
+       if (info._IdIsDirty == 1)
+        {
+           entity.Id = info.Id;
+           info._IdIsDirty = 0;
+        }
+
+       if (info._WareHouseCodeIsDirty == 1)
+        {
+           entity.WareHouseCode = info.WareHouseCode;
+           info._WareHouseCodeIsDirty = 0;
+        }
+
+       if (info._WareHouseNameIsDirty == 1)
+        {
+           entity.WareHouseName = info.WareHouseName;
+           info._WareHouseNameIsDirty = 0;
+        }
+
+       if (info._RegionIdIsDirty == 1)
+        {
+           entity.RegionId = info.RegionId;
+           info._RegionIdIsDirty = 0;
+        }
+
+       if (info._AddressIsDirty == 1)
+        {
+           entity.Address = info.Address;
+           info._AddressIsDirty = 0;
+        }
+
+       if (info._NoteIsDirty == 1)
+        {
+           entity.Note = info.Note;
+           info._NoteIsDirty = 0;
+        }
+
+       if (info._SYS_OrderSeqIsDirty == 1)
+        {
+           entity.SYS_OrderSeq = info.SYS_OrderSeq;
+           info._SYS_OrderSeqIsDirty = 0;
+        }
+
+       if (info._SYS_IsValidIsDirty == 1)
+        {
+           entity.SYS_IsValid = info.SYS_IsValid;
+           info._SYS_IsValidIsDirty = 0;
+        }
+
+       if (info._SYS_IsDeletedIsDirty == 1)
+        {
+           entity.SYS_IsDeleted = info.SYS_IsDeleted;
+           info._SYS_IsDeletedIsDirty = 0;
+        }
+
+       if (info._SYS_RemarkIsDirty == 1)
+        {
+           entity.SYS_Remark = info.SYS_Remark;
+           info._SYS_RemarkIsDirty = 0;
+        }
+
+       if (info._SYS_StaffIdIsDirty == 1)
+        {
+           entity.SYS_StaffId = info.SYS_StaffId;
+           info._SYS_StaffIdIsDirty = 0;
+        }
+
+       if (info._SYS_StationIdIsDirty == 1)
+        {
+           entity.SYS_StationId = info.SYS_StationId;
+           info._SYS_StationIdIsDirty = 0;
+        }
+
+       if (info._SYS_DepartmentIdIsDirty == 1)
+        {
+           entity.SYS_DepartmentId = info.SYS_DepartmentId;
+           info._SYS_DepartmentIdIsDirty = 0;
+        }
+
+       if (info._SYS_CompanyIdIsDirty == 1)
+        {
+           entity.SYS_CompanyId = info.SYS_CompanyId;
+           info._SYS_CompanyIdIsDirty = 0;
+        }
+
+       if (info._SYS_AppIdIsDirty == 1)
+        {
+           entity.SYS_AppId = info.SYS_AppId;
+           info._SYS_AppIdIsDirty = 0;
+        }
+
+       if (info._SYS_CreateTimeIsDirty == 1)
+        {
+           entity.SYS_CreateTime = info.SYS_CreateTime;
+           info._SYS_CreateTimeIsDirty = 0;
+        }
+
+       if (info._SYS_ModifyTimeIsDirty == 1)
+        {
+           entity.SYS_ModifyTime = info.SYS_ModifyTime;
+           info._SYS_ModifyTimeIsDirty = 0;
+        }
+
+       if (info._SYS_DeleteTimeIsDirty == 1)
+        {
+           entity.SYS_DeleteTime = info.SYS_DeleteTime;
+           info._SYS_DeleteTimeIsDirty = 0;
+        }
+
+    }
+
+    public static void WareHouseETD(WareHouse entity, WareHouseInfo info)
+    {
+       info.Id = entity.Id;
+       info._IdIsDirty = 0;
+
+       info.WareHouseCode = entity.WareHouseCode;
+       info._WareHouseCodeIsDirty = 0;
+
+       info.WareHouseName = entity.WareHouseName;
+       info._WareHouseNameIsDirty = 0;
+
+       info.RegionId = entity.RegionId;
+       info._RegionIdIsDirty = 0;
+
+       info.Address = entity.Address;
+       info._AddressIsDirty = 0;
+
+       info.Note = entity.Note;
+       info._NoteIsDirty = 0;
 
        info.SYS_OrderSeq = entity.SYS_OrderSeq;
        info._SYS_OrderSeqIsDirty = 0;

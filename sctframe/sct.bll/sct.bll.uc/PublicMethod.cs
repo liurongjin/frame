@@ -39,7 +39,7 @@ namespace sct.bll.uc
 
 
         /// <summary>
-        /// 获取区域类型
+        /// 获取客户类型
         /// </summary>
         /// <param name="ClientTypeService"></param>
         /// <param name="key">移除当前键,当为""或null不移除</param>

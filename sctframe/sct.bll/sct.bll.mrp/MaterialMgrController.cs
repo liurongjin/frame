@@ -26,6 +26,11 @@ namespace sct.bll.mrp
         public IMaterialService MaterialService = UnitFactory.CreateUnit("MaterialService") as IMaterialService;
 
 
+        /// <summary>
+        /// 计量单位
+        /// </summary>
+        public IUnitService UnitService = UnitFactory.CreateUnit("UnitService") as IUnitService;
+
         #region MaterialCatalog Manage
         #region Form
         public ViewResult MaterialCatalogList()
@@ -148,6 +153,7 @@ namespace sct.bll.mrp
         {
             ViewBag.Title = "MaterialList";
             ViewBag.DicMaterialCatalog = PublicMethod.ListAllMaterialCatalogInfo(MaterialCatalogService, null);
+            ViewBag.DicUnit = PublicMethod.ListAllUnitInfo(UnitService, null);
             return View();
         }
 
@@ -155,6 +161,7 @@ namespace sct.bll.mrp
         {
             ViewBag.Title = "MaterialForm";
             ViewBag.DicMaterialCatalog = PublicMethod.ListAllMaterialCatalogInfo(MaterialCatalogService, null);
+            ViewBag.DicUnit = PublicMethod.ListAllUnitInfo(UnitService, null);
             if (string.IsNullOrEmpty(key))
             {
                 MaterialInfo info = new MaterialInfo();
@@ -244,6 +251,7 @@ namespace sct.bll.mrp
                 }
 
                 ViewBag.DicMaterialCatalog = PublicMethod.ListAllMaterialCatalogInfo(MaterialCatalogService, null);
+                ViewBag.DicUnit = PublicMethod.ListAllUnitInfo(UnitService, null);
 
                 ViewBag.PromptMsg = opr.Message;
             }

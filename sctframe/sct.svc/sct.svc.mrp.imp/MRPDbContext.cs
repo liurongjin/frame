@@ -14,6 +14,8 @@ namespace sct.svc.mrp.imp
 
 
     #region 包含对象
+    public DbSet<CompanyWareHouse>  CompanyWareHouse  {　get;　set;　}
+
     public DbSet<GatherBill>  GatherBill  {　get;　set;　}
 
     public DbSet<ManufacturePlan>  ManufacturePlan  {　get;　set;　}
@@ -36,6 +38,8 @@ namespace sct.svc.mrp.imp
 
     public DbSet<MaterialPurchasePlanItem>  MaterialPurchasePlanItem  {　get;　set;　}
 
+    public DbSet<MaterialWareStock>  MaterialWareStock  {　get;　set;　}
+
     public DbSet<Product>  Product  {　get;　set;　}
 
     public DbSet<ProductBill>  ProductBill  {　get;　set;　}
@@ -48,7 +52,11 @@ namespace sct.svc.mrp.imp
 
     public DbSet<ProductOrderItem>  ProductOrderItem  {　get;　set;　}
 
+    public DbSet<ProductWareStock>  ProductWareStock  {　get;　set;　}
+
     public DbSet<Unit>  Unit  {　get;　set;　}
+
+    public DbSet<WareHouse>  WareHouse  {　get;　set;　}
 
     #endregion
 

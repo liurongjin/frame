@@ -40,7 +40,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Common.Logging">
+    <Reference Include="Common.Logging, Version=1.2.0.0, Culture=neutral, PublicKeyToken=af08829b84f0328e">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\Common.Logging.1.2.0\lib\1.0\Common.Logging.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -87,7 +88,7 @@
     </Reference>
     <Reference Include="Microsoft.Web.Mvc.FixedDisplayModes, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
-      <HintPath>..\..\..\packages\Microsoft.AspNet.Mvc.FixedDisplayModes.1.0.0\lib\net40\Microsoft.Web.Mvc.FixedDisplayModes.dll</HintPath>
+      <HintPath>..\..\packages\Microsoft.AspNet.Mvc.FixedDisplayModes.1.0.0\lib\net40\Microsoft.Web.Mvc.FixedDisplayModes.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\..\..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
@@ -905,14 +906,17 @@
     <Content Include="Script\Views\CorpMgr\StaffList.js" />
     <Content Include="Script\Views\MaterialMgr\MaterialCatalogList.js" />
     <Content Include="Script\Views\MaterialMgr\MaterialList.js" />
+    <Content Include="Script\Views\MrpbasicMgr\UnitList.js" />
     <Content Include="Script\Views\PlateMgr\PlateList.js" />
     <Content Include="Script\Views\PlateMgr\PlateNewsList.js" />
     <Content Include="Script\Views\ProductMgr\ProductCatalogList.js" />
     <Content Include="Script\Views\ProductMgr\ProductList.js" />
+    <Content Include="Script\Views\ProductOrderMgr\ProductOrderList.js" />
     <Content Include="Script\Views\SysMgr\FunctionList.js" />
     <Content Include="Script\Views\SysMgr\FacilityList.js" />
     <Content Include="Script\Views\SysMgr\MenuList.js" />
     <Content Include="Script\Views\SysMgr\RoleList.js" />
+    <Content Include="Script\Views\WareHouseMgr\WareHouseList.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -1163,6 +1167,24 @@
   <ItemGroup>
     <Content Include="Views\ProductMgr\ProductForm.cshtml" />
     <Content Include="Views\ProductMgr\ProductList.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\MrpbasicMgr\UnitList.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\MrpbasicMgr\UnitForm.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\ProductOrderMgr\ProductOrderList.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\ProductOrderMgr\ProductOrderForm.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\WareHouseMgr\WareHouseList.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\WareHouseMgr\WareHouseForm.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

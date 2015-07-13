@@ -36,7 +36,9 @@ namespace sct.svc.mrp.imp
                                 SearchKey = i.SearchKey,
                                 Special = i.Special,
                                 Size = i.Size,
+                                MinStock = i.MinStock,
                                 Stock = i.Stock,
+                                MaxStock = i.MaxStock,
                                 Texture = i.Texture,
                                 Color = i.Color,
                                 UnitId = i.UnitId,
@@ -116,7 +118,7 @@ namespace sct.svc.mrp.imp
             result.PageSize = pageSize;
             result.PageNumber = pageNumber;
             result.Data = list;
-            return result; 
+            return result;
         }
 
     }

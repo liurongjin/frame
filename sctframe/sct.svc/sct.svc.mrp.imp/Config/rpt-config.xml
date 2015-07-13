@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <objects  xmlns="http://www.springframework.net" default-autowire="byName">
+<object id="CompanyWareHouseRpt" type="sct.svc.mrp.imp.CompanyWareHouseRpt,sct.svc.mrp.imp">
+</object>
 <object id="GatherBillRpt" type="sct.svc.mrp.imp.GatherBillRpt,sct.svc.mrp.imp">
 </object>
 <object id="ManufacturePlanRpt" type="sct.svc.mrp.imp.ManufacturePlanRpt,sct.svc.mrp.imp">
@@ -22,6 +24,8 @@
 </object>
 <object id="MaterialPurchasePlanItemRpt" type="sct.svc.mrp.imp.MaterialPurchasePlanItemRpt,sct.svc.mrp.imp">
 </object>
+<object id="MaterialWareStockRpt" type="sct.svc.mrp.imp.MaterialWareStockRpt,sct.svc.mrp.imp">
+</object>
 <object id="ProductRpt" type="sct.svc.mrp.imp.ProductRpt,sct.svc.mrp.imp">
 </object>
 <object id="ProductBillRpt" type="sct.svc.mrp.imp.ProductBillRpt,sct.svc.mrp.imp">
@@ -34,6 +38,10 @@
 </object>
 <object id="ProductOrderItemRpt" type="sct.svc.mrp.imp.ProductOrderItemRpt,sct.svc.mrp.imp">
 </object>
+<object id="ProductWareStockRpt" type="sct.svc.mrp.imp.ProductWareStockRpt,sct.svc.mrp.imp">
+</object>
 <object id="UnitRpt" type="sct.svc.mrp.imp.UnitRpt,sct.svc.mrp.imp">
+</object>
+<object id="WareHouseRpt" type="sct.svc.mrp.imp.WareHouseRpt,sct.svc.mrp.imp">
 </object>
 </objects>
