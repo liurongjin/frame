@@ -11,11 +11,11 @@ using System.Collections.Specialized;
 namespace sct.svc.cms.imp
 {
 
-    public  class FriendLinkService : FriendLinkBaseService,IFriendLinkService
-    { 
+    public class FriendLinkService : FriendLinkBaseService, IFriendLinkService
+    {
 
-         public PageResult<FriendLinkInfo>  ListByCondition(NameValueCollection searchCondtionCollection, NameValueCollection sortCollection, int pageNumber, int pageSize)
-         {
+        public PageResult<FriendLinkInfo> ListByCondition(NameValueCollection searchCondtionCollection, NameValueCollection sortCollection, int pageNumber, int pageSize)
+        {
             PageResult<FriendLinkInfo> result = new PageResult<FriendLinkInfo>();
             int skip = (pageNumber - 1) * pageSize;
             int take = pageSize;
@@ -23,51 +23,72 @@ namespace sct.svc.cms.imp
 
             using (var DbContext = new CmsDbContext())
             {
-            var query = from i in DbContext.FriendLink
-                        select i;
+                var query = from i in DbContext.FriendLink
+                            select i;
 
-            #region 条件
-            foreach (string key in searchCondtionCollection)
-            {
-                string condition = searchCondtionCollection[key];
-                switch (key.ToLower())
+                #region 条件
+                foreach (string key in searchCondtionCollection)
                 {
-                    case "isvalid":
-                        int value = Convert.ToInt32(condition);
-                        query = query.Where(x => x.SYS_IsValid.Equals(value));
-                        break;
-                    default:
-                        break;
+                    string condition = searchCondtionCollection[key];
+                    switch (key.ToLower())
+                    {
+                        case "title":
+                            query = query.Where(x => x.Title.Contains(condition));
+                            break;
+                        case "language":
+                            int language = Convert.ToInt32(condition);
+                            query = query.Where(x => x.Language.Equals(language));
+                            break;
+                        case "friendtype":
+                            int friendtype = Convert.ToInt32(condition);
+                            query = query.Where(x => x.FriendType.Equals(friendtype));
+                            break;
+                        case "isvalid":
+                            int value = Convert.ToInt32(condition);
+                            query = query.Where(x => x.SYS_IsValid.Equals(value));
+                            break;
+                        default:
+                            break;
+                    }
                 }
-            }
-            #endregion
+                #endregion
 
-            result.TotalRecords = query.Count();
+                result.TotalRecords = query.Count();
 
-            #region 排序
-            foreach (string sort in sortCollection)
-            {
-                string direct = string.Empty;
-                switch (sort.ToLower())
+                #region 排序
+                foreach (string sort in sortCollection)
                 {
-                    case "createtime":
-                        if (direct.ToLower().Equals("asc"))
-                        {
-                            query = query.OrderBy(x => new { x.SYS_CreateTime }).Skip(skip).Take(take);
-                        }
-                        else
-                        {
-                            query = query.OrderByDescending(x => new { x.SYS_CreateTime }).Skip(skip).Take(take);
-                        }
-                        break;
-                    default:
-                        query = query.OrderByDescending(x => new { x.SYS_OrderSeq }).Skip(skip).Take(take);
-                        break;
+                    string direct = string.Empty;
+                    switch (sort.ToLower())
+                    {
+                        case "createtime":
+                            if (direct.ToLower().Equals("asc"))
+                            {
+                                query = query.OrderBy(x => new { x.SYS_CreateTime }).Skip(skip).Take(take);
+                            }
+                            else
+                            {
+                                query = query.OrderByDescending(x => new { x.SYS_CreateTime }).Skip(skip).Take(take);
+                            }
+                            break;
+                        case "title":
+                            if (direct.ToLower().Equals("asc"))
+                            {
+                                query = query.OrderBy(x => x.Title).Skip(skip).Take(take);
+                            }
+                            else
+                            {
+                                query = query.OrderByDescending(x => x.Title).Skip(skip).Take(take);
+                            }
+                            break;
+                        default:
+                            query = query.OrderByDescending(x => new { x.SYS_OrderSeq }).Skip(skip).Take(take);
+                            break;
+                    }
                 }
+                list = query.ToList();
             }
-           list = query.ToList();
-            }
-            #endregion
+                #endregion
             #region linq to entity
             List<FriendLinkInfo> ilist = new List<FriendLinkInfo>();
             list.ForEach(x =>
@@ -81,8 +102,8 @@ namespace sct.svc.cms.imp
             result.PageSize = pageSize;
             result.PageNumber = pageNumber;
             result.Data = ilist;
-            return result;;
-         }
+            return result; ;
+        }
 
     }
 

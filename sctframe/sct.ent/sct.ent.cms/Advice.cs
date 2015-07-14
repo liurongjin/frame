@@ -8,6 +8,8 @@ namespace sct.ent.cms
 
   public class Advice : Entity
   {
+    public int Language{ get; set; } 
+
     public decimal X{ get; set; } 
 
     public decimal Y{ get; set; } 

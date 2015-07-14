@@ -8,6 +8,8 @@ namespace sct.ent.cms
 
   public class PlateNews : Entity
   {
+    public int Language{ get; set; } 
+
     [StringLength(36)]
     public string PlateId{ get; set; } 
 

@@ -15,6 +15,12 @@ namespace sct.dto.cms
            info._IdIsDirty = 0;
         }
 
+       if (info._LanguageIsDirty == 1)
+        {
+           entity.Language = info.Language;
+           info._LanguageIsDirty = 0;
+        }
+
        if (info._XIsDirty == 1)
         {
            entity.X = info.X;
@@ -172,6 +178,9 @@ namespace sct.dto.cms
        info.Id = entity.Id;
        info._IdIsDirty = 0;
 
+       info.Language = entity.Language;
+       info._LanguageIsDirty = 0;
+
        info.X = entity.X;
        info._XIsDirty = 0;
 
@@ -255,6 +264,12 @@ namespace sct.dto.cms
         {
            entity.Id = info.Id;
            info._IdIsDirty = 0;
+        }
+
+       if (info._LanguageIsDirty == 1)
+        {
+           entity.Language = info.Language;
+           info._LanguageIsDirty = 0;
         }
 
        if (info._ArticleCatalogIdIsDirty == 1)
@@ -425,6 +440,9 @@ namespace sct.dto.cms
     {
        info.Id = entity.Id;
        info._IdIsDirty = 0;
+
+       info.Language = entity.Language;
+       info._LanguageIsDirty = 0;
 
        info.ArticleCatalogId = entity.ArticleCatalogId;
        info._ArticleCatalogIdIsDirty = 0;
@@ -678,6 +696,12 @@ namespace sct.dto.cms
            info._IdIsDirty = 0;
         }
 
+       if (info._LanguageIsDirty == 1)
+        {
+           entity.Language = info.Language;
+           info._LanguageIsDirty = 0;
+        }
+
        if (info._NameIsDirty == 1)
         {
            entity.Name = info.Name;
@@ -798,6 +822,9 @@ namespace sct.dto.cms
     {
        info.Id = entity.Id;
        info._IdIsDirty = 0;
+
+       info.Language = entity.Language;
+       info._LanguageIsDirty = 0;
 
        info.Name = entity.Name;
        info._NameIsDirty = 0;
@@ -1340,6 +1367,12 @@ namespace sct.dto.cms
            info._IdIsDirty = 0;
         }
 
+       if (info._LanguageIsDirty == 1)
+        {
+           entity.Language = info.Language;
+           info._LanguageIsDirty = 0;
+        }
+
        if (info._FriendTypeIsDirty == 1)
         {
            entity.FriendType = info.FriendType;
@@ -1443,6 +1476,9 @@ namespace sct.dto.cms
        info.Id = entity.Id;
        info._IdIsDirty = 0;
 
+       info.Language = entity.Language;
+       info._LanguageIsDirty = 0;
+
        info.FriendType = entity.FriendType;
        info._FriendTypeIsDirty = 0;
 
@@ -1499,6 +1535,12 @@ namespace sct.dto.cms
         {
            entity.Id = info.Id;
            info._IdIsDirty = 0;
+        }
+
+       if (info._LanguageIsDirty == 1)
+        {
+           entity.Language = info.Language;
+           info._LanguageIsDirty = 0;
         }
 
        if (info._ParentIdIsDirty == 1)
@@ -1622,6 +1664,9 @@ namespace sct.dto.cms
        info.Id = entity.Id;
        info._IdIsDirty = 0;
 
+       info.Language = entity.Language;
+       info._LanguageIsDirty = 0;
+
        info.ParentId = entity.ParentId;
        info._ParentIdIsDirty = 0;
 
@@ -1687,6 +1732,12 @@ namespace sct.dto.cms
         {
            entity.Id = info.Id;
            info._IdIsDirty = 0;
+        }
+
+       if (info._LanguageIsDirty == 1)
+        {
+           entity.Language = info.Language;
+           info._LanguageIsDirty = 0;
         }
 
        if (info._PlateIdIsDirty == 1)
@@ -1827,6 +1878,9 @@ namespace sct.dto.cms
     {
        info.Id = entity.Id;
        info._IdIsDirty = 0;
+
+       info.Language = entity.Language;
+       info._LanguageIsDirty = 0;
 
        info.PlateId = entity.PlateId;
        info._PlateIdIsDirty = 0;

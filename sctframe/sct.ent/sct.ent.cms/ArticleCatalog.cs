@@ -8,6 +8,8 @@ namespace sct.ent.cms
 
   public class ArticleCatalog : Entity
   {
+    public int Language{ get; set; } 
+
     [StringLength(100)]
     public string Name{ get; set; } 
 

@@ -29,6 +29,24 @@ namespace sct.dto.cms
     }
 
     [DataMember]
+    internal int  _LanguageIsDirty = 0; 
+
+    [DataMember]
+    internal int  _Language; 
+
+    [DataMember]
+    public int  Language
+    {
+      get{
+         return _Language;
+      }
+      set{
+         _Language = value;
+         _LanguageIsDirty = 1;
+      }
+    }
+
+    [DataMember]
     internal int  _ArticleCatalogIdIsDirty = 0; 
 
     [DataMember]

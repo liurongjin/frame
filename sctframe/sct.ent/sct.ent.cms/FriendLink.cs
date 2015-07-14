@@ -8,6 +8,8 @@ namespace sct.ent.cms
 
   public class FriendLink : Entity
   {
+    public int Language{ get; set; } 
+
     public int FriendType{ get; set; } 
 
     [StringLength(200)]

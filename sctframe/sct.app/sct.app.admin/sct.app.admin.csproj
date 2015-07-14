@@ -895,6 +895,7 @@
     <Content Include="Script\Common\uploadify\uploadify.swf" />
     <Content Include="Script\Common\uploadify\__MACOSX\._Change Log.txt" />
     <Content Include="Script\Common\uploadify\__MACOSX\._uploadify.swf" />
+    <Content Include="Script\Views\AdviceMgr\AdviceList.js" />
     <Content Include="Script\Views\ArticleMgr\ArticleCatalogList.js" />
     <Content Include="Script\Views\ArticleMgr\ArticleList.js" />
     <Content Include="Script\Views\BasicMgr\RegionList.js" />
@@ -904,6 +905,7 @@
     <Content Include="Script\Views\CorpMgr\DepartmentList.js" />
     <Content Include="Script\Views\CorpMgr\StationList.js" />
     <Content Include="Script\Views\CorpMgr\StaffList.js" />
+    <Content Include="Script\Views\FriendLinkMgr\FriendLinkList.js" />
     <Content Include="Script\Views\MaterialMgr\MaterialCatalogList.js" />
     <Content Include="Script\Views\MaterialMgr\MaterialList.js" />
     <Content Include="Script\Views\MrpbasicMgr\UnitList.js" />
@@ -1185,6 +1187,18 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\WareHouseMgr\WareHouseForm.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\FriendLinkMgr\FriendLinkList.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\FriendLinkMgr\FriendLinkForm.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\AdviceMgr\AdviceList.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\AdviceMgr\AdviceForm.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

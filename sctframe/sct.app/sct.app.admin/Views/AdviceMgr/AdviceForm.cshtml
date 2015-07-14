@@ -1,0 +1,84 @@
+﻿@{
+    ViewBag.Title = "AdviceForm";
+    Layout = "~/Views/Shared/_FormLayoutPage.cshtml";
+}
+@model sct.dto.cms.AdviceInfo
+@using (Html.BeginForm("SaveAdvice", "AdviceMgr", FormMethod.Post, new { @class = "form-horizontal" }))
+{ 
+    <div class="portlet box  blue">
+        <div class="portlet-title">
+            <div class="caption">留言处理</div>
+        </div>
+        <div class="portlet-body form">
+            <div class="control-group">
+                <label class="control-label">
+                    标题 @Html.Hidden("Id", Model.Id)</label>
+                <div class="controls">@Html.TextBoxFor(x => x.Title, new { placeholder = "标题", @class = "m-wrap medium" })
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">语种</label>
+                <div class="controls">
+                    @Html.DropDownListFor(x => x.Language, sct.cm.util.HtmlSetter.EnumToList(typeof(sct.dto.cms.EnumSet.Language), false))
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">联系人</label>
+                <div class="controls">
+                    @Html.TextBoxFor(x => x.Contact, new { placeholder = "联系人", @class = "m-wrap medium" })
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">联系方式</label>
+                <div class="controls">
+                    @Html.TextBoxFor(x => x.ContactMethod, new { placeholder = "联系方式", @class = "m-wrap medium" })
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">
+                    内容</label>
+                <div class="controls">
+                    @Html.TextBoxFor(x => x.Desc, new { placeholder = "问题描述", @class = "m-wrap medium" })
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">处理状态</label>
+                <div class="controls">
+                    @Html.DropDownListFor(x => x.State, sct.cm.util.HtmlSetter.EnumToList(typeof(sct.dto.cms.EnumSet.AdviceState), false))
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">
+                    处理过程</label>
+                <div class="controls">
+                    @Html.TextBoxFor(x => x.ProgressLog, new { placeholder = "处理过程", @class = "m-wrap medium" })
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">
+                    处理结果</label>
+                <div class="controls">
+                    @Html.TextBoxFor(x => x.Result, new { placeholder = "处理结果", @class = "m-wrap medium" })
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">排序</label>
+                <div class="controls">
+                    @Html.TextBoxFor(x => x.SYS_OrderSeq, new { placeholder = "0", @class = "m-wrap medium" })
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">是否启用</label>
+                <div class="controls">
+                    <label class="radio">@Html.RadioButton("SYS_IsValid", 1, Model.SYS_IsValid == 1) 启用 </label>
+                    <label class="radio">@Html.RadioButton("SYS_IsValid", 0, Model.SYS_IsValid == 0)  失效  </label>
+                </div>
+            </div>
+        </div>
+        <div class="portlet-title">
+            <div class="caption">
+                <input type="submit" id="btnSave" value="提交" class="btn blue" /><input type="button" value="取消" onclick="javascript: window.close();" class="btn blue" />
+            </div>
+        </div>
+    </div>
+}

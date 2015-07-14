@@ -6,6 +6,24 @@ namespace sct.dto.cms
     {
 
         /// <summary>
+        /// 语种
+        /// </summary>
+        public enum Language
+        {
+            /// <summary>
+            /// 英语
+            /// </summary>
+            [DescriptionAttribute("英语")]
+            English = 0,
+
+            /// <summary>
+            /// 汉语
+            /// </summary>
+            [DescriptionAttribute("汉语")]
+            Chinese = 1
+        }
+
+        /// <summary>
         /// 资讯类型
         /// </summary>
         public enum ArticleType
@@ -92,6 +110,52 @@ namespace sct.dto.cms
             [DescriptionAttribute("视频")]
             Video = 3
         }
+
+
+        /// <summary>
+        /// 链接类型
+        /// </summary>
+        public enum FriendType
+        {
+            /// <summary>
+            /// 合作关系
+            /// </summary>
+            [DescriptionAttribute("合作关系")]
+            Cooperation = 0,
+
+            /// <summary>
+            /// 友情关系
+            /// </summary>
+            [DescriptionAttribute("友情关系")]
+            FriendShip = 1
+        }
+
+
+
+        /// <summary>
+        /// 留言类型
+        /// </summary>
+        public enum AdviceState
+        {
+            /// <summary>
+            /// 待处理
+            /// </summary>
+            [DescriptionAttribute("待处理")]
+            Ready = 0,
+
+            /// <summary>
+            /// 处理中
+            /// </summary>
+            [DescriptionAttribute("处理中")]
+            Operating = 1,
+
+            /// <summary>
+            /// 已完成
+            /// </summary>
+            [DescriptionAttribute("已完成")]
+            Finished = 2
+        }
+
     }
 }
 
