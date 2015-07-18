@@ -21,12 +21,21 @@ namespace sct.dto.uc
         [StringLength(200)]
         public string DepartmentName { get; set; }
 
-        public List<MenuInfo> MenuInfoList { get; set; }
+        ///*用户编辑时用到*/
+        //[DataMember]
+        //public List<MenuInfo> MenuInfoList { get; set; }
 
-        public List<FacilityFunctionInfo> FacilityFunctionInfoList { get; set; }
+        ///*用户编辑时用到*/
+        //[DataMember]
+        //public List<FacilityFunctionInfo> FacilityFunctionInfoList { get; set; }
 
+        /*用户编辑时用到*/
         [DataMember]
         public List<StaffStationInfo> StaffStationInfoList { get; set; }
+
+        /*登录判断时用到*/
+        [DataMember]
+        public List<FacilityInfo> FacilityInfoList { get; set; }
 
     }
 

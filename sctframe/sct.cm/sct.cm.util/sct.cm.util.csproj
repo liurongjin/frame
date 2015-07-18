@@ -84,6 +84,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CacheHelper.cs" />
+    <Compile Include="CookieHelper.cs" />
     <Compile Include="EncryptHelper.cs" />
     <Compile Include="FtpHelper.cs" />
     <Compile Include="HtmlSetter.cs" />

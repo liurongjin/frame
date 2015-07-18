@@ -127,6 +127,7 @@ namespace sct.svc.uc.imp
         public OperationResult Login(string usercode, string password)
         {
             OperationResult result = new OperationResult(OperationResultType.Error, "操作失败,请稍后重试!");
+            StaffInfo info = new StaffInfo();
             using (var DbContext = new UCDbContext())
             {
                 var infolist = (from i in DbContext.Staff
@@ -135,31 +136,35 @@ namespace sct.svc.uc.imp
 
                 if (infolist != null && infolist.Count > 0)
                 {
-                    StaffInfo info = new StaffInfo();
+
                     DESwap.StaffETD(infolist[0], info);
                     /*加载用户对应的功能*/
-                    if (info.Password == password)
+                    //   if (info.Password == password)
                     {
                         var rolefacilitylist = (from ss in DbContext.StaffStation
                                                 join sr in DbContext.StationRole on ss.StationId equals sr.StationId
                                                 join rf in DbContext.RoleFacility on sr.RoleId equals rf.RoleId
-                                                select rf).Distinct().ToList();
-                        List<RoleFacilityInfo> ilist = new List<RoleFacilityInfo>();
+                                                join f in DbContext.Facility on rf.FacilityId equals f.Id
+                                                where ss.StaffId.Equals(info.Id)
+                                                select f).Distinct().ToList();
+                        List<FacilityInfo> ilist = new List<FacilityInfo>();
                         rolefacilitylist.ForEach(x =>
                         {
-                            RoleFacilityInfo rfInfo = new RoleFacilityInfo();
-                            DESwap.RoleFacilityETD(x, rfInfo);
+                            FacilityInfo rfInfo = new FacilityInfo();
+                            DESwap.FacilityETD(x, rfInfo);
                             ilist.Add(rfInfo);
                         });
+                        info.FacilityInfoList = ilist;
+
                         result.ResultType = OperationResultType.Success;
                         result.Message = "登陆成功!";
-                        result.AppendData = ilist;
+                        result.AppendData = info;
                     }
-                    else
-                    {
-                        result.ResultType = OperationResultType.Warning;
-                        result.Message = "用户账号或密码不正确!";
-                    }
+                    //else
+                    //{
+                    //    result.ResultType = OperationResultType.Warning;
+                    //    result.Message = "用户账号或密码不正确!";
+                    //}
                 }
                 else
                 {

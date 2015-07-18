@@ -72,6 +72,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BasicMgrController.cs" />
+    <Compile Include="CacheData.cs" />
     <Compile Include="CorpMgrController.cs" />
     <Compile Include="HomeController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -44,27 +44,6 @@
             <li class="">
                 <a href="javascript:;">
                     <i class="icon-table"></i>
-                    <span class="title">企业资料管理</span>
-                    <span class="arrow "></span>
-                </a>
-                <ul class="sub-menu">
-                    <li>
-                        <a href='/CorpMgr/CompanyList' target="iframemain">公司管理</a>
-                    </li>
-                    <li>
-                        <a href='/CorpMgr/DepartmentList' target="iframemain">部门管理</a>
-                    </li>
-                    <li>
-                        <a href='/CorpMgr/StationList' target="iframemain">岗位管理</a>
-                    </li>
-                    <li>
-                        <a href='/CorpMgr/StaffList' target="iframemain">职工管理</a>
-                    </li>
-                </ul>
-            </li>
-            <li class="">
-                <a href="javascript:;">
-                    <i class="icon-table"></i>
                     <span class="title">物料管理</span>
                     <span class="arrow "></span>
                 </a>
@@ -119,7 +98,49 @@
                     </li>
                 </ul>
             </li>
-            <li class="">
+            @foreach (sct.dto.uc.MenuInfo menuroot in ViewBag.DicMenuRoot)
+            {
+                
+                <li class="">
+                    <a href="javascript:;">
+                        <i class="icon-trello"></i>
+                        <span class="title">@menuroot.MenuName</span>
+                        <span class="arrow "></span>
+                    </a>
+                    <ul class="sub-menu">
+                        @{ var MenuLeafList = (ViewBag.DicMenuLeaf as List<sct.dto.uc.MenuInfo>).Where(x => x.ParentId.Equals(menuroot.Id));
+                           foreach (sct.dto.uc.MenuInfo menuleaf in MenuLeafList)
+                           {
+                            <li>
+                                <a href='@menuleaf.MenuPath' target="iframemain">@menuleaf.MenuName</a>
+                            </li>
+                           }
+                        }
+                    </ul>
+                </li>
+            }
+            @*  <li class="">
+                <a href="javascript:;">
+                    <i class="icon-table"></i>
+                    <span class="title">企业资料管理</span>
+                    <span class="arrow "></span>
+                </a>
+                <ul class="sub-menu">
+                    <li>
+                        <a href='/CorpMgr/CompanyList' target="iframemain">公司管理</a>
+                    </li>
+                    <li>
+                        <a href='/CorpMgr/DepartmentList' target="iframemain">部门管理</a>
+                    </li>
+                    <li>
+                        <a href='/CorpMgr/StationList' target="iframemain">岗位管理</a>
+                    </li>
+                    <li>
+                        <a href='/CorpMgr/StaffList' target="iframemain">职工管理</a>
+                    </li>
+                </ul>
+            </li>*@
+            @*  <li class="">
                 <a href="javascript:;">
                     <i class="icon-trello"></i>
                     <span class="title">系统管理</span>
@@ -139,7 +160,7 @@
                         <a href='/SysMgr/RoleList' target="iframemain">角色设置</a>
                     </li>
                 </ul>
-            </li>
+            </li>*@
         </ul>
     </div>
     <!-- menu ------------------------------------------------------------>

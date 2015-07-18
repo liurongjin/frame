@@ -29,11 +29,7 @@ namespace sct.cm.util
         public string AppId { get; set; }
 
         public string AppName { get; set; }
-
-        //public Dictionary<string, string> FacilityFunctionList { get; set; }
-        public List<ChooseDictionary> FacilityFunctionList { get; set; }
-
-        public List<ChooseDictionary> MenuList { get; set; }
+         
     }
 
     public class PermissonAuthorize : AuthorizeAttribute
